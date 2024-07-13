@@ -9,6 +9,7 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Proyects from '../components/Proyects.astro';
 import InstagramIcon from '../icons/InstagramIcon.astro';
 import Studies from '../components/Studies.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout 
@@ -16,9 +17,9 @@ import Studies from '../components/Studies.astro';
   description="Contratame para solucionar tu problema. Desarrollador Web y Programador. Capáz de crear Webs Únicas."
 >
   <main>
-    <SectionContainer class="w-full px-[25%] pt-32 pb-32" id="home-section">
-      <h1 class="text-white text-4xl font-bold flex gap-x-4 pb-4 items-center">
-        Hola, soy Maitén. 
+    <SectionContainer class="w-full px-[8%] md:px-[15%] lg:px-[25%] pt-24 md:pt-32 pb-32">
+      <h1 class="text-white text-4xl font-bold flex gap-4 pb-4 items-start md:items-center flex-col md:flex-row">
+        <span>Hola, soy Maitén.</span> 
         <a 
           href="https://www.linkedin.com/in/maiten-oviedo/" 
           target="_blank" 
@@ -35,7 +36,7 @@ import Studies from '../components/Studies.astro';
       </h2>
       <ul class="flex flex-wrap gap-4 text-wrap">
         <li>
-          <NetworkPill  href="https://www.linkedin.com/in/maiten-oviedo/">
+          <NetworkPill href="https://www.linkedin.com/in/maiten-oviedo/">
             <LinkedInIcon class="size-4" />
             LinkedIn
           </NetworkPill>
@@ -47,26 +48,27 @@ import Studies from '../components/Studies.astro';
           </NetworkPill>
 				</li>
 				<li class="flex gap-4 text-wrap">
-          <NetworkPill href="https://www.linkedin.com/in/maiten-oviedo/">
+          <NetworkPill href="https://www.instagram.com/maiten_oviedo">
             <InstagramIcon class="size-4"/>
             Instagram
           </NetworkPill>
 				</li>
 				<li class="flex gap-4 text-wrap">
-          <NetworkPill href="https://www.linkedin.com/in/maiten-oviedo/">
+          <NetworkPill href="mailto:maitenoviedo513@gmail.com">
             <MailIcon class="size-4"/>
             maitenoviedo513@gmail.com
           </NetworkPill>
 				</li>
       </ul>
     </SectionContainer>
-    <SectionContainer id="projects-section" class="py-2 w-full px-[25%] pb-20">
+    <SectionContainer id="Projects" class="py-2 w-full px-[8%] md:px-[15%] lg:px-[25%] pb-20">
       <Proyects/>
     </SectionContainer>
-    <SectionContainer id="about-section" class="w-full px-[25%] pt-4">
+    <SectionContainer id="About" class="w-full px-[12%] md:px-[15%] lg:px-[26%] pt-4">
       <Studies/>
     </SectionContainer>
-    <SectionContainer id="contact-section" class="w-full px-[25%]">
+    <SectionContainer id="Contact" class="w-full mx-[5%]">
     </SectionContainer>
   </main>
+  <Footer/>
 </Layout>

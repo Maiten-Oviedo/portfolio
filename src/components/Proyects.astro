@@ -6,42 +6,42 @@ const PROYECTS = [
 	{
 		name: 'Tienda de Hamburguesas',
 		description: 'En esta página se puso en practica los conceptos de estados mas complejos como useContext y el paso de elementos como variables o métodos utilizando useReducer.',
-		technologies: ['HtmlIcon', 'TailwindIcon', 'JavascriptIcon','ReactIcon', 'ViteIcon'],
+		technologies: ['HtmlIcon','CssIcon', 'TailwindIcon', 'JavascriptIcon','ReactIcon', 'ViteIcon'],
 		url: 'https://d-burgers.vercel.app/',
-		img: '/assets/d-burgers.jpg'
+		img: '/assets/d-burgers.webp'
 	},
 	{
 		name: 'Tienda de Cervezas',
 		description: 'Landing Page simple de una tienda de cervezas artesanalaes, en la que se aprendio el uso de componentes, estados y estructura de proyecto.',
 		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon','ReactIcon'],
 		url: 'https://panaholma-web.vercel.app/',
-		img: '/assets/panaholma-page.jpg'
+		img: '/assets/panaholma.webp'
 	},
 	{
 		name: 'Ecommerce',
 		description: 'Tienda de ropa moderna, con un diseño minimalista y elegante. Cuenta con carrito utilizando localStorage. Hecha en el curso Argentina Programa - Primer Tramo',
 		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
 		url: 'https://maiten-oviedo.github.io/Ecommerce/',
-		img: '/assets/Ecommerce.jpg'
+		img: '/assets/ecommerce.webp'
 	},
 	{
 		name: 'Página de Libros',
 		description: 'Página de libros, en la que puedes ver una serie de libros y añadirlos a tus favoritos, ademas tienes una seccion para marcar tus listas de libros por leer y otra para marcar los que ya terminaste.',
 		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
 		url: 'https://github.com/Maiten-Oviedo/TrabajoFinal-ReactJs',
-		img: '/assets/libros.jpg'
+		img: '/assets/libros.webp'
 	},
 	{
 		name: 'Ta-Te-Ti',
-		description: 'Juego interactivo clásico Ta Te Ti, revisa mi repositorio!',
+		description: 'Juego interactivo clásico Ta Te Ti. En este se aplica logica de programacion utilizando JavaScript banilla, revisa mi repositorio!',
 		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
 		url: 'https://github.com/Maiten-Oviedo/Ta-Te-Ti',
-		img: '/assets/tateti.jpg'
+		img: '/assets/tateti.webp'
 	}
 ]
 ---
-<h3 class="text-3xl pb-10 font-bold flex items-center gap-3"><ProyectsIcon class="size-8"/> Proyectos</h3>
-<ol class="flex flex-wrap justify-between gap-5">
+<h3 class="text-3xl pb-10 font-bold flex items-center gap-3"><ProyectsIcon class="size-8"/>Últimos Proyectos</h3>
+<ol class="grid grid-col-1 md:grid-cols-2 gap-5">
 	{PROYECTS.map(proyect=>{
 		return <ProyectItem {...proyect}/>
 	})}
