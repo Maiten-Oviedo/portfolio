@@ -1,5 +1,6 @@
 # My Portfolio
-![Portfolio](https://github.com/user-attachments/assets/cd5bd205-b5b7-4dfd-878c-51b15712f401)
+
+![Portfolio](https://github.com/user-attachments/assets/48950f2e-419f-402e-8aba-2294e9f85b96)
 
 ## Descripción
 
