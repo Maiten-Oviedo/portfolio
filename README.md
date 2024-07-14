@@ -4,7 +4,7 @@
 
 ## Descripción
 
-Este es mi portafolio personal, donde muestro algunos de mis proyectos, habilidades como desarrollador frontend, estudios hasta el momento y diversas formas de contactarme. Puedes visitar mi portafolio en [enlace a tu portafolio](https://maiten-dev.vervel.app).
+Este es mi portafolio personal, donde muestro algunos de mis proyectos, habilidades como desarrollador frontend, estudios hasta el momento y diversas formas de contactarme. Puedes visitar mi portafolio en [maiten-dev.vercel.app](https://maiten-dev.vervel.app).
 
 ## Tecnologías Utilizadas
 
