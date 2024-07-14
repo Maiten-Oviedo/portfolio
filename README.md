@@ -40,3 +40,6 @@ pnpm install
 
 # Ejecutar la aplicación
 pnpm run dev
+```
+## Contacto
+Puedes contactarme en maitenoviedo513@gmail.com 
