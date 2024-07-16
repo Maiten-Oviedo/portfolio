@@ -43,18 +43,13 @@ import MenuIcon from "../icons/MenuIcon.astro";
 </header>
 
 <script>
-  // Espera a que el DOM esté completamente cargado
   document.addEventListener('DOMContentLoaded', function () {
-      // Selecciona el botón de la hamburguesa y el menú que se debe mostrar/ocultar
       const menuToggle = document.querySelector('[data-collapse-toggle="navbar-default"]');
       const navbarMenu = document.querySelector('#navbar-default');
 
-      // Agrega un evento de clic al botón de la hamburguesa
       menuToggle.addEventListener('click', function () {
-          // Toggle (alternar) la clase 'hidden' en el menú navbar para mostrarlo u ocultarlo
           navbarMenu.classList.toggle('hidden');
           
-          // Ajusta el aria-expanded para la accesibilidad
           const expanded = navbarMenu.classList.contains('hidden') ? 'false' : 'true';
           menuToggle.setAttribute('aria-expanded', expanded);
       });
