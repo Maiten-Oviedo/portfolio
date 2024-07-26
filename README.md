@@ -38,7 +38,8 @@ cd portfolio
 # Instalar dependencias
 pnpm install
 
-#Si la ejecucion de Scripts esta deshabilitada en tu pc, abre Windows PowerShell como admin y ejecuta el siguiente comando  
+# Si la ejecucion de Scripts esta deshabilitada en tu pc, 
+# abre Windows PowerShell como admin y ejecuta el siguiente comando  
 Set-ExecutionPolicy RemoteSigned
 
 # Ejecutar la aplicación
