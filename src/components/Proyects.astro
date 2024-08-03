@@ -3,47 +3,81 @@ import ProyectItem from '../components/ProyectItem.astro'
 import ProyectsIcon from '../icons/ProyectsIcon.astro'
 
 const PROYECTS = [
-	{
-		name: 'Tienda de Hamburguesas',
-		alt: 'Imagen del Proyecto de una tienda de hamburguesas',
-		description: 'En esta página se puso en practica los conceptos de estados mas complejos como useContext y el paso de elementos como variables o métodos utilizando useReducer.',
-		technologies: ['HtmlIcon','CssIcon', 'TailwindIcon', 'JavascriptIcon','ReactIcon', 'ViteIcon'],
-		urlPage: 'https://d-burgers.vercel.app/',
-		urlCode: 'https://github.com/Maiten-Oviedo/d-burgers',
-		img: '/assets/d-burgers.webp'
-	},
-	{
-		name: 'Tienda de Cervezas',
-		alt: 'Imagen del Proyecto de una tienda de cervezas',
-		description: 'Landing Page simple de una tienda de cervezas artesanalaes, en la que se aprendio el uso de componentes, estados y estructura de proyecto.',
-		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon','ReactIcon'],
-		urlPage: 'https://panaholma-web.vercel.app/',
-		urlCode: 'https://github.com/Maiten-Oviedo/panaholma',
-		img: '/assets/panaholma.webp'
-	},
-	{
-		name: 'Ecommerce',
-		alt: 'Imagen del Proyecto de un ecommerce',
-		description: 'Tienda de ropa moderna, con un diseño minimalista y elegante. Cuenta con carrito utilizando localStorage. Hecha en el curso Argentina Programa - Primer Tramo',
-		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
-		urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
-		urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
-		img: '/assets/ecommerce.webp'
-	},
-	{
-		name: 'Página de Libros',
-		alt: 'Imagen del Proyecto de una página de libros',
-		description: 'Página de libros, en la que puedes ver una serie de libros y añadirlos a tus favoritos, ademas tienes una seccion para marcar tus listas de libros por leer y otra para marcar los que ya terminaste.',
-		technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
-		urlCode: 'https://github.com/Maiten-Oviedo/TrabajoFinal-ReactJs',
-		img: '/assets/libros.webp'
-	}
+  {
+    name: 'Clon de Spotify',
+    alt: 'Imagen del Proyecto de un clon de Spotify',
+    description:
+      'En este proyecto se puso en practica los conceptos de estados mas complejos y el paso de elementos como variables o métodos utilizando useReducer.',
+    technologies: [
+      'HtmlIcon',
+      'CssIcon',
+      'TailwindIcon',
+      'JavascriptIcon',
+      'TypesciptIcon',
+      'ReactIcon',
+      'AstroIcon',
+    ],
+    urlPage: 'https://maiten-oviedo.github.io/spotify-clone/',
+    urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
+    img: '/assets/spotify-clone.webp',
+  },
+  {
+    name: 'Tienda de Hamburguesas',
+    alt: 'Imagen del Proyecto de una tienda de hamburguesas',
+    description:
+      'En esta página se puso en practica los conceptos de estados mas complejos como useContext y el paso de elementos como variables o métodos utilizando useReducer.',
+    technologies: [
+      'HtmlIcon',
+      'CssIcon',
+      'TailwindIcon',
+      'JavascriptIcon',
+      'ReactIcon',
+      'ViteIcon',
+    ],
+    urlPage: 'https://d-burgers.vercel.app/',
+    urlCode: 'https://github.com/Maiten-Oviedo/d-burgers',
+    img: '/assets/d-burgers.webp',
+  },
+  {
+    name: 'Tienda de Cervezas',
+    alt: 'Imagen del Proyecto de una tienda de cervezas',
+    description:
+      'Landing Page simple de una tienda de cervezas artesanalaes, en la que se aprendio el uso de componentes, estados y estructura de proyecto.',
+    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon', 'ReactIcon'],
+    urlPage: 'https://panaholma-web.vercel.app/',
+    urlCode: 'https://github.com/Maiten-Oviedo/panaholma',
+    img: '/assets/panaholma.webp',
+  },
+  {
+    name: 'Ecommerce',
+    alt: 'Imagen del Proyecto de un ecommerce',
+    description:
+      'Tienda de ropa moderna, con un diseño minimalista y elegante. Cuenta con carrito utilizando localStorage. Hecha en el curso Argentina Programa - Primer Tramo',
+    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
+    urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
+    urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
+    img: '/assets/ecommerce.webp',
+  },
+  {
+    name: 'Página de Libros',
+    alt: 'Imagen del Proyecto de una página de libros',
+    description:
+      'Página de libros, en la que puedes ver una serie de libros y añadirlos a tus favoritos, ademas tienes una seccion para marcar tus listas de libros por leer y otra para marcar los que ya terminaste.',
+    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
+    urlCode: 'https://github.com/Maiten-Oviedo/TrabajoFinal-ReactJs',
+    urlPage: 'https://maiten-oviedo.github.io/TrabajoFinal',
+    img: '/assets/libros.webp',
+  },
 ]
 ---
-<h3 class="text-3xl pb-10 font-bold flex items-center gap-3"><ProyectsIcon class="size-8"/>Últimos Proyectos</h3>
-<ol class="grid grid-col-1 md:grid-cols-2 gap-5">
-	{PROYECTS.map(proyect=>{
-		return <ProyectItem {...proyect}/>
-	})}
-</ol>
 
+<h3 class="text-3xl pb-10 font-bold flex items-center gap-3">
+  <ProyectsIcon class="size-8" />Últimos Proyectos
+</h3>
+<ol class="grid grid-col-1 md:grid-cols-2 gap-5">
+  {
+    PROYECTS.map(proyect => {
+      return <ProyectItem {...proyect} />
+    })
+  }
+</ol>
