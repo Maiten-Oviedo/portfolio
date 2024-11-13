@@ -1,6 +1,9 @@
 ---
 import ProyectItem from '../components/ProyectItem.astro'
+import LatestIcon from '../icons/LatestIcon.astro'
 import ProyectsIcon from '../icons/ProyectsIcon.astro'
+import RocketIcon from '../icons/RocketIcon.astro'
+import Badge from './Badge.astro'
 
 const PROYECTS = [
   {
@@ -8,15 +11,7 @@ const PROYECTS = [
     alt: 'Imagen del Proyecto de un clon de Spotify',
     description:
       'El proyecto es una aplicación web que simula la interfaz de usuario de Spotify. Incluye funcionalidades como la visualización de listas de reproducción, reproducción de canciones y control de volumen.',
-    technologies: [
-      'HtmlIcon',
-      'CssIcon',
-      'TailwindIcon',
-      'JavascriptIcon',
-      'TypesciptIcon',
-      'ReactIcon',
-      'AstroIcon',
-    ],
+    technologies: ['Html', 'Css', 'Tailwind', 'Typescipt', 'React', 'Astro'],
     urlPage: 'https://spotify-clone-pink-kappa.vercel.app/',
     urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
     img: '/assets/spotify-clone.webp',
@@ -26,54 +21,84 @@ const PROYECTS = [
     alt: 'Imagen del Proyecto de una tienda de hamburguesas',
     description:
       'En esta página se puso en practica los conceptos de estados mas complejos como useContext y el paso de elementos como variables o métodos utilizando useReducer.',
-    technologies: [
-      'HtmlIcon',
-      'CssIcon',
-      'TailwindIcon',
-      'JavascriptIcon',
-      'ReactIcon',
-      'ViteIcon',
-    ],
+    technologies: ['Html', 'Css', 'Tailwind', 'Javascript', 'React', 'Vite'],
     urlPage: 'https://d-burgers.vercel.app/',
     urlCode: 'https://github.com/Maiten-Oviedo/d-burgers',
     img: '/assets/d-burgers.webp',
-  },
-  {
-    name: 'Tienda de Cervezas',
-    alt: 'Imagen del Proyecto de una tienda de cervezas',
-    description:
-      'Landing Page simple de una tienda de cervezas artesanalaes, en la que se aprendio el uso de componentes, estados y estructura de proyecto.',
-    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon', 'ReactIcon'],
-    urlPage: 'https://panaholma-web.vercel.app/',
-    urlCode: 'https://github.com/Maiten-Oviedo/panaholma',
-    img: '/assets/panaholma.webp',
   },
   {
     name: 'Ecommerce',
     alt: 'Imagen del Proyecto de un ecommerce',
     description:
       'Tienda de ropa moderna, con un diseño minimalista y elegante. Cuenta con carrito utilizando localStorage. Hecha en el curso Argentina Programa - Primer Tramo',
-    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
+    technologies: ['Html', 'Css', 'Javascript'],
     urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
     urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
     img: '/assets/ecommerce.webp',
   },
+]
+
+const ELBUENSBAOR = [
   {
-    name: 'Página de Libros',
-    alt: 'Imagen del Proyecto de una página de libros',
+    name: 'El Buen sabor',
+    alt: 'Imagen del Proyecto de un ecommerce',
     description:
-      'Página de libros, en la que puedes ver una serie de libros y añadirlos a tus favoritos, ademas tienes una seccion para marcar tus listas de libros por leer y otra para marcar los que ya terminaste.',
-    technologies: ['HtmlIcon', 'CssIcon', 'JavascriptIcon'],
-    urlCode: 'https://github.com/Maiten-Oviedo/TrabajoFinal-ReactJs',
-    urlPage: 'https://maiten-oviedo.github.io/TrabajoFinal',
-    img: '/assets/libros.webp',
+      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
+    technologies: [
+      'Html',
+      'Css',
+      'Tailwind',
+      'Typescipt',
+      'React',
+      'Vite',
+      'Firebase',
+      'GoogleAnalytics',
+      'MercadoPago',
+      'Node',
+    ],
+    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
+    img: '/assets/proyecto-elbuen-sabor.webp',
+  },
+  {
+    name: 'El Buen sabor 🔒 ',
+    alt: 'Imagen del Proyecto de un ecommerce',
+    description:
+      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
+    technologies: [
+      'Html',
+      'Css',
+      'Tailwind',
+      'Typescipt',
+      'React',
+      'Vite',
+      'Firebase',
+      'GoogleAnalytics',
+      'MercadoPago',
+      'Node',
+    ],
+    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
+    img: '/assets/proyecto-el-buen-sabor-mobile.webp',
   },
 ]
 ---
 
-<h3 class="text-3xl pb-10 font-bold flex items-center gap-3">
-  <ProyectsIcon class="size-8" />Últimos Proyectos
+<h3 class="text-3xl pb-4 font-bold flex items-center gap-3">
+  <ProyectsIcon class="size-8" />Proyectos
 </h3>
+<h2
+  class="self-center md:self-auto text-2xl font-semibold pb-4 flex items-center gap-2"
+>
+  <RocketIcon class="size-6" /> Destacado
+</h2>
+<article class="hidden md:block mb-8">
+  <ProyectItem {...ELBUENSBAOR[0]} />
+</article>
+<article class="md:hidden mb-8"><ProyectItem {...ELBUENSBAOR[1]} /></article>
+<h2
+  class="self-center md:self-auto text-2xl font-semibold pb-4 flex items-center gap-2"
+>
+  <LatestIcon class="size-6" />Últimos Proyectos
+</h2>
 <ol class="grid grid-col-1 md:grid-cols-2 gap-5">
   {
     PROYECTS.map(proyect => {
@@ -81,3 +106,13 @@ const PROYECTS = [
     })
   }
 </ol>
+<button class="mt-6 hover:scale-105 transition">
+  <Badge>
+    <a
+      href="https://github.com/Maiten-Oviedo?tab=repositories"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-base">Ver Todos Los Proyectos</a
+    >
+  </Badge>
+</button>

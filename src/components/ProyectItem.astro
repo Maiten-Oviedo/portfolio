@@ -9,7 +9,7 @@ interface Props {
   description: string
   technologies: string[]
   urlPage?: string
-  urlCode: string
+  urlCode?: string
   img: string
 }
 
@@ -39,22 +39,29 @@ const { name, alt, description, technologies, urlPage, urlCode, img } =
           </Badge>
         )
       }
-      <Badge
-        ><a
-          href={urlCode}
-          class="text-sm w-full flex justify-center items-center"
-          target="_blank"
-          rel="noopener noreferrer"><CodeIcon class="size-5" />Revisar Código</a
-        ></Badge
-      >
+      {
+        urlCode && (
+          <Badge>
+            <a
+              href={urlCode}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CodeIcon class="size-5" />
+              Revisar Código
+            </a>
+          </Badge>
+        )
+      }
     </div>
     <img class="rounded-t-lg" src={img} alt={alt} />
   </div>
-  <div class="px-5 pt-4">
-    <a href="#">
+  <div class="px-5 pt-4 h-full">
+    <a href={urlPage} rel="noreferrer noopener" target="_blank">
       <h5 class="mb-2 text-xl font-bold tracking-tight text-white">{name}</h5>
     </a>
-    <p class="text-sm mb-3 font-normal text-gray-400">{description}</p>
+    <p class="text-base mb-3 font-normal text-gray-400">{description}</p>
     <div class="md:hidden flex justify-center items-start gap-3 mb-3">
       {
         urlPage && (
@@ -80,12 +87,17 @@ const { name, alt, description, technologies, urlPage, urlCode, img } =
       >
     </div>
   </div>
-  <ul class="flex justify-center gap-4 pb-2">
+  <ul class="flex flex-wrap justify-center gap-4 pb-2 px-5">
     {
       technologies.map(tech => {
         return (
           <li>
-            <img src={`/assets/icons/${tech}.svg`} alt={tech} class="size-6" />
+            <img
+              src={`/assets/icons/${tech}Icon.svg`}
+              alt={tech}
+              class="size-6"
+              title={tech}
+            />
           </li>
         )
       })
