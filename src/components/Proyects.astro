@@ -7,11 +7,42 @@ import Badge from './Badge.astro'
 
 const PROYECTS = [
   {
+    name: 'El Buen sabor',
+    alt: 'Imagen del Proyecto de un ecommerce',
+    description:
+      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
+    technologies: [
+      'Html',
+      'Css',
+      'Tailwind',
+      'Typescript',
+      'React',
+      'Vite',
+      'Firebase',
+      'GoogleAnalytics',
+      'MercadoPago',
+      'Node',
+    ],
+    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
+    img: '/assets/proyecto-elbuen-sabor.webp',
+    outstanding: true,
+  },
+  {
+    name: 'API REST de Mutantes',
+    alt: 'Imagen del Proyecto Api de Mutantes',
+    description:
+      'Desarrollo de API REST con Spring Boot siguiendo una arquitectura de microservicios, diseñada para detectar si una secuencia de ADN corresponde a un mutante mediante una lógica específica de identificación de patrones. ¡Te invito a leer el README del repositorio para más detalles! 😄',
+    technologies: ['Java', 'SpringBoot', 'Hibernate', 'JUnit5'],
+    urlCode: 'https://github.com/Maiten-Oviedo/ApiRestMutantesSpringBoot',
+    img: '/assets/api-mutantes.webp',
+    outstanding: true,
+  },
+  {
     name: 'Clon de Spotify',
     alt: 'Imagen del Proyecto de un clon de Spotify',
     description:
       'El proyecto es una aplicación web que simula la interfaz de usuario de Spotify. Incluye funcionalidades como la visualización de listas de reproducción, reproducción de canciones y control de volumen.',
-    technologies: ['Html', 'Css', 'Tailwind', 'Typescipt', 'React', 'Astro'],
+    technologies: ['Html', 'Css', 'Tailwind', 'Typescript', 'React', 'Astro'],
     urlPage: 'https://spotify-clone-pink-kappa.vercel.app/',
     urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
     img: '/assets/spotify-clone.webp',
@@ -37,68 +68,11 @@ const PROYECTS = [
     img: '/assets/ecommerce.webp',
   },
 ]
-
-const ELBUENSBAOR = [
-  {
-    name: 'El Buen sabor',
-    alt: 'Imagen del Proyecto de un ecommerce',
-    description:
-      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
-    technologies: [
-      'Html',
-      'Css',
-      'Tailwind',
-      'Typescipt',
-      'React',
-      'Vite',
-      'Firebase',
-      'GoogleAnalytics',
-      'MercadoPago',
-      'Node',
-    ],
-    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
-    img: '/assets/proyecto-elbuen-sabor.webp',
-  },
-  {
-    name: 'El Buen sabor 🔒 ',
-    alt: 'Imagen del Proyecto de un ecommerce',
-    description:
-      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
-    technologies: [
-      'Html',
-      'Css',
-      'Tailwind',
-      'Typescipt',
-      'React',
-      'Vite',
-      'Firebase',
-      'GoogleAnalytics',
-      'MercadoPago',
-      'Node',
-    ],
-    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
-    img: '/assets/proyecto-el-buen-sabor-mobile.webp',
-  },
-]
 ---
 
 <h3 class="text-3xl pb-4 font-bold flex items-center gap-3">
   <ProyectsIcon class="size-8" />Proyectos
 </h3>
-<h2
-  class="self-center md:self-auto text-2xl font-semibold pb-4 flex items-center gap-2"
->
-  <RocketIcon class="size-6" /> Destacado
-</h2>
-<article class="hidden md:block mb-8">
-  <ProyectItem {...ELBUENSBAOR[0]} />
-</article>
-<article class="md:hidden mb-8"><ProyectItem {...ELBUENSBAOR[1]} /></article>
-<h2
-  class="self-center md:self-auto text-2xl font-semibold pb-4 flex items-center gap-2"
->
-  <LatestIcon class="size-6" />Últimos Proyectos
-</h2>
 <ol class="grid grid-col-1 md:grid-cols-2 gap-5">
   {
     PROYECTS.map(proyect => {

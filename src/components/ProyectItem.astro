@@ -1,6 +1,7 @@
 ---
 import CodeIcon from '../icons/CodeIcon.astro'
 import PageIcon from '../icons/PageIcon.astro'
+import RocketIcon from '../icons/RocketIcon.astro'
 import Badge from './Badge.astro'
 
 interface Props {
@@ -11,10 +12,19 @@ interface Props {
   urlPage?: string
   urlCode?: string
   img: string
+  outstanding?: boolean
 }
 
-const { name, alt, description, technologies, urlPage, urlCode, img } =
-  Astro.props
+const {
+  name,
+  alt,
+  description,
+  technologies,
+  urlPage,
+  urlCode,
+  img,
+  outstanding,
+} = Astro.props
 ---
 
 <div
@@ -56,6 +66,13 @@ const { name, alt, description, technologies, urlPage, urlCode, img } =
       }
     </div>
     <img class="rounded-t-lg" src={img} alt={alt} />
+    {
+      outstanding && (
+        <span class="absolute top-0 right-0 pt-2 pr-2 italic text-sm">
+          destacado
+        </span>
+      )
+    }
   </div>
   <div class="px-5 pt-4 h-full">
     <a href={urlPage} rel="noreferrer noopener" target="_blank">
@@ -77,14 +94,20 @@ const { name, alt, description, technologies, urlPage, urlCode, img } =
           </Badge>
         )
       }
-      <Badge
-        ><a
-          href={urlCode}
-          class="text-sm w-full flex justify-center items-center"
-          target="_blank"
-          rel="noopener noreferrer">Revisar Código</a
-        ></Badge
-      >
+      {
+        urlCode && (
+          <Badge>
+            <a
+              href={urlCode}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Revisar Código
+            </a>
+          </Badge>
+        )
+      }
     </div>
   </div>
   <ul class="flex flex-wrap justify-center gap-4 pb-2 px-5">
