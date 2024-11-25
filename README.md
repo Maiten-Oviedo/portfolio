@@ -41,5 +41,12 @@ pnpm install
 # Ejecutar la aplicación
 pnpm run dev
 ```
+
+Una vez ejecutado el comando `pnpm run dev`, podrás acceder desde tu navegador aquí:
+[http://localhost:4321](http://localhost:4321/)
+
 ## Contacto
-Puedes contactarme en maitenoviedo513@gmail.com 
+
+- [LinkedIn](https://www.linkedin.com/in/maiten-oviedo/)
+- [GitHub](https://github.com/Maiten-Oviedo)
+- maitenoviedo513@gmail.com
