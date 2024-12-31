@@ -1,6 +1,9 @@
 const Contact = () => {
   return (
-    <section className="relative bg-[url('/assets/images/contact.webp')] bg-center bg-cover bg-zinc-950 h-[80vh] lg:h-[95vh] flex flex-col justify-center items-center  gap-2 mb-1">
+    <section
+      id="contact"
+      className="relative bg-[url('/assets/images/contact.webp')] bg-center bg-cover bg-zinc-950 h-[80vh] lg:h-[95vh] flex flex-col justify-center items-center  gap-2 mb-1"
+    >
       <h2 className="text-[5em] z-10 text-center font-extrabold">
         ALGUNA IDEA?
       </h2>

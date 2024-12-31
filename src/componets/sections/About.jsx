@@ -3,7 +3,7 @@ import SliderHero from './SliderHero'
 
 const About = () => {
   return (
-    <section className="flex flex-col gap-4 md:gap-8">
+    <section id="about" className="flex flex-col gap-4 md:gap-8">
       <h2 className="flex flex-col justify-center items-end md:items-start gap-2 font-extrabold">
         <span className="text-[1em] md:text-[.7em]">SOBRE MÍ</span>
         <span className="flex gap-2 text-white/70 text-[1.2em] text-nowrap">
@@ -13,20 +13,25 @@ const About = () => {
       </h2>
       <div className="flex flex-col justify-between items-center gap-4 md:flex-row-reverse md:gap-8">
         <article className="flex flex-col gap-4 justify-between items-center md:max-w-[55%]">
-          <div className="flex flex-col gap-4 text-[1em] font-normal text-pretty md:text-justify">
+          <div className="flex flex-col gap-4 font-normal md:font-light text-pretty md:text-justify">
             <p>
               Mis primeras experiencias en programación fueron con Arduino,
               participando en ferias de ciencias e incluso programando algunos
               robots. Además, enseñé en algunas escuelas los conceptos básicos
               del desarrollo con{' '}
-              <span className="font-bold text-[#886ce4]">Arduino</span> 👾.
+              <span className="font-bold md:font-semibold text-[#886ce4]">
+                Arduino
+              </span>{' '}
+              👾.
             </p>
 
             <p>
               Aparte del desarrollo, tengo diversos intereses como viajar, el
               trekking y tomar mucho mate 🧉. Me encantan los ríos y el{' '}
-              <span className="text-emerald-700 font-extrabold">verde</span>. Mi
-              sueño es poder viajar mientras trabajo en lo que me gusta.
+              <span className="text-emerald-700 font-bold md:font-semibold">
+                verde
+              </span>
+              . Mi sueño es poder viajar mientras trabajo en lo que me gusta.
             </p>
 
             <p>

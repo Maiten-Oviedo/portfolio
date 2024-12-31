@@ -4,6 +4,7 @@ import InstagramIcon from '../../icons/InstagramIcon'
 import LineIcon from '../../icons/LineIcon'
 import LinkedinIcon from '../../icons/LinkedinIcon'
 import MailIcon from '../../icons/MailIcon'
+import MateIcon from '../../icons/MateIcon'
 import Mountain from '../../icons/Mountain'
 import NetworkPill from '../common/NetworkPill'
 
@@ -118,7 +119,13 @@ const Hero = () => {
 
         <div className="md:absolute pr-[1.3em] md:pb-[1.3em] right-0 bottom-0 self-center text-center md:text-start mt-10">
           <p className="text-[.7em] ">
-            De Mendoza, Argentina 🧉. <br />
+            <span className="flex items-center gap-1">
+              De Mendoza, Argentina{' '}
+              <i title="Mate">
+                <MateIcon className="size-[1em]" />
+              </i>
+              .
+            </span>
             En continua formación y búsqueda de conocimientos.
           </p>
         </div>

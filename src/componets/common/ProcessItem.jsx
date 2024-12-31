@@ -12,7 +12,7 @@ const ProcessItem = process => {
       <div className="flex gap-2 self-end items-center">
         <h4 className="flex items-center gap-2">
           <span className="text-white/80 text-[1em] md:text-[.7em]">
-            {id === 4 ? <InfinityIcon className="size-[1.7em]" /> : `0${id}`}
+            {id === 4 ? <InfinityIcon className="size-[1.6em]" /> : `0${id}`}
           </span>
           <span className="text-[1.2em] md:text-[1em] md:font-bold">
             {title}
