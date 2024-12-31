@@ -1,0 +1,98 @@
+---
+import Badge from '../components/Badge.astro'
+import Layout from '../layouts/Layout.astro'
+import LinkedInIcon from '../icons/LinkedInIcon.astro'
+import NetworkPill from '../components/NetworkPill.astro'
+import GithubIcon from '../icons/GithubIcon.astro'
+import MailIcon from '../icons/MailIcon.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import Proyects from '../components/Proyects.astro'
+import InstagramIcon from '../icons/InstagramIcon.astro'
+import Footer from '../components/Footer.astro'
+import Contact from '../components/Contact.astro'
+import AboutMe from '../components/AboutMe.astro'
+---
+
+<Layout
+  title="Portfolio de Maitén - Desarrollador FullStack"
+  description="Contratame para solucionar tu problema. Desarrollador FullStack y Programador. Capáz de crear Webs que satisfagan tus requisitos."
+>
+  <main>
+    <SectionContainer
+      class="w-full px-[8%] md:px-[15%] lg:px-[25%] pt-24 md:pt-32 pb-24"
+    >
+      <h1
+        class="text-white text-4xl font-bold flex gap-4 pb-4 items-start md:items-center flex-col md:flex-row"
+      >
+        <span>Hola, soy Maitén.</span>
+        <a
+          href="/MAITEN-OVIEDO-CV.pdf"
+          download
+          class="flex justify-center items-center"
+        >
+          <Badge>REVISAR CV</Badge>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/maiten-oviedo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class="text-2xl opacity-80 text-wrap pb-4">
+        <span class="text-yellow-200">Desarrollador FullStack.</span>
+        <span class="text-red-200">De Mendoza, Argentina🧉.</span>
+        <span class="opacity-80"
+          >En continua formación y búsqueda de conocimientos.👨‍💻</span
+        >
+      </h2>
+      <ul class="flex flex-wrap gap-4 text-wrap">
+        <li>
+          <NetworkPill href="https://www.linkedin.com/in/maiten-oviedo/">
+            <LinkedInIcon class="size-4" />
+            LinkedIn
+          </NetworkPill>
+        </li>
+        <li class="flex gap-4 text-wrap">
+          <NetworkPill href="https://github.com/Maiten-Oviedo">
+            <GithubIcon class="size-4" />
+            GitHub
+          </NetworkPill>
+        </li>
+        <li class="flex gap-4 text-wrap">
+          <NetworkPill href="https://www.instagram.com/maiten_oviedo">
+            <InstagramIcon class="size-4" />
+            Instagram
+          </NetworkPill>
+        </li>
+        <li class="flex gap-4 text-wrap">
+          <NetworkPill href="mailto:maitenoviedo513@gmail.com">
+            <MailIcon class="size-4" />
+            maitenoviedo513@gmail.com
+          </NetworkPill>
+        </li>
+      </ul>
+    </SectionContainer>
+    <SectionContainer
+      id="Projects"
+      class="flex flex-col w-full px-[8%] md:px-[15%] lg:px-[25%] pb-16 pt-4"
+    >
+      <Proyects />
+    </SectionContainer>
+    <SectionContainer
+      id="About"
+      class="w-full px-[8%] md:px-[15%] lg:px-[25%] pb-16 pt-4"
+    >
+      <AboutMe />
+    </SectionContainer>
+    <SectionContainer
+      id="Contact"
+      class="w-full px-[8%] md:px-[15%] lg:px-[25%] pb-10"
+    >
+      <Contact />
+    </SectionContainer>
+  </main>
+  <Footer />
+</Layout>

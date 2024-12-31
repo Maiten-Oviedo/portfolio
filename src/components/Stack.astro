@@ -1,0 +1,137 @@
+---
+import CopyIcon from '../icons/CopyIcon.astro'
+import StackIcon from '../icons/StackIcon.astro'
+
+const FRONT = [
+  { name: 'Html' },
+  { name: 'Css' },
+  { name: 'Tailwind' },
+  { name: 'Javascript' },
+  { name: 'Typescript' },
+  { name: 'React' },
+  { name: 'Vite' },
+  { name: 'Astro' },
+]
+const BACK = [
+  { name: 'Java' },
+  { name: 'SpringBoot' },
+  { name: 'SQL' },
+  { name: 'Node' },
+  { name: 'Hibernate' },
+  { name: 'Firebase' },
+]
+const MISC = [{ name: 'GoogleAnalytics' }]
+---
+
+<h3 class="text-2xl pb-2 pt-2 font-bold flex items-center gap-3">
+  <StackIcon class="size-6" />Stack
+</h3>
+<p class="flex flex-col gap-2 w-full self-center bg-black/80 p-6 relative">
+  <span class="text-violet-500"
+    >private <span class="text-yellow-200/90">String[ ]</span>
+    <span class="text-white italic">tecnologiasFront </span>=
+  </span>
+
+  <span class="flex flex-wrap gap-2 text-green-300">
+    {
+      FRONT.map((tech, index) => {
+        return (
+          <span class="flex gap-1">
+            &#123;
+            <img
+              src={`/assets/icons/${tech.name}Icon.svg`}
+              alt={tech.name}
+              class="size-6"
+              title={tech.name}
+            />
+            &#125;
+            {index < FRONT.length - 1 && ','}
+          </span>
+        )
+      })
+    }
+    <span class="text-white">;</span>
+  </span>
+  <span class="text-violet-500 mt-3"
+    >private <span class="text-yellow-200/90">String[ ]</span>
+    <span class="text-white italic">tecnologiasBack </span>=
+  </span>
+
+  <span class="flex flex-wrap gap-2 text-green-300">
+    {
+      BACK.map((tech, index) => {
+        return (
+          <span class="flex gap-1">
+            &#123;
+            <img
+              src={`/assets/icons/${tech.name}Icon.svg`}
+              alt={tech.name}
+              class="size-6"
+              title={tech.name}
+            />
+            &#125;
+            {index < BACK.length - 1 && ','}
+          </span>
+        )
+      })
+    }
+    <span class="text-white">;</span>
+  </span>
+  <span class="text-violet-500 mt-3"
+    >private <span class="text-yellow-200/90">String[ ]</span>
+    <span class="text-white italic">herramientas </span>=
+  </span>
+
+  <span class="flex flex-wrap gap-2 text-green-300">
+    {
+      MISC.map((tech, index) => {
+        return (
+          <span class="flex gap-1">
+            &#123;
+            <img
+              src={`/assets/icons/${tech.name}Icon.svg`}
+              alt={tech.name}
+              class="size-6"
+              title={tech.name}
+            />
+            &#125;
+            {index < MISC.length - 1 && ','}
+          </span>
+        )
+      })
+    }
+    <span class="text-white">;</span>
+  </span>
+  <span class="absolute top-0 left-0 pt-1 pl-6 text-sm text-white/70 italic"
+    >Java</span
+  >
+  <buton
+    onClick="copyTextTech()"
+    class="absolute flex flex-col items-end top-0 right-0 pt-1 pr-2 md:pr-6 text-sm cursor-pointer"
+  >
+    <CopyIcon class="size-5" /><span id="buton-copy-tech"></span></buton
+  >
+</p>
+
+<script is:inline>
+  function copyTextTech() {
+    const code = `private String[] tecnologiasFront = {"Html", "Css","TailwindCss","Javascript", "Typescript", "React", "Vite", "Astro"};
+    private String[] tecnologiasBack = {"Node", "Java", "Spring Boot", "SQL", "Hibernate", "JUnit 5","Firebase"};
+    private String[] herramientas = {"Google Analytics"};`
+    const btn = document.getElementById('buton-copy-tech')
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        btn.innerText = 'Copiado'
+        setTimeout(() => {
+          btn.innerText = ''
+        }, 1000)
+      })
+      .catch(err => {
+        btn.innerText = 'Error al copiar'
+        setTimeout(() => {
+          btn.innerText = ''
+        }, 1000)
+      })
+  }
+</script>

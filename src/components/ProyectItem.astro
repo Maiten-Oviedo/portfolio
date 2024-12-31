@@ -1,0 +1,129 @@
+---
+import CodeIcon from '../icons/CodeIcon.astro'
+import PageIcon from '../icons/PageIcon.astro'
+import RocketIcon from '../icons/RocketIcon.astro'
+import Badge from './Badge.astro'
+
+interface Props {
+  name: string
+  alt: string
+  description: string
+  technologies: string[]
+  urlPage?: string
+  urlCode?: string
+  img: string
+  outstanding?: boolean
+}
+
+const {
+  name,
+  alt,
+  description,
+  technologies,
+  urlPage,
+  urlCode,
+  img,
+  outstanding,
+} = Astro.props
+---
+
+<div
+  class="m-auto md:m-0 flex flex-col justify-between max-w-[350px] border rounded-lg shadow bg-gray-800 border-gray-700"
+>
+  <div class="relative cursor-pointer">
+    <div
+      class="hidden absolute top-0 w-full h-full bg-[linear-gradient(rgba(8,27,41,0.8),rgba(8,27,41,0.8))] md:flex justify-center gap-3 items-center transition opacity-0 hover:opacity-100"
+    >
+      {
+        urlPage && (
+          <Badge>
+            <a
+              href={urlPage}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <PageIcon class="size-5" />
+              Visitar Página
+            </a>
+          </Badge>
+        )
+      }
+      {
+        urlCode && (
+          <Badge>
+            <a
+              href={urlCode}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CodeIcon class="size-5" />
+              Revisar Código
+            </a>
+          </Badge>
+        )
+      }
+    </div>
+    <img class="rounded-t-lg" src={img} alt={alt} />
+    {
+      outstanding && (
+        <span class="absolute top-0 right-0 pt-2 pr-2 italic text-sm">
+          destacado
+        </span>
+      )
+    }
+  </div>
+  <div class="px-5 pt-4 h-full">
+    <a href={urlPage} rel="noreferrer noopener" target="_blank">
+      <h5 class="mb-2 text-xl font-bold tracking-tight text-white">{name}</h5>
+    </a>
+    <p class="text-base mb-3 font-normal text-gray-400">{description}</p>
+    <div class="md:hidden flex justify-center items-start gap-3 mb-3">
+      {
+        urlPage && (
+          <Badge>
+            <a
+              href={urlPage}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar Página
+            </a>
+          </Badge>
+        )
+      }
+      {
+        urlCode && (
+          <Badge>
+            <a
+              href={urlCode}
+              class="text-sm w-full flex justify-center items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Revisar Código
+            </a>
+          </Badge>
+        )
+      }
+    </div>
+  </div>
+  <ul class="flex flex-wrap justify-center gap-4 pb-2 px-5">
+    {
+      technologies.map(tech => {
+        return (
+          <li>
+            <img
+              src={`/assets/icons/${tech}Icon.svg`}
+              alt={tech}
+              class="size-6"
+              title={tech}
+            />
+          </li>
+        )
+      })
+    }
+  </ul>
+</div>

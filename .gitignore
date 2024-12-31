@@ -17,8 +17,17 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+<<<<<<< HEAD
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+=======
+
+# jetbrains setting folder
+.idea/
+
+#Tasks To do
+.todo
+>>>>>>> 2ad9c920a253d3e3ce07e55d230b3891c5253325

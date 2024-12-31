@@ -1,0 +1,92 @@
+---
+import ProyectItem from '../components/ProyectItem.astro'
+import LatestIcon from '../icons/LatestIcon.astro'
+import ProyectsIcon from '../icons/ProyectsIcon.astro'
+import RocketIcon from '../icons/RocketIcon.astro'
+import Badge from './Badge.astro'
+
+const PROYECTS = [
+  {
+    name: 'El Buen sabor',
+    alt: 'Imagen del Proyecto de un ecommerce',
+    description:
+      'Ecommerce completo con metodos de pago tanto con Mercado Pago y con Criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el back se utilizó tanto Firebase como Node Js para integrar mercado pago y para obtener los datos de Google Analytics.',
+    technologies: [
+      'Html',
+      'Css',
+      'Tailwind',
+      'Typescript',
+      'React',
+      'Vite',
+      'Firebase',
+      'GoogleAnalytics',
+      'MercadoPago',
+      'Node',
+    ],
+    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
+    img: '/assets/proyecto-elbuen-sabor.webp',
+    outstanding: true,
+  },
+  {
+    name: 'API REST de Mutantes',
+    alt: 'Imagen del Proyecto Api de Mutantes',
+    description:
+      'Desarrollo de API REST con Spring Boot siguiendo una arquitectura de microservicios, diseñada para detectar si una secuencia de ADN corresponde a un mutante mediante una lógica específica de identificación de patrones. ¡Te invito a leer el README del repositorio para más detalles! 😄',
+    technologies: ['Java', 'SpringBoot', 'Hibernate', 'JUnit5'],
+    urlCode: 'https://github.com/Maiten-Oviedo/ApiRestMutantesSpringBoot',
+    img: '/assets/api-mutantes.webp',
+    outstanding: true,
+  },
+  {
+    name: 'Clon de Spotify',
+    alt: 'Imagen del Proyecto de un clon de Spotify',
+    description:
+      'El proyecto es una aplicación web que simula la interfaz de usuario de Spotify. Incluye funcionalidades como la visualización de listas de reproducción, reproducción de canciones y control de volumen.',
+    technologies: ['Html', 'Css', 'Tailwind', 'Typescript', 'React', 'Astro'],
+    urlPage: 'https://spotify-clone-pink-kappa.vercel.app/',
+    urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
+    img: '/assets/spotify-clone.webp',
+  },
+  {
+    name: 'Tienda de Hamburguesas',
+    alt: 'Imagen del Proyecto de una tienda de hamburguesas',
+    description:
+      'En esta página se puso en practica los conceptos de estados mas complejos como useContext y el paso de elementos como variables o métodos utilizando useReducer.',
+    technologies: ['Html', 'Css', 'Tailwind', 'Javascript', 'React', 'Vite'],
+    urlPage: 'https://d-burgers.vercel.app/',
+    urlCode: 'https://github.com/Maiten-Oviedo/d-burgers',
+    img: '/assets/d-burgers.webp',
+  },
+  {
+    name: 'Ecommerce',
+    alt: 'Imagen del Proyecto de un ecommerce',
+    description:
+      'Tienda de ropa moderna, con un diseño minimalista y elegante. Cuenta con carrito utilizando localStorage. Hecha en el curso Argentina Programa - Primer Tramo',
+    technologies: ['Html', 'Css', 'Javascript'],
+    urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
+    urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
+    img: '/assets/ecommerce.webp',
+  },
+]
+---
+
+<h3 class="text-3xl pb-4 font-bold flex items-center gap-3">
+  <ProyectsIcon class="size-8" />Proyectos
+</h3>
+<ol class="grid grid-col-1 md:grid-cols-2 gap-5">
+  {
+    PROYECTS.map(proyect => {
+      return <ProyectItem {...proyect} />
+    })
+  }
+</ol>
+<button class="mt-6 hover:scale-105 transition">
+  <Badge>
+    <a
+      href="https://github.com/Maiten-Oviedo?tab=repositories"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-base">Ver Todos Los Proyectos</a
+    >
+  </Badge>
+</button>
