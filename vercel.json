@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/projects/el-buen-sabor", "destination": "/" },
+    { "source": "/projects/el-buen-sabor/", "destination": "/" },
+    { "source": "/:path*", "destination": "/" }
+  ]
+}
