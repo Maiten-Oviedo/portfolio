@@ -8,7 +8,7 @@ const ProjectImageItem = ({ index, title, newTitle }) => {
       }`}
     >
       <img
-        src={`/assets/images/projects/${title}/${index}.jpg`}
+        src={`/assets/images/projects/${title}/${index}.webp`}
         alt={`Imagen mockup de proyecto ${newTitle}`}
         className={`min-h-[30vh] md:h-auto ${
           index === 4 || index === 5 ? '' : 'object-cover'

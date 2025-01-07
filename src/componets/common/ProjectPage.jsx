@@ -50,14 +50,14 @@ const ProjectPage = ({ project }) => {
       </section>
       <article>
         <img
-          src={`/assets/images/projects/${title}/hero.jpg`}
+          src={`/assets/images/projects/${title}/hero.webp`}
           alt={`Imagen de proyecto ${newTitle} en Laptop`}
           className="h-[35vh] w-full object-cover md:h-auto"
         />
       </article>
       <section className="flex flex-col gap-[2em] md:flex-row justify-around items-center">
         <img
-          src={`/assets/images/projects/${title}/logo.png`}
+          src={`/assets/images/projects/${title}/logo.webp`}
           alt={`Logo de proyecto ${newTitle}`}
           className="w-[18.8em] md:size-[20em]"
         />
@@ -84,21 +84,21 @@ const ProjectPage = ({ project }) => {
           <li>
             <img
               className="h-[50vh] object-cover w-full md:h-auto md:w-[70%]"
-              src={`/assets/images/projects/${title}/1.jpg`}
+              src={`/assets/images/projects/${title}/1.webp`}
               alt={`Imagen mockup de proyecto ${newTitle}`}
             />
           </li>
           <li>
             <img
               className="h-[50vh] object-cover w-full md:h-auto"
-              src={`/assets/images/projects/${title}/2.jpg`}
+              src={`/assets/images/projects/${title}/2.webp`}
               alt={`Imagen mockup de proyecto ${newTitle}`}
             />
           </li>
         </ul>
       </section>
       <section className="flex flex-col gap-[7em]">
-        <div className="flex flex-col md:flex-row  justify-between md:items-center">
+        <div className="flex flex-col md:flex-row justify-between md:items-center">
           <h2 className="text-[2em]">{h2}</h2>
           <p className="md:max-w-[45%] text-justify">{p3}</p>
         </div>
@@ -124,7 +124,7 @@ const ProjectPage = ({ project }) => {
           </p>
         </div>
         <img
-          src={`/assets/images/projects/${title}/7.jpg`}
+          src={`/assets/images/projects/${title}/7.webp`}
           alt={`Imagen mockup de proyecto ${newTitle}`}
           className="h-[25vh] md:h-auto object-cover"
         />
