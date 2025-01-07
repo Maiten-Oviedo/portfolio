@@ -1,5 +1,4 @@
-import DownArrowIcon from '../icons/DownArrowIcon'
-import RightArrow from '../icons/RightArrow'
+import ProjectPage from '../componets/common/ProjectPage'
 const TECHNOLOGIES = [
   'HTML',
   'CSS',
@@ -13,106 +12,27 @@ const TECHNOLOGIES = [
   'MercadoPago',
   'NodeJs',
 ]
+
+const project = {
+  title: 'ElBuenSabor',
+  subtitle: 'tienda de hamburguesas',
+  technologies: TECHNOLOGIES,
+  href: 'https://proyecto-el-buen-sabor.vercel.app/',
+  p1: 'El Buen Sabor es una tienda de hamburguesas que cuenta tanto con Front End como con Back End. El Front End está desarrollado con React y el Back End con Firebase.',
+  p2: 'El proyecto fue desarrollado en el tercer trimestre de mi carrera, lo hicimos con 3 compañeros mas utilizando la metodología SCRUM. Además también utilizamos Trello y video llamadas diarias.',
+  h2: 'Pagos',
+  p3: 'El proyecto me permitio aprender a realizar un carrousel de pagos con Mercado Pago. Este cuenta con 3 pasos, en el primero se puede personalizar la compra agregando mas productos o acompañamientos a estos. En el segundo se debe ingresar datos perosnales y en el ultimo elegir el metodo de pago. Para esto realicé una pequeña api utilizando Node JS la cual se comunica con la api de Mercado Pago.',
+  h3: 'Administración',
+  span1:
+    'El proyecto cuenta con una página dedicada al Admin (funcionalidades particulares para personal con permiso). Este espacio cuenta con opciones como Nueva Venta, Nueva Compra, Dashboard, Asientos Contables y ABM.',
+  span2:
+    'En todo este proceso aprendí a utilizar Firebase, Google Analitycs (Dashboard), Google Cloud y la librería de recharts.',
+}
 const ElBuenSabor = () => {
   return (
     <>
-      <main className="bg-zinc-950 px-2 md:px-[2em] flex flex-col gap-[8em]">
-        <section className="flex justify-between items-center h-[50vh] pt-[7em]">
-          <div>
-            <h1 className="group flex text-[2em] items-center gap-2 cursor-pointer">
-              El Buen Sabor{' '}
-              <DownArrowIcon className="size-6 rotate-90 group-hover:rotate-[135deg] transition-all" />
-            </h1>
-            <h3 className="text-white/70 text-[1.5em]">
-              tienda de hamburguesas
-            </h3>
-            <ul className="flex flex-wrap justify-center gap-2 my-2">
-              {TECHNOLOGIES.map((tech, index) => {
-                return (
-                  <li key={index}>
-                    <img
-                      src={`/assets/icons/${tech}Icon.svg`}
-                      alt={tech}
-                      className="size-6"
-                      title={tech}
-                    />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-          <div className="max-w-[40%] text-justify">
-            <p>
-              El Buen Sabor es una tienda de hamburguesas que cuenta tanto con
-              Front End como con Back End. El Front End está desarrollado con
-              React y el Back End con Firebase.
-            </p>
-          </div>
-        </section>
-        <article>
-          <img
-            src="/assets/images/projects/el-buen-sabor/1.jpg"
-            alt="Imagen de proyecto El Buen Sabor en Laptop"
-            className=""
-          />
-        </article>
-        <section className="flex justify-around items-center">
-          <img
-            src="/assets/images/projects/el-buen-sabor/burger-guy.png"
-            alt="imagen de un hombre hamburguesa"
-            className="size-[20em]"
-          />
-          <div className="max-w-[40%] text-justify flex flex-col gap-2">
-            <p>
-              El Buen Sabor es un proyecto que me permitió aprender a trabajar
-              con Firebase y a integrar MercadoPago. Además, me permitió
-              aprender a trabajar con Google Analytics. El proyecto cuenta con
-              un panel de administración donde se pueden ver las ventas y los
-              productos vendidos.
-            </p>
-            <button className="group flex gap-2 items-center w-max bg-zinc-300 rounded-md px-4 py-2 text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-500">
-              <span>Ver Proyecto</span>
-              <i>
-                <RightArrow
-                  className="size-[1.2em] group-hover:text-white transition-all"
-                  fill={true}
-                />
-              </i>
-            </button>
-          </div>
-        </section>
-        <section>
-          <ul>
-            <li>
-              <img
-                className="w-[50%]"
-                src="/assets/images/projects/el-buen-sabor/1.jpg"
-                alt=""
-              />
-            </li>
-            <li>
-              <img
-                className="w-full"
-                src="/assets/images/projects/el-buen-sabor/1.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <img
-                className="w-full"
-                src="/assets/images/projects/el-buen-sabor/1.png"
-                alt=""
-              />
-            </li>
-            <li>
-              <img
-                className="w-full"
-                src="/assets/images/projects/el-buen-sabor/1.png"
-                alt=""
-              />
-            </li>
-          </ul>
-        </section>
+      <main className="bg-zinc-950 px-[2em] md:px-[4em] xl:px-[6em] flex flex-col gap-[5em] md:gap-[7em]">
+        <ProjectPage project={project} />
       </main>
     </>
   )

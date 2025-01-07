@@ -20,7 +20,7 @@ const PROJECTS = [
       'MercadoPago',
       'NodeJs',
     ],
-    urlPage: 'https://proyecto-el-buen-sabor.vercel.app/',
+    urlPage: '/projects/el-buen-sabor',
     img: '/assets/images/projects/green-1.webp',
     outstanding: true,
   },
@@ -50,8 +50,8 @@ const PROJECTS = [
     description:
       'Este proyecto es un portfolio diseñado para una estudiante de administración. Se utilizó Astro y Tailwind para el frontend y se desplegó en Vercel. Incluye un formulario de contacto integrado con la API de EmailJS.',
     technologies: ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'Astro', 'Vite'],
-    urlPage: 'https://d-burgers.vercel.app/',
-    urlCode: 'https://github.com/Maiten-Oviedo/d-burgers',
+    urlPage: 'https://adm-ursula.vercel.app/',
+    urlCode: 'https://github.com/Maiten-Oviedo/portfolio-ursula',
     img: '/assets/images/projects/green-4.webp',
   },
   {
@@ -80,7 +80,7 @@ const Projects = () => {
         {PROJECTS.map((project, index) => (
           <li
             key={index}
-            className={`group relative w-full h-auto overflow-hidden ${
+            className={`cursor-pointer group relative w-full h-auto overflow-hidden ${
               index < 2 ? 'col-span-3' : 'col-span-3 md:col-span-2'
             }`}
           >

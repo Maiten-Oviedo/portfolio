@@ -22,7 +22,7 @@ const ProjectItem = ({ project }) => {
             return (
               <li key={index}>
                 <img
-                  src={`./assets/icons/${tech}Icon.svg`}
+                  src={`/assets/icons/${tech}Icon.svg`}
                   alt={tech}
                   className="size-6"
                   title={tech}

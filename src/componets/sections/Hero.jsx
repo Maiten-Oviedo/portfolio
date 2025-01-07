@@ -10,39 +10,7 @@ import NetworkPill from '../common/NetworkPill'
 
 const Hero = () => {
   return (
-    <section className="text-inherit flex flex-col xl:h-screen">
-      <header className="py-[1.2em]">
-        <ul className="w-full text-[.7em] flex justify-between items-center">
-          <li className="flex-1 flex flex-col cursor-pointer">
-            <span className="w-max border-b-[1px] border-transparent ">
-              disponlible para
-            </span>
-            <span className="border-b-[1px] flex gap-2 items-center border-transparent w-max">
-              trabajar
-              <LineIcon className="size-5" />
-            </span>
-          </li>
-          <li className="flex-1 flex justify-center">
-            <a
-              href="https://www.linkedin.com/in/Maiten-Oviedo"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="border-b-[1px] border-transparent hover:border-white"
-            >
-              Linkedin
-            </a>
-          </li>
-          <li className="flex-1  flex flex-col items-end cursor-pointer">
-            <span className="border-b-[1px] border-transparent ">
-              portfolio
-            </span>{' '}
-            <span className="border-b-[1px] border-transparent flex gap-2 items-center w-max">
-              <LineIcon className="size-5" />
-              <span>vol 1</span>
-            </span>
-          </li>
-        </ul>
-      </header>
+    <section className="text-inherit flex flex-col  xl:h-screen">
       <div className="flex flex-col justify-center">
         <h1 className="text-[5em] flex flex-col font-extrabold">
           HOLA, SOY
@@ -117,7 +85,7 @@ const Hero = () => {
           </ul>
         </nav>
 
-        <div className="md:absolute pr-[1.3em] md:pb-[1.3em] right-0 bottom-0 self-center text-center md:text-start mt-10">
+        <div className="xl:absolute pr-[1.3em] md:pb-[1.3em] right-0 bottom-0 self-center md:self-end text-center md:text-start mt-10">
           <p className="text-[.7em] ">
             <span className="flex items-center gap-1">
               De Mendoza, Argentina{' '}
