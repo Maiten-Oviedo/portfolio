@@ -8,8 +8,8 @@ const PROJECTS = [
     description:
       'Ecommerce completo con métodos de pago mediante Mercado Pago y criptomonedas. El frontend fue desarrollado con React Vite y diversas librerías. Para el backend se utilizó Firebase y Node.js, integrando Mercado Pago y obteniendo datos de Google Analytics.',
     technologies: [
-      'Html',
-      'Css',
+      'HTML',
+      'CSS',
       'Tailwind',
       'Javascript',
       'TypeScript',
@@ -39,7 +39,7 @@ const PROJECTS = [
     alt: 'Imagen del proyecto de un clon de Spotify',
     description:
       'El proyecto es una aplicación web que simula la interfaz de usuario de Spotify. Incluye funcionalidades como la visualización de listas de reproducción, reproducción de canciones y control de volumen.',
-    technologies: ['Html', 'Css', 'Tailwind', 'TypeScript', 'React', 'Astro'],
+    technologies: ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'React', 'Astro'],
     urlPage: '/projects/spotify-clone',
     urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
     img: '/assets/images/projects/green-3.webp',
@@ -49,7 +49,7 @@ const PROJECTS = [
     alt: 'Imagen del proyecto de Portfolio Personal',
     description:
       'Este proyecto es un portfolio diseñado para una estudiante de administración. Se utilizó Astro y Tailwind para el frontend y se desplegó en Vercel. Incluye un formulario de contacto integrado con la API de EmailJS.',
-    technologies: ['Html', 'Css', 'Tailwind', 'TypeScript', 'Astro', 'Vite'],
+    technologies: ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'Astro', 'Vite'],
     urlPage: 'https://adm-ursula.vercel.app/',
     urlCode: 'https://github.com/Maiten-Oviedo/portfolio-ursula',
     img: '/assets/images/projects/green-4.webp',
@@ -59,7 +59,7 @@ const PROJECTS = [
     alt: 'Imagen del proyecto de un ecommerce',
     description:
       'Tienda de ropa moderna, con un diseño minimalista y elegante. Incluye carrito de compras utilizando localStorage. Proyecto realizado en el curso Argentina Programa - Primer Tramo.',
-    technologies: ['Html', 'Css', 'Javascript'],
+    technologies: ['HTML', 'CSS', 'Javascript'],
     urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
     urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
     img: '/assets/images/projects/green-5.webp',

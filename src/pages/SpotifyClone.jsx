@@ -1,5 +1,5 @@
 import ProjectPage from '../componets/common/ProjectPage'
-const TECHNOLOGIES = ['Html', 'Css', 'Tailwind', 'TypeScript', 'React', 'Astro']
+const TECHNOLOGIES = ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'React', 'Astro']
 
 const project = {
   title: 'ClonDeSpotify',
