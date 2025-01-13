@@ -17,6 +17,7 @@ const ProjectPage = ({ project }) => {
     h3,
     span1,
     span2,
+    nextProject,
   } = project
 
   const [ref1, isInView] = useInView({ triggerOnce: true, threshold: 0.5 })
@@ -28,7 +29,12 @@ const ProjectPage = ({ project }) => {
   const [ref7, isInView7] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [ref8, isInView8] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [ref9, isInView9] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref10, isInView10] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref11, isInView11] = useInView({ triggerOnce: true, threshold: 0.2 })
+
   let newTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
+  let nextProjectName = nextProject.replace(/([a-z])([A-Z])/g, '$1 $2')
+
   return (
     <>
       <section className="flex flex-col gap-[2em] md:gap-0 md:flex-row justify-between md:items-center md:h-[50vh] pt-[7em]">
@@ -182,6 +188,39 @@ const ProjectPage = ({ project }) => {
             isInView9 ? 'animate-slide-up-slow' : 'opacity-0'
           }`}
         />
+      </section>
+
+      <section className="border-t border-white/50 py-4">
+        <div className="flex flex-col md:flex-row justify-between md:items-start">
+          <p
+            ref={ref10}
+            className={`text-[2em]  flex flex-col self-center md:self-start ${
+              isInView10 ? 'animate-slide-right' : 'opacity-0'
+            }`}
+          >
+            <span>Próximo proyecto</span>
+            <a
+              className="flex justify-center md:justify-start text-[.8em] text-white/60 hover:text-white transition-all"
+              href={`/projects/${nextProject.toLowerCase()}`}
+            >
+              <span>ver</span>
+            </a>
+          </p>
+          <a
+            className="group relative w-max self-center md:self-auto"
+            href={`/projects/${nextProject.toLowerCase()}`}
+          >
+            <img
+              ref={ref11}
+              src={`/assets/images/projects/${nextProject}/logo.webp`}
+              alt={`Logo de proyecto ${nextProjectName}`}
+              className={`w-[18.8em]  ${
+                isInView11 ? 'animate-slide-left' : 'opacity-0'
+              }`}
+            />
+            <div className="absolute inset-0 bg-black/30 w-full h-full opacity-0 group-hover:opacity-100 transition-all"></div>
+          </a>
+        </div>
       </section>
     </>
   )

@@ -27,6 +27,7 @@ const project = {
     'El proyecto cuenta con una página dedicada al Admin (funcionalidades particulares para personal con permiso). Este espacio cuenta con opciones como Nueva Venta, Nueva Compra, Dashboard, Asientos Contables y ABM.',
   span2:
     'En todo este proceso aprendí a utilizar Firebase, Google Analitycs (Dashboard), Google Cloud y la librería de recharts.',
+  nextProject: 'ClonDeSpotify',
 }
 const ElBuenSabor = () => {
   return (

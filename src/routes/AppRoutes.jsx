@@ -17,7 +17,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/projects/el-buen-sabor/"
+          path="/projects/elbuensabor/"
           element={
             <Layout>
               <ElBuenSabor />
@@ -25,7 +25,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/projects/spotify-clone/"
+          path="/projects/clondespotify/"
           element={
             <Layout>
               <SpotifyClone />

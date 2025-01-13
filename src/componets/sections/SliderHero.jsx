@@ -19,7 +19,7 @@ const IMAGES = [
 
 const SliderHero = () => {
   const [isHover, setIsHover] = useState(false)
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 })
 
   return (
     <article

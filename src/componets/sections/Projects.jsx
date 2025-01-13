@@ -20,7 +20,7 @@ const PROJECTS = [
       'MercadoPago',
       'NodeJs',
     ],
-    urlPage: '/projects/el-buen-sabor',
+    urlPage: '/projects/elbuensabor',
     img: '/assets/images/projects/green-1.webp',
     outstanding: true,
   },
@@ -40,7 +40,7 @@ const PROJECTS = [
     description:
       'El proyecto es una aplicación web que simula la interfaz de usuario de Spotify. Incluye funcionalidades como la visualización de listas de reproducción, reproducción de canciones y control de volumen.',
     technologies: ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'React', 'Astro'],
-    urlPage: '/projects/spotify-clone',
+    urlPage: '/projects/clondespotify',
     urlCode: 'https://github.com/Maiten-Oviedo/spotify-clone',
     img: '/assets/images/projects/green-3.webp',
   },
