@@ -1,4 +1,3 @@
-import DownArrowIcon from '../../icons/DownArrowIcon'
 import GitHubIcon from '../../icons/GitHubIcon'
 import InstagramIcon from '../../icons/InstagramIcon'
 import LineIcon from '../../icons/LineIcon'
@@ -11,7 +10,7 @@ import NetworkPill from '../common/NetworkPill'
 const Hero = () => {
   return (
     <section className="text-inherit flex flex-col  xl:h-screen">
-      <div className="flex flex-col justify-center">
+      <div className="animate-slide-right flex flex-col justify-center">
         <h1 className="text-[5em] flex flex-col font-extrabold">
           HOLA, SOY
           <span className="md:pl-10 flex gap-2 items-center">
@@ -21,11 +20,11 @@ const Hero = () => {
             />
             <span className="tracking-widest">
               MAITÉN{' '}
-              <span className="italic hover:not-italic hover:animate-pulse cursor-pointer">
+              <span className=" italic hover:not-italic hover:animate-pulse cursor-pointer">
                 O
               </span>
               VIED
-              <span className="italic hover:not-italic hover:animate-pulse cursor-pointer -ml-1">
+              <span className=" italic hover:not-italic hover:animate-pulse cursor-pointer -ml-1">
                 O
               </span>
             </span>
@@ -33,19 +32,13 @@ const Hero = () => {
         </h1>
         <h2 className="flex gap-2 items-center text-[2em] mt-4">
           <p className="flex items-center">
-            <LineIcon className="size-6" /> desarrollador Front End
+            <LineIcon className="size-6" /> desarrollador front end
           </p>
-          <a
-            className="group w-max rotate-180 flex justify-center items-center "
-            href="#projects"
-          >
-            <DownArrowIcon className="size-[.7em] group-hover:animate-pulse" />
-          </a>
         </h2>
       </div>
       <article className="flex flex-col w-full items-start mt-8">
         <nav aria-label="Redes Sociales">
-          <ul className="flex justify-center md:justify-start flex-wrap gap-4">
+          <ul className="animate-slide-up flex justify-center md:justify-start flex-wrap gap-4">
             <li>
               <NetworkPill
                 href="https://www.linkedin.com/in/maiten-oviedo/"
@@ -85,8 +78,8 @@ const Hero = () => {
           </ul>
         </nav>
 
-        <div className="xl:absolute pr-[1.3em] md:pb-[1.3em] right-0 bottom-0 self-center md:self-end text-center md:text-start mt-10">
-          <p className="text-[.7em] ">
+        <div className="xl:absolute pr-[1.3em]  right-0 bottom-0 self-start md:self-end text-center md:text-start mt-10">
+          <p className="animate-slide-up text-[.7em] ">
             <span className="flex items-center gap-1">
               De Mendoza, Argentina{' '}
               <i title="Mate">

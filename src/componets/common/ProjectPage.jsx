@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import DownArrowIcon from '../../icons/DownArrowIcon'
 import RightArrow from '../../icons/RightArrow'
 import ProjectImageItem from './ProjectImageItem'
+import { useInView } from 'react-intersection-observer'
 
 const ProjectPage = ({ project }) => {
   const {
@@ -17,6 +18,16 @@ const ProjectPage = ({ project }) => {
     span1,
     span2,
   } = project
+
+  const [ref1, isInView] = useInView({ triggerOnce: true, threshold: 0.5 })
+  const [ref2, isInView2] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref3, isInView3] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref4, isInView4] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref5, isInView5] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref6, isInView6] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref7, isInView7] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref8, isInView8] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref9, isInView9] = useInView({ triggerOnce: true, threshold: 0.2 })
   let newTitle = title.replace(/([a-z])([A-Z])/g, '$1 $2')
   return (
     <>
@@ -29,7 +40,7 @@ const ProjectPage = ({ project }) => {
             </h1>
           </a>
           <h3 className="text-emerald-700/70 text-[1.5em]">{subtitle}</h3>
-          <ul className="flex flex-wrap md:justify-center gap-2 my-2">
+          <ul className="flex flex-wrap  gap-2 my-2">
             {technologies.map((tech, index) => {
               return (
                 <li key={index}>
@@ -52,16 +63,24 @@ const ProjectPage = ({ project }) => {
         <img
           src={`/assets/images/projects/${title}/hero.webp`}
           alt={`Imagen de proyecto ${newTitle} en Laptop`}
-          className="h-[35vh] w-full object-cover md:h-auto"
+          className="animate-slide-up-slow h-[35vh] w-full object-cover md:h-auto"
         />
       </article>
       <section className="flex flex-col gap-[2em] md:flex-row justify-around items-center">
         <img
+          ref={ref1}
           src={`/assets/images/projects/${title}/logo.webp`}
           alt={`Logo de proyecto ${newTitle}`}
-          className="w-[18.8em] md:size-[20em]"
+          className={`w-[18.8em] md:size-[20em] ${
+            isInView ? 'animate-slide-right' : 'opacity-0'
+          }`}
         />
-        <div className="md:max-w-[40%] text-justify flex flex-col gap-2">
+        <div
+          ref={ref2}
+          className={`md:max-w-[40%] text-justify flex flex-col gap-2 ${
+            isInView2 ? 'animate-slide-left' : 'opacity-0'
+          }`}
+        >
           <p>{p2}</p>
           <a
             href={href}
@@ -81,14 +100,20 @@ const ProjectPage = ({ project }) => {
       </section>
       <section>
         <ul className="flex flex-col md:flex-row gap-[2em] md:gap-0">
-          <li>
+          <li
+            ref={ref3}
+            className={isInView3 ? 'animate-slide-up-slow' : 'opacity-0'}
+          >
             <img
               className="h-[50vh] object-cover w-full md:h-auto md:w-[70%]"
               src={`/assets/images/projects/${title}/1.webp`}
               alt={`Imagen mockup de proyecto ${newTitle}`}
             />
           </li>
-          <li>
+          <li
+            ref={ref4}
+            className={isInView4 ? 'animate-slide-up-slow' : 'opacity-0'}
+          >
             <img
               className="h-[50vh] object-cover w-full md:h-auto"
               src={`/assets/images/projects/${title}/2.webp`}
@@ -99,8 +124,22 @@ const ProjectPage = ({ project }) => {
       </section>
       <section className="flex flex-col gap-[7em]">
         <div className="flex flex-col md:flex-row justify-between md:items-center">
-          <h2 className="text-[2em]">{h2}</h2>
-          <p className="md:max-w-[45%] text-justify">{p3}</p>
+          <h2
+            ref={ref5}
+            className={`text-[2em] ${
+              isInView5 ? 'animate-slide-right' : 'opacity-0'
+            }`}
+          >
+            {h2}
+          </h2>
+          <p
+            ref={ref6}
+            className={`md:max-w-[45%] text-justify ${
+              isInView6 ? 'animate-slide-left' : 'opacity-0'
+            }`}
+          >
+            {p3}
+          </p>
         </div>
         <ul className="grid grid-cols-2 gap-[5em]">
           {[3, 4, 5, 6].map(item => {
@@ -117,16 +156,31 @@ const ProjectPage = ({ project }) => {
       </section>
       <section className="flex flex-col gap-[7em] pb-[5em]">
         <div className="flex flex-col md:flex-row justify-between md:items-center ">
-          <h2 className="text-[2em]">{h3}</h2>
-          <p className="md:max-w-[45%] text-justify flex flex-col gap-2">
+          <h2
+            ref={ref7}
+            className={`text-[2em] ${
+              isInView7 ? 'animate-slide-right' : 'opacity-0'
+            }`}
+          >
+            {h3}
+          </h2>
+          <p
+            ref={ref8}
+            className={`md:max-w-[45%] text-justify flex flex-col gap-2 ${
+              isInView8 ? 'animate-slide-left' : 'opacity-0'
+            }`}
+          >
             <span>{span1}</span>
             <span>{span2}</span>
           </p>
         </div>
         <img
+          ref={ref9}
           src={`/assets/images/projects/${title}/7.webp`}
           alt={`Imagen mockup de proyecto ${newTitle}`}
-          className="h-[25vh] md:h-auto object-cover"
+          className={` sm:h-[60vh] md:h-[80vh] object-cover ${
+            isInView9 ? 'animate-slide-up-slow' : 'opacity-0'
+          }`}
         />
       </section>
     </>

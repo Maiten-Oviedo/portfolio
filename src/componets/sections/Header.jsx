@@ -1,10 +1,11 @@
 import LineIcon from '../../icons/LineIcon'
 import { useLocation } from 'react-router-dom'
+import { useInView } from 'react-intersection-observer'
 
 const Header = () => {
   const location = useLocation()
   const isPath = location.pathname.startsWith('/projects/')
-
+  const [ref1, inView] = useInView({ triggerOnce: true, threshold: 0.3 })
   return (
     <header
       className={`${
@@ -12,7 +13,12 @@ const Header = () => {
       } py-[1.2em]  px-2 md:px-[1.5em]`}
     >
       <ul className="w-full text-[.7em] flex justify-between items-center">
-        <li className="flex-1 flex flex-col cursor-pointer">
+        <li
+          ref={ref1}
+          className={`${
+            inView ? 'animate-slide-down' : 'opacity-0'
+          } flex-1 flex flex-col cursor-pointer`}
+        >
           <span className="w-max border-b-[1px] border-transparent ">
             disponlible para
           </span>
@@ -22,7 +28,12 @@ const Header = () => {
           </span>
         </li>
         {!isPath && (
-          <li className="flex-1 flex justify-center">
+          <li
+            ref={ref1}
+            className={`${
+              inView ? 'animate-slide-down' : 'opacity-0'
+            } flex-1 flex justify-center`}
+          >
             <a
               href="https://www.linkedin.com/in/Maiten-Oviedo"
               target="_blank"
@@ -34,7 +45,12 @@ const Header = () => {
           </li>
         )}
         {isPath && (
-          <li className="flex-1 flex justify-center">
+          <li
+            ref={ref1}
+            className={`${
+              inView ? 'animate-slide-down' : 'opacity-0'
+            } flex-1 flex justify-center`}
+          >
             <a
               href="/"
               className="border-b-[1px] border-transparent hover:border-white"
@@ -43,7 +59,12 @@ const Header = () => {
             </a>
           </li>
         )}
-        <li className="flex-1  flex flex-col items-end cursor-pointer">
+        <li
+          ref={ref1}
+          className={`${
+            inView ? 'animate-slide-down' : 'opacity-0'
+          } flex-1  flex flex-col items-end cursor-pointer`}
+        >
           <span className="border-b-[1px] border-transparent ">portfolio</span>{' '}
           <span className="border-b-[1px] border-transparent flex gap-2 items-center w-max">
             <LineIcon className="size-5" />

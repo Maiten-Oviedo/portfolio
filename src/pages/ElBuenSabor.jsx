@@ -1,7 +1,7 @@
 import ProjectPage from '../componets/common/ProjectPage'
 const TECHNOLOGIES = [
-  'HTML',
-  'CSS',
+  'Html',
+  'Css',
   'Tailwind',
   'Javascript',
   'TypeScript',

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import SliderImage from '../common/SliderImage'
+import { useInView } from 'react-intersection-observer'
 
 const IMAGES = [
   {
@@ -18,9 +19,15 @@ const IMAGES = [
 
 const SliderHero = () => {
   const [isHover, setIsHover] = useState(false)
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 })
 
   return (
-    <article className="w-max flex items-center justify-center">
+    <article
+      ref={ref}
+      className={`w-max flex items-center justify-center ${
+        inView ? 'animate-slide-up-slow duration-500' : 'opacity-0'
+      }`}
+    >
       <ul className="w-[30em] h-[29em] md:w-[21.5em] md:h-[21em] flex items-center justify-center">
         {IMAGES.map(image => (
           <SliderImage

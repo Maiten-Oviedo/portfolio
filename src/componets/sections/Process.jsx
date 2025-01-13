@@ -40,8 +40,8 @@ const Process = () => {
         </span>
       </h2>
       <ul className=" flex flex-col justify-end items-end gap-2">
-        {PROCESS.map(process => {
-          return <ProcessItem key={process.index} {...process} />
+        {PROCESS.map((process, index) => {
+          return <ProcessItem key={index} {...process} />
         })}
       </ul>
     </section>
