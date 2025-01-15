@@ -1,30 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const Contact = () => {
-  const itemRef = useRef()
-  const [isVisible, setIsVisible] = useState(false)
+  const [itemRef, isInView] = useInView({ triggerOnce: true, threshold: 1 })
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      {
-        threshold: 0.2,
-      }
-    )
-    if (itemRef.current) {
-      observer.observe(itemRef.current)
-    }
-
-    return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current)
-      }
-    }
-  }, [])
   return (
     <section
       id="contact"
@@ -33,7 +11,7 @@ const Contact = () => {
       <h2
         ref={itemRef}
         className={`text-[5em] z-10 text-center font-extrabold ${
-          isVisible ? 'animate-slide-up-slow' : 'opacity-0'
+          isInView ? 'animate-slide-up-slow' : 'opacity-0'
         }`}
       >
         ALGUNA IDEA?

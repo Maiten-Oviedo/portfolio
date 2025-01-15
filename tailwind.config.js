@@ -14,6 +14,7 @@ export default {
         'slide-up-slow': 'slide-up .7s ease-out forwards',
         'slide-right': 'slide-right .7s ease-out forwards',
         'slide-left': 'slide-left .7s ease-out forwards',
+        'slide-left-slow': 'slide-left-slow 1s ease-out forwards',
       },
       keyframes: {
         'slide-up': {
@@ -49,6 +50,16 @@ export default {
         'slide-left': {
           '0%': {
             transform: 'translateX(50px)', // Comienza un poco hacia abajo
+            opacity: '0', // Empieza invisible
+          },
+          '100%': {
+            transform: 'translateY(0)', // Llega a su posición original
+            opacity: '1', // Se vuelve completamente visible
+          },
+        },
+        'slide-left-slow': {
+          '0%': {
+            transform: 'translateX(150px)', // Comienza un poco hacia abajo
             opacity: '0', // Empieza invisible
           },
           '100%': {

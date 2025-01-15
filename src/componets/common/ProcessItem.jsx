@@ -17,7 +17,7 @@ const ProcessItem = process => {
         setIsOpen(!isOpen)
       }}
       className={`flex flex-col justify-center w-[90%] md:w-[65%] gap-2 border-b py-6 h-max overflow-hidden cursor-pointer ${
-        isInView ? 'animate-slide-left' : 'opacity-0'
+        isInView ? 'animate-slide-left-slow' : 'opacity-0'
       }`}
     >
       <div className="flex gap-2 self-end items-center">
@@ -31,14 +31,14 @@ const ProcessItem = process => {
         </h4>
         <button>
           <PlusIcon
-            className={`size-8 transition-all duration-500 ${
+            className={`size-8 transition-all duration-700 ${
               isOpen ? 'rotate-45' : 'rotate-0'
             }`}
           />
         </button>
       </div>
       <div
-        className={`transition-all duration-500 overflow-hidden ${
+        className={`transition-all duration-700 overflow-hidden ${
           isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >

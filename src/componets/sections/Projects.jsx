@@ -73,7 +73,7 @@ const Projects = () => {
         <span className="text-[1em] md:text-[.7em]">PROYECTOS</span>
         <span className="text-white/70 text-[1.2em]">
           Diseños y desarrllos
-          <span className="text-emerald-700/70">responsivos</span>
+          <span className="text-emerald-700/70"> responsivos</span>
         </span>
       </h2>
       <ol className="grid grid-cols-1 md:grid-cols-6 gap-6">
