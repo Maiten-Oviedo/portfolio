@@ -22,8 +22,8 @@ const ProjectPage = ({ project }) => {
 
   const [ref1, isInView] = useInView({ triggerOnce: true, threshold: 0.5 })
   const [ref2, isInView2] = useInView({ triggerOnce: true, threshold: 0.2 })
-  const [ref3, isInView3] = useInView({ triggerOnce: true, threshold: 0.2 })
-  const [ref4, isInView4] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref3, isInView3] = useInView({ triggerOnce: true, threshold: 0.1 })
+  const [ref4, isInView4] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [ref5, isInView5] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [ref6, isInView6] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [ref7, isInView7] = useInView({ triggerOnce: true, threshold: 0.2 })
@@ -177,7 +177,7 @@ const ProjectPage = ({ project }) => {
             }`}
           >
             <span>{span1}</span>
-            <span>{span2}</span>
+            {span2 && <span>{span2}</span>}
           </p>
         </div>
         <img

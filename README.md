@@ -1,7 +1,4 @@
-````
 # Portfolio de Maiten
-
-
 
 ## Descripción
 
@@ -17,6 +14,7 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
 ## Tecnologías utilizadas
 
 ### **Frontend:**
+
 - **React**: Librería principal para construir la interfaz de usuario.
 - **Tailwind CSS**: Framework de CSS para estilizar los componentes de manera eficiente.
 - **React Router**: Para manejar la navegación entre páginas y secciones.
@@ -24,6 +22,7 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
 - **Prop Types**: Para tipar props en componentes.
 
 ### **Otras herramientas:**
+
 - **Git & GitHub**: Para el control de versiones y pruebas de desarollo.
 - **Vercel**: Para el despliegue de mi web.
 
@@ -34,12 +33,15 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
 ### Componentes principales:
 
 1. **Header y Footer:**
+
    - Elementos no estáticos dado que queria el uso de toda la pantalla.
 
 2. **Hero:**
+
    - Diseño personal, simple y minimalista
 
 3. **Sección de proyectos:**
+
    - Uso del componente `ProjectItem` para renderizar proyectos.
    - Cada proyecto incluye:
      - Nombre y descripción.
@@ -48,22 +50,27 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
      - Enlace para ver la página dedicada al proyecto.
 
 4. **Proceso:**
+
    - Lista de puntos claves en el desarrollo de aplicaciones web.
    - Animaciones personalizadas para cada item.
 
 5. **Sobre Mí:**
+
    - Slider personalizado con animaciones entre imágenes.
    - Breve descripción de mis primeros pasos e intereses.
 
 6. **Contacto:**
+
    - Fondo con efecto parallax.
    - Botones simples que redirigen a Correo o, a WhatsApp.
 
 7. **Página particular para cada proyecto:**
+
    - Descripciones breves pero consisas y enlaces.
    - Imágenes y mockups relevantes.
 
 8. **Animaciones:**
+
    - Implementadas usando `react-intersection-observer` para activar efectos al entrar en vista.
    - Efectos como "slide up" aplicados a múltiples elementos visuales.
 
@@ -79,6 +86,8 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/Maiten-Oviedo/portfolio.git
+   ```
+
 ````
 
 2. Instalar las dependencias:
@@ -132,3 +141,4 @@ ya que que vercel no detecta las rutas de react-router-dom por defecto.
 ---
 
 ## Gracias por visitarlo :)
+````

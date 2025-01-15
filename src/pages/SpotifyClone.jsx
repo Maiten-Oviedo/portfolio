@@ -9,7 +9,7 @@ const project = {
   p1: 'Aplicación web funcional copiada de Spotify, la cual cuenta con una serie de playlist con sus respectivas canciones.',
   p2: 'El proyecto fue desarrollado siguiendo un tutorial de Midudev, en este aprendí a utilizar Astro y convinarlo con otros frameworks como React JS.',
   h2: 'Reproducción',
-  p3: 'La reproducción de música se produce combinando la propiedad de Astro de persistir un componente, el cual es de React J. ',
+  p3: 'La reproducción de música se produce combinando la propiedad de Astro de persistir un componente, el cual es de React Js. ',
   h3: 'Estado Global',
   span1:
     'Para el estado global de tanto la playlist como la música que se esta reproduciendo se utilizando la Zustand.',
