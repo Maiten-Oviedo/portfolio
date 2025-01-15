@@ -88,8 +88,6 @@ Este portfolio es un proyecto web desarrollado con el objetivo de mostrar mis ha
    git clone https://github.com/Maiten-Oviedo/portfolio.git
    ```
 
-````
-
 2. Instalar las dependencias:
 
    ```bash
