@@ -50,17 +50,17 @@ const PROJECTS = [
     description:
       'Este proyecto es un portfolio diseñado para una estudiante de administración. Se utilizó Astro y Tailwind para el frontend y se desplegó en Vercel. Incluye un formulario de contacto integrado con la API de EmailJS.',
     technologies: ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'Astro', 'Vite'],
-    urlPage: 'https://adm-ursula.vercel.app/',
+    urlPage: '/projects/portfoliopersonal',
     urlCode: 'https://github.com/Maiten-Oviedo/portfolio-ursula',
     img: '/assets/images/projects/green-4.webp',
   },
   {
-    name: 'Ecommerce',
+    name: 'Nine Urban',
     alt: 'Imagen del proyecto de un ecommerce',
     description:
       'Tienda de ropa moderna, con un diseño minimalista y elegante. Incluye carrito de compras utilizando localStorage. Proyecto realizado en el curso Argentina Programa - Primer Tramo.',
     technologies: ['HTML', 'CSS', 'Javascript'],
-    urlPage: 'https://maiten-oviedo.github.io/Ecommerce/',
+    urlPage: '/projects/nineurban',
     urlCode: 'https://github.com/Maiten-Oviedo/Ecommerce',
     img: '/assets/images/projects/green-5.webp',
   },

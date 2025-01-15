@@ -2,21 +2,22 @@ import ProjectPage from '../componets/common/ProjectPage'
 const TECHNOLOGIES = ['HTML', 'CSS', 'Tailwind', 'TypeScript', 'Astro', 'Vite']
 
 const project = {
-  title: 'Portfolio Website',
+  title: 'PortfolioPersonal',
   subtitle: 'estudiante de administración',
   technologies: TECHNOLOGIES,
   href: 'https://adm-ursula.vercel.app/',
-  p1: 'Fue realizado con Astro e impliementando componentes de React Js. Cuenta con distintas secciones y un formulario de contacto.',
-  p2: 'Dado que el portoflio esta dirigido para una estudiante de Administración, es estilo como la tipografía fueron elegidos de manera acorde con el tema, dandole un tono profesional pero agradable a la vista.',
+  p1: 'Fue realizado con Astro e implementando componentes de React JS. Cuenta con distintas secciones y un formulario de contacto.',
+  p2: 'Dado que el portafolio está dirigido a una estudiante de Administración, su estilo y tipografía fueron elegidos de manera acorde al tema, dándole un tono profesional pero agradable a la vista.',
   h2: 'Componentes',
-  p3: 'En este proyecto decidí utilizar varios componentes de Flowbite, dado la rapidez que ofrece para construir y adaptar estos componentes.',
+  p3: 'En este proyecto decidí utilizar varios componentes de Flowbite, dada la rapidez que ofrece para construir y adaptar estos componentes.',
   h3: 'Contacto',
   span1:
-    'Para realizar un formulario de contacto funcional, opté por utilizar EmailJs, para esto inicie sesión con la cuenta del usuario y cree el template. Una vez creado los correos se envian utilizando el ServiceId y el TemplateID.',
+    'Para realizar un formulario de contacto funcional, opté por utilizar EmailJS. Para esto, inicié sesión con la cuenta del usuario y creé el template. Una vez creado, los correos se envían utilizando el ServiceID y el TemplateID.',
   span2:
-    'En todo este proceso aprendí a utilizar Firebase, Google Analitycs (Dashboard), Google Cloud y la librería de recharts.',
-  nextProject: 'ClonDeSpotify',
+    'En todo este proceso, aprendí a utilizar Firebase, Google Analytics (Dashboard), Google Cloud y la librería de Recharts.',
+  nextProject: 'NineUrban',
 }
+
 const PersonalPortfolio = () => {
   return (
     <>
