@@ -13,8 +13,6 @@ const project = {
   h3: 'Contacto',
   span1:
     'Para realizar un formulario de contacto funcional, opté por utilizar EmailJS. Para esto, inicié sesión con la cuenta del usuario y creé el template. Una vez creado, los correos se envían utilizando el ServiceID y el TemplateID.',
-  span2:
-    'En todo este proceso, aprendí a utilizar Firebase, Google Analytics (Dashboard), Google Cloud y la librería de Recharts.',
   nextProject: 'NineUrban',
 }
 
