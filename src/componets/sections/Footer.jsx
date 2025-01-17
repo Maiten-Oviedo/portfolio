@@ -5,13 +5,13 @@ const Footer = () => {
   const isPath = location.pathname.startsWith('/projects/')
   return (
     <footer
-      className={
+      className={`${
         isPath
           ? 'bg-zinc-950 px-[2em] md:px-[4em] xl:px-[6em]'
-          : 'px-2 md:px-[1.5em]'
-      }
+          : 'px-2 sm:px-[1em] md:px-[2em] xl:px-[3em]'
+      } text-[.7em] sm:text-[.8em] xl:text-[.9em`}
     >
-      <ul className="flex flex-wrap justify-center gap-4 sm:justify-between items-center text-[.9em] md:text-[.7em] py-2">
+      <ul className="flex flex-wrap gap-4 justify-between items-center  py-4">
         <li>
           <a href="/#" className="cursor-pointer">
             Inicio

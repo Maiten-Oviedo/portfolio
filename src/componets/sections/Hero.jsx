@@ -79,7 +79,7 @@ const Hero = () => {
         </nav>
 
         <div className="xl:absolute pr-[1.3em]  right-0 bottom-0 self-start md:self-end text-center md:text-start mt-10">
-          <p className="animate-slide-up text-[.7em] ">
+          <p className="animate-slide-up text-[1.1em] sm:text-[1.1em] lg:text-[.8em] xl:text-[.7em]">
             <span className="flex items-center gap-1">
               De Mendoza, Argentina{' '}
               <i title="Mate">

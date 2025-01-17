@@ -10,9 +10,9 @@ const Header = () => {
     <header
       className={`${
         isPath && 'bg-zinc-950 px-[2em] md:px-[4em] xl:px-[6em]'
-      } py-[1.2em]  px-2 md:px-[1.5em]`}
+      } py-[1.2em]  px-2 md:px-[1.5em] text-[.7em] sm:text-[.8em] xl:text-[.9em]`}
     >
-      <ul className="w-full text-[.7em] flex justify-between items-center">
+      <ul className="w-full  flex justify-between items-center">
         <li
           ref={ref1}
           className={`${
@@ -68,7 +68,7 @@ const Header = () => {
           <span className="border-b-[1px] border-transparent ">portfolio</span>{' '}
           <span className="border-b-[1px] border-transparent flex gap-2 items-center w-max">
             <LineIcon className="size-5" />
-            <span>vol 1</span>
+            <span>vol 2</span>
           </span>
         </li>
       </ul>

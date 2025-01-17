@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout'
 import SpotifyClone from '../pages/SpotifyClone'
 import PersonalPortfolio from '../pages/PersonalPortfolio'
 import NineUrban from '../pages/NineUrban'
+import PostLayout from '../layouts/PostLayout'
+import Blog from '../pages/Blog'
 
 const AppRoutes = () => {
   return (
@@ -50,6 +52,8 @@ const AppRoutes = () => {
             </Layout>
           }
         />
+        <Route path="/blog/" element={<Blog />} />
+        <Route path="/blog/:slug" element={<PostLayout />} />
       </Routes>
     </>
   )

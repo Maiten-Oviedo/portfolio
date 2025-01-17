@@ -11,7 +11,8 @@ html {
 body {
   font-family: 'Sora', sans-serif;
   color: #fff;
-  background-color: #000;
+  --tw-bg-opacity: 1;
+  background-color: rgb(9 9 11 / var(--tw-bg-opacity, 1));
   overflow-x: hidden;
   box-sizing: border-box;
   margin: 0;
