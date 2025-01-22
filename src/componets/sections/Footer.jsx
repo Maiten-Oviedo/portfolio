@@ -1,8 +1,21 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Footer = () => {
   const location = useLocation()
-  const isPath = location.pathname.startsWith('/projects/')
+  const navigate = useNavigate()
+  const isPath = location.pathname !== '/'
+
+  const toSection = homeSection => {
+    if (isPath) {
+      navigate('/') // Navega a la página de inicio
+    }
+    // Siempre hacemos scroll a la sección "nosotros"
+    setTimeout(() => {
+      //setTimeOut espera 100ms antes de hacer scroll
+      const section = document.getElementById(homeSection)
+      section?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
   return (
     <footer
       className={`${
@@ -13,29 +26,51 @@ const Footer = () => {
     >
       <ul className="flex flex-wrap gap-4 justify-between items-center  py-4">
         <li>
-          <a href="/#" className="cursor-pointer">
-            Inicio
-          </a>
+          <Link to="/">Inicio</Link>
         </li>
         <li>
-          <a href="/#projects" className="cursor-pointer">
+          <Link
+            to="/projects"
+            onClick={e => {
+              e.preventDefault()
+              toSection('projects')
+            }}
+          >
             Proyectos
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/#process" className="cursor-pointer">
+          <Link
+            to="/process"
+            onClick={e => {
+              e.preventDefault()
+              toSection('process')
+            }}
+          >
             Proceso
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/#about" className="cursor-pointer">
+          <Link
+            to="/about"
+            onClick={e => {
+              e.preventDefault()
+              toSection('about')
+            }}
+          >
             Sobre Mí
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/#contact" className="cursor-pointer">
+          <Link
+            to="/contact"
+            onClick={e => {
+              e.preventDefault()
+              toSection('contact')
+            }}
+          >
             Contacto
-          </a>
+          </Link>
         </li>
         <li>
           <a
