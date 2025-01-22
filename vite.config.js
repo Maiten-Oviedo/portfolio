@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [
-        { src: 'src/posts/*.md', dest: 'posts' }, // Ajusta las rutas según tu estructura
+        { src: 'src/posts/*', dest: 'posts' }, // Ajusta las rutas según tu estructura
       ],
     }),
   ],

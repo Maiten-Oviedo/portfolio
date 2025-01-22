@@ -13,7 +13,7 @@ const PostLayout = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`/src/posts/${slug}.md`)
+        const response = await fetch(`/posts/${slug}.md`)
         const data = await response.text()
         setContent(data)
       } catch (error) {
