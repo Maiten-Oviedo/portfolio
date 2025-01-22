@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import staticCopy from 'vite-plugin-static-copy'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    staticCopy({
+    viteStaticCopy({
       targets: [
         { src: 'src/posts/*.md', dest: 'posts' }, // Ajusta las rutas según tu estructura
       ],
