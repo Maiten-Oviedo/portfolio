@@ -32,7 +32,7 @@ const PostLayout = () => {
       <main className="markdown prose xl:prose-xl px-4">
         <Markdown
           components={{
-            code({ node, inline, className, children, ...props }) {
+            code({ inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || '')
               return !inline && match ? (
                 <SyntaxHighlighter
