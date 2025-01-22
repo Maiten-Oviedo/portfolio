@@ -17,8 +17,11 @@ const PostLayout = () => {
         const data = await response.text()
         setContent(data)
       } catch (error) {
-        console.error('Error fetching post:', error)
-        setContent('# Post no encontrado')
+        setContent(`
+        #Post no encontrado
+
+        Error: ${error}
+        `)
       }
     }
 
@@ -26,6 +29,8 @@ const PostLayout = () => {
       fetchPost()
     }
   }, [slug])
+
+  console.log(content)
 
   return (
     <Layout>

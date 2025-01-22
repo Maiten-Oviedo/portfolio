@@ -6,15 +6,15 @@ const ProjectItem = ({ project, index }) => {
   const { technologies, img, alt, urlCode, urlPage, name, description } =
     project
 
-  const [ref1, inView] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 })
 
   return (
     <li
-      ref={ref1}
+      ref={ref}
       key={index}
       className={`cursor-pointer  group relative w-full h-auto overflow-hidden ${
         index < 2 ? 'col-span-3' : 'col-span-3 md:col-span-2'
-      } ${inView ? 'animate-slide-up' : 'opacity-0'}`}
+      } ${inView ? 'animate-slide-up-slow' : 'opacity-0'}`}
     >
       <article className="w-full">
         <img

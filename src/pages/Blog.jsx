@@ -12,7 +12,7 @@ const POSTS = [
 ]
 const Blog = () => (
   <Layout>
-    <main className="min-h-[80vh] px-[1.5em] md:px-[3em] xl:px-[4em] w-full">
+    <main className="min-h-[80vh] px-[1.5em] md:px-[3em] xl:px-[4.5em] w-full text-[.8em] sm:text-[1em]">
       <h1 className="text-[3em]"></h1>
       <ul className="flex flex-col gap-[1em]">
         {POSTS.map((post, index) => {

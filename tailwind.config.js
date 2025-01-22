@@ -12,7 +12,7 @@ export default {
       animation: {
         'slide-up': 'slide-up .3s ease-out forwards', // Define la animación
         'slide-down': 'slide-down .7s ease-out forwards',
-        'slide-up-slow': 'slide-up .7s ease-out forwards',
+        'slide-up-slow': 'slide-up-slow .7s ease-out forwards',
         'slide-right': 'slide-right .7s ease-out forwards',
         'slide-left': 'slide-left .7s ease-out forwards',
         'slide-left-slow': 'slide-left-slow 1s ease-out forwards',
@@ -21,6 +21,16 @@ export default {
         'slide-up': {
           '0%': {
             transform: 'translateY(80px)', // Comienza un poco hacia abajo
+            opacity: '0', // Empieza invisible
+          },
+          '100%': {
+            transform: 'translateY(0)', // Llega a su posición original
+            opacity: '1', // Se vuelve completamente visible
+          },
+        },
+        'slide-up-slow': {
+          '0%': {
+            transform: 'translateY(120px)', // Comienza un poco hacia abajo
             opacity: '0', // Empieza invisible
           },
           '100%': {
