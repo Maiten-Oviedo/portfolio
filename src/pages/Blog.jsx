@@ -3,6 +3,13 @@ import BlogItem from '../componets/common/BlogItem'
 
 const POSTS = [
   {
+    slug: 'error-boundaries',
+    title: 'ejemplos de errores',
+    date: '2025-01-27',
+    content:
+      'Análiis de errores y como manejarlos con Error Boundaries en React JS.',
+  },
+  {
     slug: 'react-context-api',
     title: 'con Typescript',
     date: '2025-01-14',
