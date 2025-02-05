@@ -3,6 +3,13 @@ import BlogItem from '../componets/common/BlogItem'
 
 const POSTS = [
   {
+    slug: 'useApi-with-axios',
+    title: 'custom hook',
+    date: '2025-02-5',
+    content:
+      'Creando un cliente HTTP con Axios y Typescript para manejar interceptores.',
+  },
+  {
     slug: 'error-boundaries',
     title: 'ejemplos de errores',
     date: '2025-01-27',
