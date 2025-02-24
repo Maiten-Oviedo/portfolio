@@ -296,7 +296,7 @@ return {
 }
 ```
 
-Pero si queremos implementar nuestro _useApi()_ con nuestro servicio, este debe cambiar el su primer parámetro.
+Pero si queremos implementar nuestro _useApi()_ con nuestro servicio, este debe cambiar su primer parámetro.
 
 Para esto, crearemos un nuevo modelo para nuestro parámetro _apiCall_ que contemple este objeto:
 

@@ -5,7 +5,7 @@ const POSTS = [
   {
     slug: 'useApi-with-axios',
     title: 'custom hook',
-    date: '2025-02-5',
+    date: '2025-02-05',
     content:
       'Creando un cliente HTTP con Axios y Typescript para manejar interceptores.',
   },

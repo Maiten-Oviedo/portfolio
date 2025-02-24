@@ -1,5 +1,7 @@
+import { useRef } from 'react'
 import DownArrowIcon from '../../icons/DownArrowIcon'
 import ProjectItem from '../common/ProjectItem'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const PROJECTS = [
   {
@@ -67,23 +69,43 @@ const PROJECTS = [
 ]
 
 const Projects = () => {
+  const targetRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const x = useTransform(scrollYProgress, [0, 1], ['35%', '-95%'])
+
   return (
-    <section id="projects" className="flex flex-col scroll-m-3">
-      <h2 className="flex flex-col justify-center gap-2  items-end md:items-start font-extrabold mb-1">
+    <section ref={targetRef} id="projects" className="relative md:h-[300vh]">
+      <h2 className="flex flex-col justify-center gap-2 items-end md:items-start font-extrabold mb-1">
         <span className="text-[1em] md:text-[.7em]">PROYECTOS</span>
         <span className="text-white/70 text-[1.2em]">
-          Diseños y desarrllos
+          Diseños y desarrollos
           <span className="text-emerald-700/70"> responsivos</span>
         </span>
       </h2>
-      <ol className="grid grid-cols-1 md:grid-cols-6 gap-6">
-        {PROJECTS.map((project, index) => (
-          <ProjectItem key={index} project={project} index={index} />
+
+      {/* Desktop (con scroll horizontal) */}
+      <div className="hidden md:flex sticky top-0 h-screen items-center overflow-hidden">
+        <motion.ol style={{ x }} className="flex gap-10">
+          {PROJECTS.map(project => (
+            <ProjectItem key={project.id || project.name} project={project} />
+          ))}
+        </motion.ol>
+      </div>
+
+      {/* Móvil (lista vertical) */}
+      <ol className="md:hidden grid grid-cols-1 gap-6">
+        {PROJECTS.map(project => (
+          <ProjectItem key={project.id || project.name} project={project} />
         ))}
       </ol>
+
       <a
         href="https://github.com/Maiten-Oviedo"
-        className="group flex w-max gap-2 text-center items-center font-bold mt-8 self-center hover:scale-105 transition-transform"
+        className="md:absolute bottom-0 group flex w-full md:w-max gap-2 text-center justify-center md:justify-normal items-center font-bold mt-8 self-center hover:scale-105 transition-transform"
         target="_blank"
         rel="noreferrer noopener"
       >

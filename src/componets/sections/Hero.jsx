@@ -9,17 +9,23 @@ import NetworkPill from '../common/NetworkPill'
 
 const Hero = () => {
   return (
-    <section className="text-inherit flex flex-col  xl:h-screen">
-      <div className="animate-slide-right flex flex-col justify-center">
-        <h1 className="text-[5em] flex flex-col font-extrabold">
+    <section className="text-inherit flex flex-col xl:h-screen">
+      <div className="animate-slide-right flex flex-col justify-center items-center md:items-start ">
+        <h1 className="text-[5em] flex flex-col font-extrabold items-center md:items-start">
           HOLA, SOY
-          <span className="md:pl-10 flex gap-2 items-center">
+          <span className="md:pl-10 flex gap-2 items-center md:items-start ">
             <Mountain
-              className="size-[1.7em] md:size-[1.5em] self-start md:self-auto"
+              className="hidden md:block size-[1.5em] self-start md:self-auto"
               aria-hidden="true"
             />
-            <span className="tracking-widest">
-              MAITÉN{' '}
+            <span className="tracking-widest text-center md:text-start">
+              <span className="flex md:inline items-center md:items-start">
+                <Mountain
+                  className=" md:hidden size-[1.4em]  self-start md:self-auto"
+                  aria-hidden="true"
+                />{' '}
+                MAITÉN{' '}
+              </span>
               <span className=" italic hover:not-italic hover:animate-pulse cursor-pointer">
                 O
               </span>
@@ -78,9 +84,9 @@ const Hero = () => {
           </ul>
         </nav>
 
-        <div className="xl:absolute pr-[1.3em]  right-0 bottom-0 self-start md:self-end text-center md:text-start mt-10">
-          <p className="animate-slide-up text-[1.1em] sm:text-[1.1em] lg:text-[.8em] xl:text-[.7em]">
-            <span className="flex items-center gap-1">
+        <div className="xl:absolute pr-[1.3em] right-0 bottom-0 self-start md:self-end text-center md:text-start mt-10 w-full">
+          <p className="animate-slide-up text-center md:text-end text-[1.1em] sm:text-[1.1em] lg:text-[.8em] xl:text-[.7em]">
+            <span className="flex items-center gap-1 justify-center md:justify-end">
               De Mendoza, Argentina{' '}
               <i title="Mate">
                 <MateIcon className="size-[1em]" />
