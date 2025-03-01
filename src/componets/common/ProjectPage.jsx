@@ -111,16 +111,20 @@ const ProjectPage = ({ project }) => {
       </section>
       <section>
         <ul className="flex flex-col md:flex-row gap-[2em] md:gap-0">
-          <img
-            className="h-[50vh] object-cover w-full md:h-auto md:w-[70%]"
-            src={`/assets/images/projects/${title}/1.webp`}
-            alt={`Imagen mockup de proyecto ${newTitle}`}
-          />
-          <img
-            className="h-[50vh] object-cover w-full md:h-auto"
-            src={`/assets/images/projects/${title}/2.webp`}
-            alt={`Imagen mockup de proyecto ${newTitle}`}
-          />
+          <li>
+            <img
+              className="h-[50vh] object-cover w-full md:h-auto md:w-[70%]"
+              src={`/assets/images/projects/${title}/1.webp`}
+              alt={`Imagen mockup de proyecto ${newTitle}`}
+            />
+          </li>
+          <li>
+            <img
+              className="h-[50vh] object-cover w-full md:h-auto"
+              src={`/assets/images/projects/${title}/2.webp`}
+              alt={`Imagen mockup de proyecto ${newTitle}`}
+            />
+          </li>
         </ul>
       </section>
       <section className="flex flex-col gap-[7em]">
