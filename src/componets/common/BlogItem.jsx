@@ -15,7 +15,7 @@ const BlogItem = ({ post }) => {
         <h2 className="text-[4em] text-emerald-700 group-hover:text-emerald-500 group-hover:animate-pulse">
           {post.slug}
         </h2>
-        <small className="text-[.9em] text-white/70">{post.date}</small>
+        <time className="text-[.9em] text-white/70">{post.date}</time>
         <h3 className="text-[1.5em]">{post.title}</h3>
         <p>{post.content}</p>
       </Link>

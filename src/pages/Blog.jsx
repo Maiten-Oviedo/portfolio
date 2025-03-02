@@ -3,6 +3,12 @@ import BlogItem from '../componets/common/BlogItem'
 
 const POSTS = [
   {
+    slug: 'composition-pattern',
+    title: 'comunicación entre componentes',
+    date: '2025-03-02',
+    content: 'El mejor método para evitar el prop drillin de manera sencilla.',
+  },
+  {
     slug: 'useApi-with-axios',
     title: 'custom hook',
     date: '2025-02-05',

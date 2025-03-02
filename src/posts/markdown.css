@@ -27,7 +27,7 @@
 }
 
 .markdown a {
-  @apply text-emerald-700 underline hover:text-blue-800;
+  @apply text-blue-500 underline hover:text-blue-800;
 }
 
 .markdown pre {
