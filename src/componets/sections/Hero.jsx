@@ -81,6 +81,15 @@ const Hero = () => {
                 <p>Email</p>
               </NetworkPill>
             </li>
+            <li>
+              <NetworkPill
+                href="https://maiten-dev.vercel.app/MAITEN-OVIEDO-CV.pdf"
+                aria-label="Curriculum Vitae"
+              >
+                <Mountain className="size-4" aria-label="true" />
+                <p>CV</p>
+              </NetworkPill>
+            </li>
           </ul>
         </nav>
 
