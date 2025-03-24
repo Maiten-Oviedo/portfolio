@@ -78,12 +78,17 @@ const Projects = () => {
   const x = useTransform(scrollYProgress, [0, 1], ['35%', '-95%'])
 
   return (
-    <section ref={targetRef} id="projects" className="relative md:h-[300vh]">
+    <section
+      ref={targetRef}
+      id="projects"
+      className="relative md:h-[300vh]"
+      aria-label="Sección de proyectos"
+    >
       <h2 className="flex flex-col justify-center gap-2 items-end md:items-start font-extrabold mb-1">
         <span className="text-[1em] md:text-[.7em]">PROYECTOS</span>
         <span className="text-white/70 text-[1.2em]">
           Diseños y desarrollos
-          <span className="text-emerald-700/70"> responsivos</span>
+          <span className="text-primary"> responsivos</span>
         </span>
       </h2>
 
@@ -108,6 +113,8 @@ const Projects = () => {
         className="md:absolute bottom-0 group flex w-full md:w-max gap-2 text-center justify-center md:justify-normal items-center font-bold mt-8 self-center hover:scale-105 transition-transform"
         target="_blank"
         rel="noreferrer noopener"
+        aria-description="Ver más proyectos en mi perfil de GitHub"
+        aria-label="Ver más proyectos en mi perfil de GitHub"
       >
         VER MÁS PROYECTOS{' '}
         <DownArrowIcon className="size-[.9em] rotate-90 group-hover:rotate-[450deg] transition-all duration-700" />

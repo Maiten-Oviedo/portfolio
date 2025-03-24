@@ -7,8 +7,8 @@ const About = () => {
       <h2 className="flex flex-col justify-center items-end md:items-start gap-2 font-extrabold">
         <span className="text-[1em] md:text-[.7em]">SOBRE MÍ</span>
         <span className="flex gap-2 text-white/70 text-[1.2em] text-nowrap">
-          <span>Desarrollador Frotend</span>
-          <span className="text-emerald-700/70">+ 1 año de experiencia</span>
+          <span>Desarrollador Frontend</span>
+          <span className="text-primary">+ 1 año de experiencia</span>
         </span>
       </h2>
       <div className="flex flex-col justify-between items-center gap-4 md:flex-row-reverse md:gap-8">
@@ -45,11 +45,12 @@ const About = () => {
         </article>
 
         <article className="flex flex-col items-center">
-          <SliderHero />
+          <SliderHero aria-label="Slider de imágenes sobre el perfil de Maiten Oviedo" />
           <a
             href="https://www.instagram.com/maiten_oviedo"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Ir al perfil de Instagram de Maiten Oviedo"
           >
             <p className="text-[.7em] text-white/60 hover:text-white">
               @maiten_oviedo

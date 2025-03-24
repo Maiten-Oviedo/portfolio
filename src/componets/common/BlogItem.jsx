@@ -12,7 +12,7 @@ const BlogItem = ({ post }) => {
       }`}
     >
       <Link to={`/blog/${post.slug}`}>
-        <h2 className="text-[4em] text-emerald-700 group-hover:text-emerald-500 group-hover:animate-pulse">
+        <h2 className="text-[4em] text-primary group-hover:text-emerald-800 group-hover:animate-pulse">
           {post.slug}
         </h2>
         <time className="text-[.9em] text-white/70">{post.date}</time>

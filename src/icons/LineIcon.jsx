@@ -10,6 +10,7 @@ const LineIcon = ({ className }) => {
       stroke="#ffffff"
       strokeWidth="0.00024000000000000003"
     >
+      <title>Line Icon, Icono de una Guíon</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

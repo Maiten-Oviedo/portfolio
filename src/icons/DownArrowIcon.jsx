@@ -16,8 +16,8 @@ const DownArrowIcon = ({ className }) => {
       aria-label=""
       fill="#ffffff"
     >
+      <title>DownArrow Icon, Icono de Flecha hacia abajo</title>
       <g>
-        {/* Ajustamos las coordenadas para hacer líneas más delgadas */}
         <path d="M51.04 177.6H23V25h155v28H77.318l93.597 95.064-20.458 21.483L55.055 72.1v3.407L51.04 177.6z"></path>
       </g>
     </svg>

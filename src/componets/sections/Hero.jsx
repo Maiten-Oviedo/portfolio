@@ -15,40 +15,41 @@ const Hero = () => {
           HOLA, SOY
           <span className="md:pl-10 flex gap-2 items-center md:items-start ">
             <Mountain
-              className="hidden md:block size-[1.5em] self-start md:self-auto"
+              className="hidden md:block size-[1.5em]"
               aria-hidden="true"
             />
             <span className="tracking-widest text-center md:text-start">
               <span className="flex md:inline items-center md:items-start">
                 <Mountain
-                  className=" md:hidden size-[1.4em]  self-start md:self-auto"
+                  className="md:hidden size-[1.4em]"
                   aria-hidden="true"
-                />{' '}
+                />
                 MAITÉN{' '}
               </span>
-              <span className=" italic hover:not-italic hover:animate-pulse cursor-pointer">
+              <span
+                className="italic hover:not-italic cursor-pointer"
+                aria-label="O VIEDO"
+              >
                 O
               </span>
-              VIED
-              <span className=" italic hover:not-italic hover:animate-pulse cursor-pointer -ml-1">
-                O
-              </span>
+              VIEDO
             </span>
           </span>
         </h1>
         <h2 className="flex gap-2 items-center text-[2em] mt-4">
           <p className="flex items-center">
-            <LineIcon className="size-6" /> desarrollador front end
+            <LineIcon className="size-6 hidden md:block" /> desarrollador full
+            stack
           </p>
         </h2>
       </div>
-      <article className="flex flex-col w-full items-start mt-8">
+      <article className="flex flex-col w-full items-start md:items-center mt-8">
         <nav aria-label="Redes Sociales">
           <ul className="animate-slide-up flex justify-center md:justify-start flex-wrap gap-4">
             <li>
               <NetworkPill
                 href="https://www.linkedin.com/in/maiten-oviedo/"
-                aria-label="LinkedIn"
+                aria-label="Visita mi LinkedIn"
               >
                 <LinkedinIcon className="size-4" aria-hidden="true" />
                 <p>LinkedIn</p>
@@ -57,7 +58,7 @@ const Hero = () => {
             <li>
               <NetworkPill
                 href="https://github.com/Maiten-Oviedo"
-                aria-label="GitHub"
+                aria-label="Visita mi GitHub"
               >
                 <GitHubIcon className="size-4" aria-hidden="true" />
                 <p>GitHub</p>
@@ -66,7 +67,7 @@ const Hero = () => {
             <li>
               <NetworkPill
                 href="https://www.instagram.com/maiten_oviedo"
-                aria-label="Instagram"
+                aria-label="Visita mi Instagram"
               >
                 <InstagramIcon className="size-4" aria-hidden="true" />
                 <p>Instagram</p>
@@ -75,7 +76,7 @@ const Hero = () => {
             <li>
               <NetworkPill
                 href="mailto:maitenoviedo513@gmail.com"
-                aria-label="Email"
+                aria-label="Visita mi Email"
               >
                 <MailIcon className="size-4" aria-hidden="true" />
                 <p>Email</p>
@@ -84,7 +85,7 @@ const Hero = () => {
             <li>
               <NetworkPill
                 href="https://maiten-dev.vercel.app/MAITEN-OVIEDO-CV.pdf"
-                aria-label="Curriculum Vitae"
+                aria-label="Revisa mi Curriculum Vitae"
               >
                 <Mountain className="size-4" aria-label="true" />
                 <p>CV</p>

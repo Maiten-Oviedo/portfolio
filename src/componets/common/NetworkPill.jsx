@@ -7,6 +7,7 @@ const NetworkPill = ({ children, href }) => {
       target="_blank"
       rel="noopener no referrer"
       href={href}
+      aria-label={'Visita mi red social'}
     >
       {children}
     </a>

@@ -12,6 +12,7 @@ const MateIcon = ({ className }) => {
       preserveAspectRatio="xMidYMid meet"
       fill="#000000"
     >
+      <title>Mate Icon, Icono de un Mate</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

@@ -15,6 +15,7 @@ const RightArrow = ({ className }) => {
       xmlSpace="preserve"
       stroke="#000000"
     >
+      <title>RightArrow Icon, Icono de flecha hacia la derecha</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

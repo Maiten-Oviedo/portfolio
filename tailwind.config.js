@@ -6,6 +6,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'], // Asegúrate de incluir tus archivos
   theme: {
     extend: {
+      colors: {
+        primary: '#08f7b3b3',
+      },
       fontFamily: {
         sora: ['Sora', ...defaultTheme.fontFamily.sans], // Agrega "Sora" y usa sans-serif como fallback
       },

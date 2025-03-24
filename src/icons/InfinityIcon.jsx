@@ -8,6 +8,7 @@ const InfinityIcon = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="#cccccc"
     >
+      <title>Infinity Icon, Icono de un Infinito</title>
       <g>
         <path
           fill="#bbbbbb"

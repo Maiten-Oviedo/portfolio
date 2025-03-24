@@ -27,6 +27,8 @@ const SliderHero = () => {
       className={`w-max flex items-center justify-center ${
         inView ? 'animate-slide-up-slow duration-500' : 'opacity-0'
       }`}
+      aria-live="polite" // Para que el cambio de contenido en el slider se anuncie
+      aria-roledescription="carousel" // Indicamos que este es un carrusel de imágenes
     >
       <ul className="w-[30em] h-[29em] md:w-[21.5em] md:h-[21em] flex items-center justify-center">
         {IMAGES.map(image => (
@@ -36,6 +38,7 @@ const SliderHero = () => {
             description={image.description}
             isHover={isHover}
             setIsHover={setIsHover}
+            aria-label={`Imagen de ${image.description}`}
           />
         ))}
       </ul>

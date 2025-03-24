@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import Badge from './Badge'
 import { motion } from 'framer-motion'
@@ -23,9 +24,12 @@ const ProjectItem = ({ project }) => {
     >
       <article className="w-full">
         <img
+          loading="lazy"
           src={img}
           alt={alt}
           className="w-full object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform duration-700"
+          width={720}
+          height={400}
         />
       </article>
       <div className="absolute inset-0 bg-gradient-to-b from-slate-800/40 via-slate-800/70 opacity-0 to-black group-hover:opacity-100"></div>
@@ -33,13 +37,14 @@ const ProjectItem = ({ project }) => {
         <h3 className="text-[1.3em] font-bold text-white">{name}</h3>
         <p className="text-white text-[1em] md:text-[.7em]">{description}</p>
         <ul className="flex flex-wrap justify-center gap-2 my-2">
-          {technologies.map((tech, index) => (
-            <li key={index}>
+          {technologies.map(tech => (
+            <li key={tech}>
               <img
+                loading="lazy"
                 src={`/assets/icons/${tech}Icon.svg`}
-                alt={tech}
+                alt={`Icono de ${tech}`}
                 className="size-6"
-                title={tech}
+                title={`Tecnología: ${tech}`}
               />
             </li>
           ))}
@@ -47,7 +52,11 @@ const ProjectItem = ({ project }) => {
         <ul className="flex justify-center gap-4 items-center">
           {urlPage && (
             <li>
-              <a href={urlPage}>
+              <a
+                href={urlPage}
+                role="button"
+                aria-label={`Ver el proyecto ${name}`}
+              >
                 <Badge>Ver Proyecto</Badge>
               </a>
             </li>
@@ -62,6 +71,8 @@ const ProjectItem = ({ project }) => {
                     ? 'noopener noreferrer'
                     : undefined
                 }
+                role="button"
+                aria-label={`Revisar código del proyecto ${name}`}
               >
                 <Badge>Revisar Código</Badge>
               </a>
@@ -74,7 +85,15 @@ const ProjectItem = ({ project }) => {
 }
 
 ProjectItem.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.shape({
+    technologies: PropTypes.array.isRequired,
+    img: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    urlCode: PropTypes.string,
+    urlPage: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
-export default ProjectItem
+export default React.memo(ProjectItem)

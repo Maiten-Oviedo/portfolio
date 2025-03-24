@@ -41,10 +41,13 @@ const ProjectPage = ({ project }) => {
           <a rel="noopener noreferrer" target="_blank" href={href}>
             <h1 className="group flex w-max text-[2em] items-center gap-2 cursor-pointer border-b border-b-transparent hover:border-b-white">
               {newTitle}
-              <DownArrowIcon className="size-6 rotate-90 group-hover:rotate-[135deg] transition-all" />
+              <DownArrowIcon
+                className="size-6 rotate-90 group-hover:rotate-[135deg] transition-all"
+                aria-label="Desplegar más información"
+              />
             </h1>
           </a>
-          <h3 className="text-emerald-700/70 text-[1.5em]">{subtitle}</h3>
+          <h3 className="text-primary text-[1.5em]">{subtitle}</h3>
           <ul className="flex flex-wrap  gap-2 my-2">
             {technologies.map((tech, index) => {
               return (
@@ -54,6 +57,7 @@ const ProjectPage = ({ project }) => {
                     alt={tech}
                     className="size-6"
                     title={tech}
+                    loading="lazy"
                   />
                 </li>
               )
@@ -69,6 +73,7 @@ const ProjectPage = ({ project }) => {
           src={`/assets/images/projects/${title}/hero.webp`}
           alt={`Imagen de proyecto ${newTitle} en Laptop`}
           className="animate-slide-up-slow h-[35vh] w-full object-cover md:h-auto"
+          loading="lazy"
         />
       </article>
       <section className="flex flex-col gap-[2em] md:flex-row justify-around items-center">
@@ -84,6 +89,7 @@ const ProjectPage = ({ project }) => {
           src={`/assets/images/projects/${title}/logo.webp`}
           alt={`Logo de proyecto ${newTitle}`}
           className={`w-[18.8em] md:size-[20em]`}
+          loading="lazy"
         />
         <motion.div
           initial="hidden"
@@ -97,6 +103,7 @@ const ProjectPage = ({ project }) => {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Ver proyecto ${newTitle}`}
             className="group self-center md:self-start flex gap-2 text-white items-center w-max bg-emerald-950/70 rounded-md px-4 py-2 hover:bg-emerald-950 hover:text-white transition-all duration-500"
           >
             <span>Ver Proyecto</span>
@@ -116,6 +123,7 @@ const ProjectPage = ({ project }) => {
               className="h-[50vh] object-cover w-full md:h-auto md:w-[70%]"
               src={`/assets/images/projects/${title}/1.webp`}
               alt={`Imagen mockup de proyecto ${newTitle}`}
+              loading="lazy"
             />
           </li>
           <li>
@@ -123,6 +131,7 @@ const ProjectPage = ({ project }) => {
               className="h-[50vh] object-cover w-full md:h-auto"
               src={`/assets/images/projects/${title}/2.webp`}
               alt={`Imagen mockup de proyecto ${newTitle}`}
+              loading="lazy"
             />
           </li>
         </ul>
@@ -191,6 +200,7 @@ const ProjectPage = ({ project }) => {
           src={`/assets/images/projects/${title}/7.webp`}
           alt={`Imagen mockup de proyecto ${newTitle}`}
           className={` sm:h-[60vh] md:h-[80vh] object-cover `}
+          loading="lazy"
         />
       </section>
 
@@ -207,6 +217,7 @@ const ProjectPage = ({ project }) => {
             <a
               className="flex justify-center md:justify-start text-[.8em] text-white/60 hover:text-white transition-all"
               href={`/projects/${nextProject.toLowerCase()}`}
+              aria-label={`Ver proyecto ${nextProjectName}`}
             >
               <span>ver</span>
             </a>
@@ -214,6 +225,7 @@ const ProjectPage = ({ project }) => {
           <a
             className="group relative w-max self-center md:self-auto"
             href={`/projects/${nextProject.toLowerCase()}`}
+            aria-label={`Ver proyecto ${nextProjectName}`}
           >
             <motion.img
               initial="hidden"
@@ -223,6 +235,7 @@ const ProjectPage = ({ project }) => {
               src={`/assets/images/projects/${nextProject}/logo.webp`}
               alt={`Logo de proyecto ${nextProjectName}`}
               className={`w-[18.8em]`}
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/30 w-full h-full opacity-0 group-hover:opacity-100 transition-all"></div>
           </a>
@@ -233,7 +246,20 @@ const ProjectPage = ({ project }) => {
 }
 
 ProjectPage.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    href: PropTypes.string.isRequired,
+    p1: PropTypes.string.isRequired,
+    p2: PropTypes.string.isRequired,
+    h2: PropTypes.string.isRequired,
+    p3: PropTypes.string.isRequired,
+    h3: PropTypes.string.isRequired,
+    span1: PropTypes.string.isRequired,
+    span2: PropTypes.string,
+    nextProject: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default ProjectPage
