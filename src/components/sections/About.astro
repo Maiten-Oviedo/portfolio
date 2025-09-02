@@ -1,0 +1,136 @@
+---
+import SliderHero from '../SliderHero.astro'
+---
+
+<section id="about" class="flex flex-col gap-4 md:gap-8">
+  <div class="px-8 2xl:max-w-7xl mx-auto py-6 relative w-full">
+    <div class="space-y-2">
+      <div class="h-0.5 bg-slate-600 project-line"></div>
+      <h2
+        id="projects-heading"
+        class="text-white text-2xl md:text-4xl lg:text-5xl font-bold project-title"
+      >
+        <span>Sobre</span>
+        <span
+          class="bg-gradient-to-r from-transparent to-primary bg-clip-text text-transparent"
+        >
+          Mi
+        </span>
+      </h2>
+    </div>
+  </div>
+  <div
+    class="flex flex-col justify-between items-center gap-4 md:flex-row-reverse md:gap-8 mx-8"
+  >
+    <article
+      class="flex flex-col gap-4 justify-between items-center md:max-w-[55%] about-text"
+    >
+      <div
+        class="text-lg flex flex-col gap-4 font-normal md:font-light text-pretty md:text-justify"
+      >
+        <p>
+          Mis primeras experiencias en programación fueron con Arduino,
+          participando en ferias de ciencias e incluso programando algunos
+          robots. Además, enseñé en algunas escuelas los conceptos básicos del
+          desarrollo con{' '}
+          <span class="font-bold md:font-semibold text-[#886ce4]">
+            Arduino
+          </span>{' '}
+          👾.
+        </p>
+
+        <p>
+          Aparte del desarrollo, tengo diversos intereses como viajar, el
+          trekking y tomar mucho mate 🧉. Me encantan los ríos y el{' '}
+          <span class="text-primary font-bold md:font-semibold"> verde </span>
+          . Mi sueño es poder viajar mientras trabajo en lo que me gusta.
+        </p>
+
+        <p>
+          Actualmente, estoy cursando la carrera{' '}
+          <span class="italic text-blue-300">
+            {`"Tecnicatura Superior en Programación"`}
+          </span>
+          , en la que día a día enriquezco más mis conocimientos 📚.
+        </p>
+      </div>
+    </article>
+
+    <article class="flex flex-col items-center about-slider">
+      <SliderHero
+        aria-label="Slider de imágenes sobre el perfil de Maiten Oviedo"
+      />
+      <a
+        href="https://www.instagram.com/maiten_oviedo"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Ir al perfil de Instagram de Maiten Oviedo"
+      >
+        <p
+          class="text-[.7em] text-white/60 hover:text-white transition-colors duration-300"
+        >
+          @maiten_oviedo
+        </p>
+      </a>
+    </article>
+  </div>
+</section>
+
+<script>
+  interface AboutAnimator {
+    observer: IntersectionObserver
+    animateElements(): void
+    init(): void
+  }
+
+  class AboutAnimator implements AboutAnimator {
+    observer: IntersectionObserver
+
+    constructor() {
+      this.observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.animateElements()
+              this.observer.disconnect()
+            }
+          })
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      )
+    }
+
+    animateElements(): void {
+      const elements = [
+        { selector: '.project-line', delay: 0, animation: 'slide-in-left' },
+        { selector: '.project-title', delay: 200, animation: 'fade-in-up' },
+        { selector: '.about-text', delay: 400, animation: 'fade-in-up' },
+        { selector: '.about-slider', delay: 600, animation: 'slide-in-right' },
+      ]
+
+      elements.forEach(({ selector, delay, animation }) => {
+        const element = document.querySelector(selector) as HTMLElement
+        if (element) {
+          setTimeout(() => {
+            element.classList.add(animation)
+          }, delay)
+        }
+      })
+    }
+
+    init(): void {
+      const aboutSection = document.querySelector('#about')
+      if (aboutSection) {
+        this.observer.observe(aboutSection)
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new AboutAnimator().init()
+    })
+  } else {
+    new AboutAnimator().init()
+  }
+</script>

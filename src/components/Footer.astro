@@ -1,0 +1,149 @@
+---
+const { class: className = '' } = Astro.props
+const currentYear = new Date().getFullYear()
+---
+
+<footer class={`relative py-16 ${className}`}>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="footer-content opacity-0 translate-y-8">
+      <!-- Quick Links -->
+      <nav class="flex flex-wrap justify-center gap-8 mb-12">
+        <a
+          href="#"
+          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
+        >
+          Inicio
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          ></span>
+        </a>
+        <a
+          href="#experiencia"
+          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
+        >
+          Experiencia
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          ></span>
+        </a>
+        <a
+          href="#proyectos"
+          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
+        >
+          Proyectos
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          ></span>
+        </a>
+        <a
+          href="#proceso"
+          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
+        >
+          Proceso
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          ></span>
+        </a>
+        <a
+          href="#contacto"
+          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
+        >
+          Contacto
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          ></span>
+        </a>
+      </nav>
+
+      <!-- Divider -->
+      <div
+        class="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent mb-8"
+      >
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-sm">
+          © {currentYear} Maitén Oviedo.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Maitén Oviedo",
+      "jobTitle": "Frontend Developer",
+      "url": "https://maitenoviedo.dev",
+      "sameAs": [
+        "https://github.com/Maiten-Oviedo",
+        "https://www.linkedin.com/in/maiten-oviedo",
+        "https://www.instagram.com/maiten_oviedo"
+      ]
+    }
+  </script>
+</footer>
+
+<style>
+  .footer-content {
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .footer-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-content {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  class FooterAnimator {
+    observer: IntersectionObserver = new IntersectionObserver(() => {})
+
+    constructor() {
+      this.initializeObserver()
+      this.observeElements()
+    }
+
+    private initializeObserver() {
+      const options = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px',
+      }
+
+      this.observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target
+            element.classList.add('animate')
+            this.observer.unobserve(element)
+          }
+        })
+      }, options)
+    }
+
+    private observeElements() {
+      const footerContent = document.querySelector('.footer-content')
+      if (footerContent) {
+        this.observer.observe(footerContent)
+      }
+    }
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new FooterAnimator())
+  } else {
+    new FooterAnimator()
+  }
+</script>

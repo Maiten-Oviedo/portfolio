@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string
+}
+const { href } = Astro.props
+---
+
+<a
+  class="py-1 px-2 md:py-2 md:px-4 rounded-full border border-white/10 flex justify-center items-center gap-2 text-[.8em] cursor-pointer bg-white/5 hover:scale-110 hover:bg-green-400/10 transition"
+  target="_blank"
+  rel="noopener no referrer"
+  href={href}
+  aria-label={'Visita mi red social'}
+>
+  <slot />
+</a>

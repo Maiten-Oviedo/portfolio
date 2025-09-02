@@ -1,0 +1,32 @@
+---
+import Process from '@/components/sections/Process.astro'
+import About from '@/components/sections/About.astro'
+import Layout from '@/layouts/Layout.astro'
+import Header from '@/components/Header.astro'
+import Hero from '@/components/sections/Hero.astro'
+import Experience from '@/components/sections/Experience.astro'
+import Projects from '@/components/sections/Projects.astro'
+import Contact from '@/components/sections/Contact.astro'
+import Footer from '@/components/Footer.astro'
+---
+
+<Layout
+  description="Soy Maitén Oviedo, Desarrollador Full Stack en Mendoza especializado en frontend y aplicaciones web modernas. Portfolio personal con proyectos y experiencia en desarrollo de software."
+  title="Maitén Oviedo - Desarrollador Full Stack | Portfolio"
+>
+  <Header />
+  <Hero />
+  <Experience />
+  <Projects />
+  <Process />
+  <About />
+  <div class="relative">
+    <Contact />
+    <Footer />
+    <img
+      class="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+      src="/assets/images/bg-light-lines.png"
+      alt="Imagen de fondo decorativo de líneas claras"
+    />
+  </div>
+</Layout>

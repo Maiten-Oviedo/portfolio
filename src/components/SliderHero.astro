@@ -1,0 +1,285 @@
+---
+const ImageData = {
+  index: 0,
+  description: '',
+  alt: ''
+};
+
+const IMAGES = [
+  {
+    index: 1,
+    description: 'Potrerillos',
+    alt: 'Persona con capucha clara y pantalón oscuro sentada sobre una roca junto a un río en Potrerillos, Mendoza, tomando mate. Al fondo, montañas y un cielo azul despejado.',
+  },
+  {
+    index: 2,
+    description: 'Rio Ceballos',
+    alt: 'Persona de pie frente a un lago con neblina en Río Ceballos, Córdoba. El paisaje transmite una atmósfera tranquila y natural.',
+  },
+  {
+    index: 3,
+    description: 'Mina Clavero',
+    alt: 'Persona sentada en el pasto de una montaña en Villa Benegas, Mina Clavero, mirando un cerro al frente bajo un cielo despejado y soleado.',
+  },
+];
+---
+
+<!-- Added schema markup for better SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Galería Personal - Lugares Visitados",
+  "description": "Colección de fotografías personales de diferentes lugares de Argentina",
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "/assets/images/me-1.webp",
+      "description": "Potrerillos, Mendoza"
+    },
+    {
+      "@type": "ImageObject", 
+      "url": "/assets/images/me-2.webp",
+      "description": "Rio Ceballos, Córdoba"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "/assets/images/me-3.webp", 
+      "description": "Mina Clavero, Córdoba"
+    }
+  ]
+}
+</script>
+
+<article 
+  class="slider-hero w-full max-w-full flex items-center justify-center opacity-0 px-4"
+  aria-live="polite"
+  aria-roledescription="carousel"
+  role="region"
+  aria-label="Galería de imágenes personales"
+>
+  <!-- Made container responsive with breakpoint-specific widths -->
+  <ul class="w-full max-w-[20rem] sm:max-w-[25rem] md:max-w-[30rem] h-[12rem] sm:h-[25rem] md:h-[29rem] flex items-center justify-center">
+    {IMAGES.map((image) => (
+      <li
+        class={`slider-item group relative overflow-hidden cursor-pointer transition-all duration-300 m-1 sm:m-2 ${
+          image.index === 2 
+            ? 'w-[12rem] sm:w-[20rem] md:w-[30rem] h-[10rem] sm:h-[23rem] md:h-[27rem] slider-active' 
+            : 'w-[4rem] sm:w-[7rem] md:w-[10rem] h-[8rem] sm:h-[19rem] md:h-[22rem]'
+        }`}
+        data-index={image.index}
+        tabindex="0"
+        role="button"
+        aria-label={`Ver imagen de ${image.description}`}
+      >
+        <img
+          src={`/assets/images/me-${image.index}.webp`}
+          alt={image.alt}
+          loading="lazy"
+          class="absolute inset-0 w-full h-full object-cover"
+          width="400"
+          height="300"
+        />
+
+        <!-- Description visible on hover or active state -->
+        <h3 class={`absolute z-10 top-3 right-3 text-nowrap text-sm text-white font-normal transition-opacity duration-200 ${
+          image.index === 2 ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+        }`}>
+          {image.description}
+        </h3>
+
+        <!-- Shadow overlay when not active -->
+        <div class={`absolute inset-0 w-full h-full transition-all duration-300 ${
+          image.index === 2 ? 'bg-transparent' : 'bg-black/40 group-hover:bg-transparent'
+        }`}></div>
+      </li>
+    ))}
+  </ul>
+</article>
+
+<style>
+  /* Custom CSS for slider functionality and animations */
+  .slider-hero {
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  .slider-item {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  /* Fixed slider behavior - when hovering any item, it becomes large and others become small */
+  .slider-hero:not(:hover) .slider-item.slider-active {
+    width: 12rem;
+    height: 10rem;
+  }
+
+  .slider-hero:not(:hover) .slider-item:not(.slider-active) {
+    width: 4rem;
+    height: 8rem;
+  }
+
+  .slider-hero:hover .slider-item {
+    width: 4rem;
+    height: 8rem;
+  }
+
+  .slider-hero:hover .slider-item:hover {
+    width: 12rem;
+    height: 10rem;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* Responsive breakpoints */
+  @media (min-width: 640px) {
+    .slider-hero:not(:hover) .slider-item.slider-active {
+      width: 20rem;
+      height: 23rem;
+    }
+
+    .slider-hero:not(:hover) .slider-item:not(.slider-active) {
+      width: 7rem;
+      height: 19rem;
+    }
+
+    .slider-hero:hover .slider-item {
+      width: 7rem;
+      height: 19rem;
+    }
+
+    .slider-hero:hover .slider-item:hover {
+      width: 20rem;
+      height: 23rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .slider-hero:not(:hover) .slider-item.slider-active {
+      width: 30rem;
+      height: 27rem;
+    }
+
+    .slider-hero:not(:hover) .slider-item:not(.slider-active) {
+      width: 10rem;
+      height: 22rem;
+    }
+
+    .slider-hero:hover .slider-item {
+      width: 10rem;
+      height: 22rem;
+    }
+
+    .slider-hero:hover .slider-item:hover {
+      width: 30rem;
+      height: 27rem;
+    }
+  }
+
+  /* Smooth transitions for better UX */
+  .slider-item img {
+    transition: transform 0.3s ease;
+  }
+
+  .slider-item:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .slider-item,
+    .slider-item img,
+    .slider-hero {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script >
+  class SliderAnimator {
+    observer: IntersectionObserver | null = null
+    sliderElement: HTMLElement | null = null
+    items: NodeListOf<HTMLElement> | null = null
+    currentHover: boolean = false
+
+    init() {
+      this.sliderElement = document.querySelector<HTMLElement>('.slider-hero')
+      this.items = document.querySelectorAll<HTMLElement>('.slider-item')
+
+      this.setupIntersectionObserver()
+      this.setupHoverEffects()
+      this.setupKeyboardNavigation()
+    }
+
+    setupIntersectionObserver() {
+      this.observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement
+              el.classList.remove('opacity-0')
+              el.classList.add('animate-slide-up')
+            }
+          })
+        },
+        { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
+      )
+
+      if (this.sliderElement) {
+        this.observer.observe(this.sliderElement)
+      }
+    }
+
+    setupHoverEffects() {
+      this.items?.forEach((item: HTMLElement) => {
+        item.addEventListener('mouseenter', () => {
+          this.currentHover = true
+          this.resetActiveStates()
+        })
+
+        item.addEventListener('mouseleave', () => {
+          this.currentHover = false
+          this.restoreDefaultActive()
+        })
+      })
+    }
+
+    setupKeyboardNavigation() {
+      this.items?.forEach((item: HTMLElement) => {
+        item.addEventListener('keydown', (e: KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            item.dispatchEvent(new Event('mouseenter'))
+            setTimeout(() => {
+              item.dispatchEvent(new Event('mouseleave'))
+            }, 2000)
+          }
+        })
+      })
+    }
+
+    resetActiveStates() {
+      this.items?.forEach((item: HTMLElement) => {
+        item.classList.remove('slider-active')
+      })
+    }
+
+    restoreDefaultActive() {
+      const defaultActive = document.querySelector<HTMLElement>('[data-index="2"]')
+      if (defaultActive) {
+        defaultActive.classList.add('slider-active')
+      }
+    }
+
+    destroy() {
+      this.observer?.disconnect()
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new SliderAnimator().init()
+  })
+</script>
+

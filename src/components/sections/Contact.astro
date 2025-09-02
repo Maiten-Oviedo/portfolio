@@ -1,0 +1,209 @@
+---
+import GitHubIcon from '../icons/GitHubIcon.astro'
+import LinkedinIcon from '../icons/LinkedinIcon.astro'
+import MailIcon from '../icons/MailIcon.astro'
+
+// Schema markup for SEO
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Maiten Oviedo',
+    jobTitle: 'Frontend Developer',
+    email: 'maitenoviedo513@gmail.com',
+    sameAs: [
+      'https://github.com/Maiten-Oviedo',
+      'https://www.linkedin.com/in/maiten-oviedo',
+      'https://www.instagram.com/maiten_oviedo',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+5492613897545',
+      contactType: 'personal',
+    },
+  },
+}
+---
+
+<style>
+  /* Animation keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation classes */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Ensure elements are visible by default for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    #contact [data-animate] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Hover effects */
+  .contact-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .contact-link:hover {
+    transform: translateY(-0.25rem) scale(1.05);
+  }
+
+  .whatsapp-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.1),
+      rgba(34, 197, 94, 0.2)
+    );
+    border: 2px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .whatsapp-btn:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.2),
+      rgba(34, 197, 94, 0.3)
+    );
+    border-color: rgba(34, 197, 94, 0.5);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+  }
+
+  /* Intersection observer animations */
+  .contact-animate {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 0.6s ease-out;
+  }
+
+  .contact-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<section
+  id="contacto"
+  class="flex flex-col items-center justify-center gap-10"
+  aria-labelledby="contact-heading"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+  <h2
+    id="contact-heading"
+    class="contact-animate text-5xl md:text-6xl font-bold uppercase z-10 text-center bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mt-16"
+    data-delay="0"
+  >
+    ¿Nos ponemos en contacto?
+  </h2>
+  <a
+    href="https://wa.me/+5492613897545"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="contact-animate whatsapp-btn flex items-center px-6 py-3 text-white rounded-xl text-2xl font-medium cursor-pointer z-10"
+    data-delay="200"
+  >
+    <svg class="size-8 mr-2" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+      ></path>
+    </svg>
+    Chatear Ahora
+  </a>
+
+  <!-- Links de contacto -->
+  <div class="contact-animate flex gap-8 z-10" data-delay="400">
+    <!-- Mail -->
+    <a
+      href="mailto:maitenoviedo513@gmail.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Enviar un correo"
+      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
+    >
+      <MailIcon
+        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
+      />
+    </a>
+
+    <!-- LinkedIn -->
+    <a
+      href="https://www.linkedin.com/in/maiten-oviedo"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Ir a LinkedIn"
+      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
+    >
+      <LinkedinIcon
+        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
+      />
+    </a>
+
+    <!-- GitHub -->
+    <a
+      href="https://github.com/Maiten-Oviedo"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Ir a GitHub"
+      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
+    >
+      <GitHubIcon
+        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
+      />
+    </a>
+  </div>
+
+  <!-- Intersection observer script for entrance animations -->
+  <script>
+    class ContactAnimator {
+      private observer: IntersectionObserver
+
+      constructor() {
+        this.observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement
+                const delay = parseInt(element.dataset.delay || '0')
+
+                setTimeout(() => {
+                  element.classList.add('animate')
+                }, delay)
+
+                this.observer.unobserve(element)
+              }
+            })
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        )
+
+        this.init()
+      }
+
+      private init(): void {
+        const elements = document.querySelectorAll('.contact-animate')
+        elements.forEach(element => {
+          this.observer.observe(element)
+        })
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new ContactAnimator()
+    })
+  </script>
+</section>

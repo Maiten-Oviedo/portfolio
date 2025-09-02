@@ -1,0 +1,102 @@
+---
+import InfiniteIcon from '../icons/InfiniteIcon.astro'
+
+interface Props {
+  process: {
+    id: number
+    title: string
+    description: string
+    description2?: string
+  }
+  index: number
+}
+
+const { process, index } = Astro.props as Props
+---
+
+<li
+  class={`process-item flex flex-col justify-center w-[90%] md:w-[65%] gap-2 border-b border-slate-700/50 py-6 h-max overflow-hidden cursor-pointer transition-all duration-300 hover:border-primatext-primary/30 opacity-0`}
+  data-process-id={process.id}
+  data-delay={index * 200}
+  data-target={`process-content-${process.id}`}
+  role="button"
+  tabindex="0"
+  aria-expanded="false"
+  aria-label={`Expandir sección: ${process.title}`}
+>
+  <div class="flex gap-2 self-end items-center group pointer-events-none">
+    <h3 class="flex items-center gap-3 justify-between">
+      <span class="text-white/80 font-mono text-5xl">
+        {
+          process.id === 4 ? (
+            <InfiniteIcon className="size-12" />
+          ) : (
+            `0${process.id}`
+          )
+        }
+      </span>
+      <span
+        class="text-xl md:font-semibold text-white group-hover:text-primary transition-colors duration-300"
+      >
+        {process.title}
+      </span>
+    </h3>
+    <div
+      class="p-2 rounded-full hover:bg-slate-800/50 transition-all duration-300"
+    >
+      <svg
+        class="plus-icon size-6 transition-all duration-700 text-primary"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 5v14"></path>
+        <path d="M5 12h14"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div
+    class="process-content transition-all duration-700 overflow-hidden max-h-0 opacity-0"
+    id={`process-content-${process.id}`}
+    aria-hidden="true"
+  >
+    <div class="pt-4 pr-8">
+      <p
+        class="flex flex-col gap-6 text-lg font-light text-pretty text-slate-300 leading-relaxed"
+      >
+        <span>{process.description}</span>
+        {
+          process.description2 && (
+            <span class="text-slate-400">{process.description2}</span>
+          )
+        }
+      </p>
+    </div>
+  </div>
+</li>
+
+<style>
+  .process-item.visible {
+    animation: slide-in-left 0.8s ease-out forwards;
+  }
+
+  .process-content.expanded {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .plus-icon.rotated {
+    transform: rotate(45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-item,
+    .process-content,
+    .plus-icon {
+      transition: none;
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+  class?: string
+}
+
+const { title, description }: Props = Astro.props
+const canonical = new URL(
+  Astro.url.pathname,
+  'https://maitendev.vercel.app'
+).toString()
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Maitén Oviedo, portfolio, desarrollador full stack, frontend, backend, programador Mendoza, desarrollo web, aplicaciones web, JavaScript, TypeScript, Astro, React, Node.js, Bun, Vercel"
+    />
+
+    <!-- SEO essentials -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0F172A" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Maitén Oviedo" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Google site Verification -->
+    <meta
+      name="google-site-verification"
+      content="BUCXCTCgr5F3roat19K667O0cxIUjBQ0K3VzC6mqqnE"
+    />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Maitén Oviedo - Portfolio" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+    />
+
+    <!-- Preload fonts -->
+    <link
+      rel="preload"
+      href="/assets/fonts/Sora-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/Sora-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- JSON-LD: datos estructurados para persona -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "url": "https://maitendev.vercel.app/",
+            "name": "{title}",
+            "publisher": {
+              "@type": "Person",
+              "name": "Maitén Oviedo",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+              }
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Maitén Oviedo",
+            "url": "https://maitendev.vercel.app/",
+            "logo": "https://maitendev.vercel.app/assets/images/favicon-96x96.png",
+            "description": "{description}",
+            "image": "https://maitendev.vercel.app/assets/images/favicon-96x96.png",
+            "jobTitle": "Desarrollador Full Stack",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mendoza",
+              "addressRegion": "Mendoza",
+              "addressCountry": "AR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+54-9261-389-7545",
+              "contactType": "portfolio contact",
+              "areaServed": "AR",
+              "availableLanguage": ["es"]
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body class={Astro.props.class}>
+    <slot />
+  </body>
+</html>

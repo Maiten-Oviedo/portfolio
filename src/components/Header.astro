@@ -1,0 +1,111 @@
+---
+import LineIcon from './icons/LineIcon.astro'
+
+const isPath = Astro.url.pathname === '/'
+const isInPost = Astro.url.pathname.startsWith('/blog/')
+---
+
+<header
+  class={`${
+    isPath && 'bg-backgorund backdrop:blur-sm '
+  } py-[1.2em]  text-[.7em] sm:text-[.8em] absolute w-full px-3 md:px-10 z-10`}
+>
+  <ul class="w-full flex justify-between items-center">
+    <li class={`animate-slide-down flex-1 flex flex-col cursor-pointer`}>
+      <span class="w-max border-b-[1px] border-transparent">
+        disponlible para
+      </span>
+      <span
+        class="border-b-[1px] flex gap-2 items-center border-transparent w-max"
+      >
+        trabajar
+        <LineIcon className="size-5" />
+      </span>
+    </li>
+    {
+      !isPath && (
+        <li class={`animate-slide-down flex-1 flex justify-center`}>
+          <a
+            href="https://www.linkedin.com/in/Maiten-Oviedo"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="border-b-[1px] border-transparent hover:border-white"
+          >
+            Linkedin
+          </a>
+        </li>
+      )
+    }
+    <!-- {
+      isPath && !isInPost && (
+        <li class={`animate-slide-down flex-1 flex justify-center`}>
+          <a
+            href="/"
+            class="border-b-[1px] border-transparent hover:border-white"
+          >
+            Inicio
+          </a>
+        </li>
+      )
+    } -->
+
+    {
+      isInPost && (
+        <li class={`animate-slide-down flex-1 flex justify-center`}>
+          <a
+            href="/blog"
+            class="border-b-[1px] border-transparent hover:border-white"
+          >
+            Volver al Blog
+          </a>
+        </li>
+      )
+    }
+    {
+      !isPath && (
+        <li
+          class={`animate-slide-down flex-1  flex flex-col items-end cursor-pointer`}
+        >
+          <a href="/blog">
+            <span class="border-b-[1px] border-transparent group-hover:border-white ">
+              visita mi
+            </span>{' '}
+            <span class="flex gap-2 items-center w-max">
+              <LineIcon className="size-5" />
+              <span class="border-b-[1px] border-transparent group-hover:border-white ">
+                blog
+              </span>
+            </span>
+          </a>
+        </li>
+      )
+    }
+    {
+      isPath && !isInPost && (
+        <li
+          class={`animate-slide-dow flex-1  flex flex-col items-end cursor-pointer`}
+        >
+          <span class="border-b-[1px] border-transparent ">portfolio</span>{' '}
+          <span class="border-b-[1px] border-transparent flex gap-2 items-center w-max">
+            <LineIcon className="size-5" />
+            <span>vol 2</span>
+          </span>
+        </li>
+      )
+    }
+    {
+      isInPost && (
+        <li
+          class={`animate-slide-dow flex-1  flex flex-col items-end cursor-pointer`}
+        >
+          <a
+            href="/"
+            class="border-b-[1px] border-transparent hover:border-white"
+          >
+            Inicio
+          </a>
+        </li>
+      )
+    }
+  </ul>
+</header>

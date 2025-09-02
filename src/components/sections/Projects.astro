@@ -1,0 +1,193 @@
+---
+import ProjectCard from '../common/ProjectCard.astro'
+import { projects } from '@/constants/projects'
+
+const projectsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Principales Proyectos',
+  description: 'Colección de proyectos destacados y trabajos realizados',
+  numberOfItems: 4,
+  itemListElement: [
+    {
+      '@type': 'CreativeWork',
+      position: 1,
+      name: 'Lexington Themes',
+      description:
+        'Premium themes and UI Kits For designers, developers, businesses, and personal use — Beautifully crafted with Astro.js, and Tailwind CSS — Simple & easy to customize.',
+      url: 'https://www.lexingtonthemes.com/',
+    },
+    {
+      '@type': 'CreativeWork',
+      position: 2,
+      name: 'Oxbow UI',
+      description:
+        'Free and premium components, elements and layouts Beautifully crafted with Tailwind CSS — Simple & easy to customise.',
+      url: 'https://www.oxbowui.com/',
+    },
+    {
+      '@type': 'CreativeWork',
+      position: 3,
+      name: 'Colors & Fonts',
+      description:
+        'Color and typography resources and inspiration for Web Developers and Digital Designers.',
+      url: 'https://www.colorsandfonts.com/',
+    },
+    {
+      '@type': 'CreativeWork',
+      position: 4,
+      name: 'SVG Doodles',
+      description:
+        'A free collection of 208 super duper SVG doodles for your creative projects.',
+      url: 'https://www.svgdoodles.com/',
+    },
+  ],
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(projectsSchema)} />
+
+<section id="proyectos" class="relative" aria-labelledby="projects-heading">
+  <div class="px-8 2xl:max-w-7xl mx-auto py-6 relative">
+    <div class="space-y-2">
+      <div class="h-0.5 bg-slate-600 project-line opacity-0"></div>
+      <h2
+        id="projects-heading"
+        class="text-2xl md:text-4xl lg:text-5xl font-bold project-title opacity-0"
+      >
+        <span>Principales</span>
+        <span
+          class="bg-gradient-to-r from-transparent to-primary bg-clip-text text-transparent"
+        >
+          proyectos
+        </span>
+      </h2>
+    </div>
+  </div>
+
+  <ul
+    class="mx-auto grid grid-cols-1 sm:grid-cols-2 text-slate-700 lg:grid-cols-4 items-start gap-6 md:mt-16 px-4"
+    role="list"
+    aria-label="Lista de proyectos principales"
+  >
+    {projects.map(project => <ProjectCard project={project} />)}
+  </ul>
+</section>
+
+<script>
+  interface ProjectsAnimatorInterface {
+    observer: IntersectionObserver | null
+    init(): void
+    setupObserver(): void
+    observeElements(): void
+    animateElement(element: Element): void
+    showAllElements(): void
+  }
+
+  class ProjectsAnimator implements ProjectsAnimatorInterface {
+    observer: IntersectionObserver | null = null
+
+    constructor() {
+      this.init()
+    }
+
+    init(): void {
+      // Check for reduced motion preference
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        this.showAllElements()
+        return
+      }
+
+      this.setupObserver()
+      this.observeElements()
+    }
+
+    setupObserver(): void {
+      const options: IntersectionObserverInit = {
+        root: null,
+        rootMargin: '-10% 0px -10% 0px',
+        threshold: 0.1,
+      }
+
+      this.observer = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.animateElement(entry.target)
+              this.observer?.unobserve(entry.target)
+            }
+          })
+        },
+        options
+      )
+    }
+
+    observeElements(): void {
+      const elements = document.querySelectorAll(
+        '.project-line, .project-title, .project-card'
+      )
+      elements.forEach(el => this.observer?.observe(el))
+    }
+
+    animateElement(element: Element): void {
+      const htmlElement = element as HTMLElement
+      const delay = parseInt(htmlElement.dataset.delay || '0')
+
+      setTimeout(() => {
+        if (element.classList.contains('project-line')) {
+          htmlElement.style.animation = 'fade-in-up 1s ease-out forwards'
+        } else if (element.classList.contains('project-title')) {
+          htmlElement.style.animation = 'slide-in-left 1.2s ease-out forwards'
+        } else if (element.classList.contains('project-card')) {
+          htmlElement.style.animation = 'slide-up 0.8s ease-out forwards'
+        }
+      }, delay)
+    }
+
+    showAllElements(): void {
+      const elements = document.querySelectorAll(
+        '.project-line, .project-title, .project-card'
+      )
+      elements.forEach(el => {
+        const htmlElement = el as HTMLElement
+        htmlElement.style.opacity = '1'
+        htmlElement.style.transform = 'none'
+      })
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new ProjectsAnimator())
+  } else {
+    new ProjectsAnimator()
+  }
+</script>
+
+<style>
+  .project-card a:focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 4px;
+  }
+
+  /* Performance optimizations */
+  .project-card {
+    will-change: transform, opacity;
+  }
+
+  .project-card a {
+    will-change: transform;
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-line,
+    .project-title {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

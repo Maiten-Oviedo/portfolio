@@ -1,0 +1,194 @@
+---
+import InfiniteIcon from '../icons/InfiniteIcon.astro'
+
+import { PROCESS } from '@/constants/process'
+import InstagramIcon from '../icons/InstagramIcon.astro'
+import ProcessItem from '../common/ProcessItem.astro'
+---
+
+<section
+  id="proceso"
+  class="scroll-m-3 py-16 px-4 md:px-0"
+  aria-labelledby="process-heading"
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Proceso de Desarrollo Web',
+      description:
+        'Proceso completo de desarrollo web desde diseño UX/UI hasta implementación',
+      provider: {
+        '@type': 'Person',
+        name: 'Desarrollador Frontend',
+      },
+      serviceType: 'Desarrollo Web',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de Desarrollo',
+        itemListElement: PROCESS.map((item, index) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: item.title,
+            description: item.description,
+          },
+          position: index + 1,
+        })),
+      },
+    })}
+  />
+
+  <header class="mb-12 text-end">
+    <div class="px-8 2xl:max-w-7xl mx-auto pt-6 relative">
+      <div class="space-y-2">
+        <div class="h-0.5 bg-slate-600 project-line opacity-0"></div>
+        <h2
+          id="projects-heading"
+          class="text-white text-2xl md:text-4xl lg:text-5xl font-bold project-title opacity-0"
+        >
+          <span>Nuestro</span>
+          <span
+            class="bg-gradient-to-r from-transparent to-primary bg-clip-text text-transparent"
+          >
+            proceso
+          </span>
+        </h2>
+      </div>
+    </div>
+  </header>
+
+  <ul
+    class="flex flex-col justify-end items-end gap-2 md:pr-8"
+    role="list"
+    id="process-list"
+  >
+    {
+      PROCESS.map((process, index) => (
+        <ProcessItem process={process} index={index} />
+      ))
+    }
+  </ul>
+</section>
+
+<script>
+  class ProcessAnimator {
+    private observer!: IntersectionObserver
+    private processItems!: NodeListOf<HTMLLIElement>
+
+    constructor() {
+      this.initializeIntersectionObserver()
+      this.initializeProcessItems()
+    }
+
+    private initializeIntersectionObserver(): void {
+      const options = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+
+      this.observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement
+            const delay = parseInt(element.dataset.delay || '0')
+
+            setTimeout(() => {
+              element.classList.add('visible')
+            }, delay)
+
+            this.observer.unobserve(element)
+          }
+        })
+      }, options)
+
+      // Observe all process items
+      const processItems = document.querySelectorAll('.process-item')
+      processItems.forEach(item => this.observer.observe(item))
+    }
+
+    private initializeProcessItems(): void {
+      this.processItems = document.querySelectorAll('.process-item')
+
+      this.processItems.forEach(item => {
+        item.addEventListener('click', this.handleToggle.bind(this))
+        item.addEventListener('keydown', this.handleKeydown.bind(this))
+      })
+    }
+
+    private handleKeydown(event: KeyboardEvent): void {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        this.handleToggle(event)
+      }
+    }
+
+    private handleToggle(event: Event): void {
+      const item = event.currentTarget as HTMLLIElement
+      const targetId = item.dataset.target
+      const content = document.getElementById(targetId!)
+      const plusIcon = item.querySelector('.plus-icon')
+
+      if (!content || !plusIcon) return
+
+      const isExpanded = item.getAttribute('aria-expanded') === 'true'
+
+      // Update ARIA attributes
+      item.setAttribute('aria-expanded', (!isExpanded).toString())
+      item.setAttribute(
+        'aria-label',
+        isExpanded
+          ? `Expandir sección: ${item.querySelector('h3 span:last-child')?.textContent}`
+          : `Contraer sección: ${item.querySelector('h3 span:last-child')?.textContent}`
+      )
+      content.setAttribute('aria-hidden', isExpanded.toString())
+
+      // Toggle visual states
+      content.classList.toggle('expanded')
+      plusIcon.classList.toggle('rotated')
+
+      // Close other open items (accordion behavior)
+      if (!isExpanded) {
+        this.closeOtherItems(item)
+      }
+    }
+
+    private closeOtherItems(currentItem: HTMLLIElement): void {
+      this.processItems.forEach(item => {
+        if (
+          item !== currentItem &&
+          item.getAttribute('aria-expanded') === 'true'
+        ) {
+          const targetId = item.dataset.target
+          const content = document.getElementById(targetId!)
+          const plusIcon = item.querySelector('.plus-icon')
+
+          if (content && plusIcon) {
+            item.setAttribute('aria-expanded', 'false')
+            item.setAttribute(
+              'aria-label',
+              `Expandir sección: ${item.querySelector('h3 span:last-child')?.textContent}`
+            )
+            content.setAttribute('aria-hidden', 'true')
+            content.classList.remove('expanded')
+            plusIcon.classList.remove('rotated')
+          }
+        }
+      })
+    }
+
+    public destroy(): void {
+      this.observer?.disconnect()
+      this.processItems?.forEach(item => {
+        item.removeEventListener('click', this.handleToggle.bind(this))
+        item.removeEventListener('keydown', this.handleKeydown.bind(this))
+      })
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ProcessAnimator()
+  })
+</script>
