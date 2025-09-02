@@ -1,7 +1,7 @@
 # Portfolio Personal - Maiten Oviedo
 
+<img width="1345" height="653" alt="image" src="https://github.com/user-attachments/assets/18f45823-5e93-4d56-9437-b5b3574e3fd3" />
 Un portfolio moderno y profesional desarrollado con Astro, TypeScript y Tailwind CSS v4, diseñado para mostrar mis habilidades como desarrollador Frontend.
-<img width="1360" height="653" alt="image" src="https://github.com/user-attachments/assets/60a332b9-90ea-4f32-bccd-395e356d8921" />
 
 ## 🚀 Tecnologías Utilizadas
 
