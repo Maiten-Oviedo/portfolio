@@ -19,7 +19,6 @@ const { process, index } = Astro.props as Props
   data-process-id={process.id}
   data-delay={index * 200}
   data-target={`process-content-${process.id}`}
-  role="button"
   tabindex="0"
   aria-expanded="false"
   aria-label={`Expandir sección: ${process.title}`}
@@ -69,7 +68,7 @@ const { process, index } = Astro.props as Props
         <span>{process.description}</span>
         {
           process.description2 && (
-            <span class="text-slate-400">{process.description2}</span>
+            <span class="text-slate-300">{process.description2}</span>
           )
         }
       </p>
