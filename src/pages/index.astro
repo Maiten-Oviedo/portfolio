@@ -11,11 +11,16 @@ import Footer from '@/components/Footer.astro'
 ---
 
 <Layout
-  description="Soy Maitén Oviedo, Desarrollador Full Stack en Mendoza especializado en frontend y aplicaciones web modernas. Portfolio personal con proyectos y experiencia en desarrollo de software."
+  description="Soy Maitén Oviedo, Desarrollador Full Stack en Mendoza especializado en frontend y aplicaciones web modernas."
   title="Maitén Oviedo - Desarrollador Full Stack | Portfolio"
 >
-  <Header />
-  <Hero />
+  <div
+    class="relative bg-center 2xl:bg-auto bg-repeat bg-cover"
+    style="background-image: url(./assets/images/background.jpg)"
+  >
+    <Header />
+    <Hero />
+  </div>
   <Experience />
   <Projects />
   <Process />
