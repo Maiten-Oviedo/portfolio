@@ -16,15 +16,21 @@ import Footer from '@/components/Footer.astro'
 >
   <div
     class="relative bg-center 2xl:bg-auto bg-repeat bg-cover"
-    style="background-image: url(./assets/images/background.jpg)"
+    style="background-image: url(./assets/images/background.webp)"
   >
+    <div
+      class="absolute w-full h-full top-0 left-0 bg-gradient-to-b from-transparent via-transparent to-[#040914] mb-8"
+    >
+    </div>
     <Header />
     <Hero />
   </div>
-  <Experience />
-  <Projects />
-  <Process />
-  <About />
+  <div class="2xl:px-20">
+    <Experience />
+    <Projects />
+    <Process />
+    <About />
+  </div>
   <div class="relative">
     <Contact />
     <Footer />
