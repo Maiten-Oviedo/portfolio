@@ -3,8 +3,8 @@
 @theme {
   --color-primary: #08f7b3b3;
   --color-background: #040914;
+  --breakpoint-xs: 380px;
 }
-
 
 html,
   body {
