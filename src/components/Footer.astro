@@ -1,6 +1,6 @@
 ---
-const { class: className = '' } = Astro.props
-const currentYear = new Date().getFullYear()
+const { class: className = "" } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class={`relative py-16 ${className}`}>
@@ -77,7 +77,7 @@ const currentYear = new Date().getFullYear()
       "@type": "Person",
       "name": "Maitén Oviedo",
       "jobTitle": "Frontend Developer",
-      "url": "https://maitenoviedo.dev",
+      "url": "https://maitendev.vercel.app/",
       "sameAs": [
         "https://github.com/Maiten-Oviedo",
         "https://www.linkedin.com/in/maiten-oviedo",
@@ -108,42 +108,42 @@ const currentYear = new Date().getFullYear()
 
 <script>
   class FooterAnimator {
-    observer: IntersectionObserver = new IntersectionObserver(() => {})
+    observer: IntersectionObserver = new IntersectionObserver(() => {});
 
     constructor() {
-      this.initializeObserver()
-      this.observeElements()
+      this.initializeObserver();
+      this.observeElements();
     }
 
     private initializeObserver() {
       const options = {
         threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px',
-      }
+        rootMargin: "0px 0px -50px 0px",
+      };
 
-      this.observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target
-            element.classList.add('animate')
-            this.observer.unobserve(element)
+            const element = entry.target;
+            element.classList.add("animate");
+            this.observer.unobserve(element);
           }
-        })
-      }, options)
+        });
+      }, options);
     }
 
     private observeElements() {
-      const footerContent = document.querySelector('.footer-content')
+      const footerContent = document.querySelector(".footer-content");
       if (footerContent) {
-        this.observer.observe(footerContent)
+        this.observer.observe(footerContent);
       }
     }
   }
 
   // Initialize when DOM is loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => new FooterAnimator())
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => new FooterAnimator());
   } else {
-    new FooterAnimator()
+    new FooterAnimator();
   }
 </script>
