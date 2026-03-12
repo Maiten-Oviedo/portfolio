@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oselectricsas.vercel.app/sitemap.xml
+Sitemap: https://maitendev.vercel.app/sitemap.xml
