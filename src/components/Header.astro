@@ -1,13 +1,13 @@
 ---
-import LineIcon from './icons/LineIcon.astro'
+import LineIcon from "./icons/LineIcon.astro";
 
-const isPath = Astro.url.pathname === '/'
-const isInPost = Astro.url.pathname.startsWith('/blog/')
+const isPath = Astro.url.pathname === "/";
+const isInPost = Astro.url.pathname.startsWith("/blog/");
 ---
 
 <header
   class={`${
-    isPath && 'bg-backgorund backdrop:blur-sm '
+    isPath && "bg-backgorund backdrop:blur-sm "
   } py-[1.2em]  text-[.7em] sm:text-[.8em] absolute w-full px-3 md:px-10 z-10`}
 >
   <ul class="w-full flex justify-between items-center">
@@ -36,18 +36,10 @@ const isInPost = Astro.url.pathname.startsWith('/blog/')
         </li>
       )
     }
-    <!-- {
-      isPath && !isInPost && (
-        <li class={`animate-slide-down flex-1 flex justify-center`}>
-          <a
-            href="/"
-            class="border-b-[1px] border-transparent hover:border-white"
-          >
-            Inicio
-          </a>
-        </li>
-      )
-    } -->
+
+    <li class={`animate-slide-down flex-1 flex justify-center`}>
+      <img src="/logo.png" alt="Logo" class="w-20 h-20" />
+    </li>
 
     {
       isInPost && (
@@ -69,7 +61,7 @@ const isInPost = Astro.url.pathname.startsWith('/blog/')
           <a href="/blog">
             <span class="border-b-[1px] border-transparent group-hover:border-white ">
               visita mi
-            </span>{' '}
+            </span>{" "}
             <span class="flex gap-2 items-center w-max">
               <LineIcon className="size-5" />
               <span class="border-b-[1px] border-transparent group-hover:border-white ">
@@ -85,7 +77,7 @@ const isInPost = Astro.url.pathname.startsWith('/blog/')
         <li
           class={`animate-slide-dow flex-1  flex flex-col items-end cursor-pointer`}
         >
-          <span class="border-b-[1px] border-transparent ">portfolio</span>{' '}
+          <span class="border-b-[1px] border-transparent ">portfolio</span>{" "}
           <span class="border-b-[1px] border-transparent flex gap-2 items-center w-max">
             <LineIcon className="size-5" />
             <span>vol 2</span>
