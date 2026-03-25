@@ -1,17 +1,17 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 
 interface Props {
-  title: string
-  description: string
-  class?: string
+  title: string;
+  description: string;
+  class?: string;
 }
 
-const { title, description }: Props = Astro.props
+const { title, description }: Props = Astro.props;
 const canonical = new URL(
   Astro.url.pathname,
-  'https://maitendev.vercel.app'
-).toString()
+  "https://maitendev.vercel.app",
+).toString();
 ---
 
 <!doctype html>
@@ -54,7 +54,7 @@ const canonical = new URL(
     <meta property="og:description" content={description} />
     <meta
       property="og:image"
-      content="https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+      content="https://maitendev.vercel.app/favicon-96x96.png"
     />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="es_AR" />
@@ -65,7 +65,7 @@ const canonical = new URL(
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content="https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+      content="https://maitendev.vercel.app/favicon-96x96.png"
     />
 
     <!-- Preload fonts -->
@@ -104,7 +104,7 @@ const canonical = new URL(
               "name": "Maitén Oviedo",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://maitendev.vercel.app/assets/images/favicon-96x96.png"
+                "url": "https://maitendev.vercel.app/favicon-96x96.png"
               }
             }
           },
@@ -112,9 +112,9 @@ const canonical = new URL(
             "@type": "Person",
             "name": "Maitén Oviedo",
             "url": "https://maitendev.vercel.app/",
-            "logo": "https://maitendev.vercel.app/assets/images/favicon-96x96.png",
+            "logo": "https://maitendev.vercel.app/favicon-96x96.png",
             "description": "{description}",
-            "image": "https://maitendev.vercel.app/assets/images/favicon-96x96.png",
+            "image": "https://maitendev.vercel.app/favicon-96x96.png",
             "jobTitle": "Desarrollador Full Stack",
             "worksFor": {
               "@type": "Organization",
