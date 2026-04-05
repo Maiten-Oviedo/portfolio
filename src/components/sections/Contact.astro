@@ -250,56 +250,78 @@ const contactSchema = {
   </div>
 </section>
 
-<script>
-  import emailjs from '@emailjs/browser';
+<script is:inline>
+  (function() {
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-button');
+    const btnText = document.getElementById('button-text');
 
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const status = document.getElementById('form-status');
-  const submitBtn = document.getElementById('submit-button') as HTMLButtonElement;
-  const btnText = document.getElementById('button-text');
+    if (form && status && submitBtn && btnText) {
+      let emailjsModule = null;
 
-  if (form && status && submitBtn && btnText) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      // Update UI to sending
-      const originalText = btnText.innerText;
-      btnText.innerText = 'Enviando...';
-      submitBtn.disabled = true;
-      submitBtn.style.opacity = '0.5';
-      submitBtn.style.cursor = 'not-allowed';
-      status.classList.add('hidden');
-      
-      try {
-        await emailjs.sendForm(
-          'service_h3li6th',
-          'template_x41tw8l',
-          form,
-          'rJF-FnyRQ_fCYBrEB'
-        );
+      const loadEmailJS = async () => {
+        if (emailjsModule) return emailjsModule;
+        try {
+          const { default: emailjs } = await import('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.js');
+          emailjsModule = emailjs;
+          console.log('EmailJS loaded from CDN');
+          return emailjs;
+        } catch (err) {
+          console.error('Error loading EmailJS:', err);
+          return null;
+        }
+      };
+
+      // Preload on focus
+      const inputs = form.querySelectorAll('input, textarea');
+      const handleFocus = () => {
+        loadEmailJS();
+        inputs.forEach(input => input.removeEventListener('focus', handleFocus));
+      };
+      inputs.forEach(input => input.addEventListener('focus', handleFocus));
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        // Success feedback
-        status.innerText = '¡Mensaje enviado con éxito! Te responderé pronto.';
-        status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-emerald-400 block animate-fade-in';
-        form.reset();
+        const originalText = btnText.innerText;
+        btnText.innerText = 'Enviando...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+        submitBtn.style.cursor = 'not-allowed';
+        status.classList.add('hidden');
         
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          status.classList.add('hidden');
-          status.classList.remove('block');
-        }, 5000);
+        try {
+          const emailjs = await loadEmailJS();
+          if (!emailjs) throw new Error('No se pudo cargar el servicio de correo.');
+          
+          await emailjs.sendForm(
+            'service_h3li6th',
+            'template_x41tw8l',
+            form,
+            'rJF-FnyRQ_fCYBrEB'
+          );
+          
+          status.innerText = '¡Mensaje enviado con éxito! Te responderé pronto.';
+          status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-emerald-400 block animate-fade-in';
+          form.reset();
+          
+          setTimeout(() => {
+            status.classList.add('hidden');
+            status.classList.remove('block');
+          }, 5000);
 
-      } catch (error) {
-        console.error('EmailJS Error:', error);
-        status.innerText = 'Hubo un problema. Por favor, reintentá o escribime por WhatsApp.';
-        status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-red-400 block animate-fade-in';
-      } finally {
-        // Reset button state
-        btnText.innerText = originalText;
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
-      }
-    });
-  }
+        } catch (error) {
+          console.error('Error:', error);
+          status.innerText = 'Hubo un problema. Por favor, reintentá o escribime por WhatsApp.';
+          status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-red-400 block animate-fade-in';
+        } finally {
+          btnText.innerText = originalText;
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          submitBtn.style.cursor = 'pointer';
+        }
+      });
+    }
+  })();
 </script>
