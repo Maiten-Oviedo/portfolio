@@ -1,5 +1,7 @@
 ---
 // Contact.astro - Sección de contacto profesional
+import { Image } from "astro:assets";
+import contactImage from "@/assets/images/contact.webp";
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
@@ -52,10 +54,12 @@ const contactSchema = {
     <div
       class="relative w-full md:w-1/3 aspect-[4/3] organic-mask overflow-hidden bg-emerald-950/20 group border border-emerald-500/10 shadow-2xl"
     >
-      <img 
-        src="/assets/images/contact.webp" 
+      <Image 
+        src={contactImage} 
         alt="Contacto - Maitén Oviedo" 
         class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+        widths={[400, 800]}
+        sizes="(max-width: 768px) 100vw, 400px"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent opacity-80"
@@ -84,11 +88,11 @@ const contactSchema = {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="space-y-3">
               <label
-                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/80 ml-1"
                 >Tu Nombre</label
               >
               <input
-                class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
+                class="w-full bg-emerald-500/5 border border-emerald-500/20 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/50 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
                 placeholder="Ej: Juan Pérez"
                 type="text"
                 name="name"
@@ -97,11 +101,11 @@ const contactSchema = {
             </div>
             <div class="space-y-3">
               <label
-                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/80 ml-1"
                 >Tu Correo</label
               >
               <input
-                class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
+                class="w-full bg-emerald-500/5 border border-emerald-500/20 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/50 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
                 placeholder="email@ejemplo.com"
                 type="email"
                 name="email"
@@ -111,11 +115,11 @@ const contactSchema = {
           </div>
           <div class="space-y-3">
             <label
-              class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+              class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/80 ml-1"
               >Tu Mensaje</label
             >
             <textarea
-              class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all resize-none outline-none font-body"
+              class="w-full bg-emerald-500/5 border border-emerald-500/20 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/50 focus:ring-1 focus:ring-emerald-500/40 transition-all resize-none outline-none font-body"
               placeholder="Contame sobre tu proyecto o necesidad técnica..."
               rows="5"
               name="message"
@@ -154,7 +158,7 @@ const contactSchema = {
         <h3 class="font-headline text-2xl mb-4 text-emerald-50">
           Contacto Directo
         </h3>
-        <p class="text-emerald-100/50 text-base mb-8 leading-relaxed font-body">
+        <p class="text-emerald-100/80 text-base mb-8 leading-relaxed font-body">
           Si preferís una respuesta inmediata para consultas técnicas urgentes,
           podés escribirme directamente por WhatsApp.
         </p>
@@ -191,7 +195,7 @@ const contactSchema = {
       <!-- Social Networks -->
       <div class="bg-emerald-950/10 blob-card p-10 border border-emerald-500/5">
         <span
-          class="font-label text-[10px] uppercase tracking-[0.4em] text-emerald-400/30 mb-10 block"
+          class="font-label text-[10px] uppercase tracking-[0.4em] text-emerald-400/70 mb-10 block"
           >Redes & Perfiles</span
         >
         <div class="grid grid-cols-2 gap-6">
@@ -238,7 +242,7 @@ const contactSchema = {
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                   )}
                 </div>
-                <span class="font-label text-[10px] uppercase tracking-widest text-emerald-100/60 group-hover/soc:text-emerald-50 transition-colors">
+                <span class="font-label text-[10px] uppercase tracking-widest text-emerald-100/90 group-hover/soc:text-emerald-50 transition-colors">
                   {soc.name}
                 </span>
               </a>

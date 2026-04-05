@@ -1,5 +1,9 @@
 ---
 import { projects } from "@/constants/projects";
+import { Image } from "astro:assets";
+import projectOS from "@/assets/images/project-oselectricsas.webp";
+import projectPort from "@/assets/images/project-portfolio.webp";
+import screenshotImage from "@/assets/images/screenshot.webp";
 
 const projectsSchema = {
   "@context": "https://schema.org",
@@ -45,7 +49,7 @@ const apiProject = projects.find((p) => p.number === "04.");
       <span class="italic text-emerald-300">Técnicas Reales.</span>
     </h2>
     <p
-      class="mt-8 text-emerald-100/60 font-body max-w-xl text-lg leading-relaxed animate-fade-in-up"
+      class="mt-8 text-emerald-100/90 font-body max-w-xl text-lg leading-relaxed animate-fade-in-up"
       style="animation-delay: 0.2s;"
     >
       Una selección de desarrollos donde la prioridad es la integridad del
@@ -77,10 +81,12 @@ const apiProject = projects.find((p) => p.number === "04.");
         <div
           class="block relative overflow-hidden h-[450px] organic-mask bg-emerald-950/40"
         >
-          <img
-            src="/assets/images/project-oselectricsas.webp"
+          <Image
+            src={projectOS}
             alt="Landing Page de Oselectric Sas - Construcciones eléctricas y Energía Solar"
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 768px) 100vw, 800px"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"
@@ -101,7 +107,7 @@ const apiProject = projects.find((p) => p.number === "04.");
             {projects[0].title}
           </h3>
           <p
-            class="text-emerald-100/60 text-base font-body max-w-md leading-relaxed"
+            class="text-emerald-100/90 text-base font-body max-w-md leading-relaxed"
           >
             {projects[0].description}
           </p>
@@ -141,7 +147,7 @@ const apiProject = projects.find((p) => p.number === "04.");
               {projects[1].title}
             </h3>
             <p
-              class="text-emerald-100/60 text-sm font-body mb-8 leading-relaxed"
+              class="text-emerald-100/90 text-sm font-body mb-8 leading-relaxed"
             >
               {projects[1].description}
             </p>
@@ -198,10 +204,12 @@ const apiProject = projects.find((p) => p.number === "04.");
           <div
             class="w-full md:w-1/2 h-80 md:h-[500px] overflow-hidden organic-mask bg-emerald-950/40 relative"
           >
-            <img
-              src="/assets/images/project-portfolio.webp"
-              alt="Imágen de Portfolio - Portafolio para Administradora"
+            <Image
+              src={projectPort}
+              alt="Portfolio Personal - Maitén Oviedo v1"
               class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+              widths={[400, 800]}
+              sizes="(max-width: 768px) 100vw, 400px"
             />
             <div
               class="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent opacity-60"
@@ -218,14 +226,14 @@ const apiProject = projects.find((p) => p.number === "04.");
               {projects[2].title}
             </h3>
             <p
-              class="text-emerald-100/60 text-lg font-body mb-10 leading-relaxed max-w-md"
+              class="text-emerald-100/90 text-lg font-body mb-10 leading-relaxed max-w-md"
             >
               {projects[2].description}
             </p>
             <div class="flex flex-wrap gap-4 mb-12">
               {
                 projects[2].techs.map((tech) => (
-                  <span class="font-label tracking-widest text-[9px] uppercase text-emerald-300/80 px-3 py-1 bg-emerald-500/5 rounded-full border border-emerald-500/10">
+                  <span class="font-label tracking-widest text-[9px] uppercase text-emerald-300 px-3 py-1 bg-emerald-500/5 rounded-full border border-emerald-500/10">
                     {tech}
                   </span>
                 ))

@@ -34,7 +34,7 @@ import maitenImage from "@/assets/images/maiten.webp";
       >
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         <span
-          class="font-label text-xs tracking-[0.2em] text-emerald-300/80 uppercase"
+          class="font-label text-xs tracking-[0.2em] text-emerald-300 uppercase"
           >Disponible para nuevos desafíos</span
         >
       </div>
@@ -46,7 +46,7 @@ import maitenImage from "@/assets/images/maiten.webp";
           <span class="italic text-emerald-300">Oviedo</span>
         </h1>
         <p
-          class="text-xl md:text-2xl text-emerald-100/60 max-w-xl font-body font-light leading-relaxed"
+          class="text-xl md:text-2xl text-emerald-100/90 max-w-xl font-body font-light leading-relaxed"
         >
           Desarrollador Full Stack. Hago aplicaciones que funcionan, duran y se
           entienden. Prefiero soluciones honestas y código legible antes que
@@ -63,7 +63,7 @@ import maitenImage from "@/assets/images/maiten.webp";
         </a>
         <a
           href="#experiencia"
-          class="font-label text-xs uppercase tracking-[0.3em] text-emerald-300/50 hover:text-emerald-300 transition-colors border-b border-transparent hover:border-emerald-500/30 pb-1"
+          class="font-label text-xs uppercase tracking-[0.3em] text-emerald-300/90 hover:text-emerald-300 transition-colors border-b border-transparent hover:border-emerald-500/30 pb-1"
         >
           Ver Trayectoria
         </a>
@@ -92,6 +92,8 @@ import maitenImage from "@/assets/images/maiten.webp";
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
             loading="eager"
             fetchpriority="high"
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 800px) 100vw, 800px"
           />
 
           <!-- Subtle Glow Overlay -->
@@ -118,7 +120,7 @@ import maitenImage from "@/assets/images/maiten.webp";
             >
           </div>
           <p
-            class="text-sm font-light text-emerald-100/70 leading-relaxed font-body"
+            class="text-sm font-light text-emerald-100/90 leading-relaxed font-body"
           >
             Enfoque pragmático: código fácil de mantener y con el mejor
             rendimiento posible.
