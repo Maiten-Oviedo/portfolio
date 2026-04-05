@@ -183,8 +183,8 @@ body {
   /* Bioluminescent Animations */
   @keyframes float-organic {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    33% { transform: translateY(-4px) rotate(1deg); }
-    66% { transform: translateY(2px) rotate(-1deg); }
+    33% { transform: translateY(-2px) rotate(0.5deg); }
+    66% { transform: translateY(1px) rotate(-0.5deg); }
   }
 
   @keyframes glow-pulse {
@@ -193,7 +193,7 @@ body {
   }
 
   .animate-float-organic {
-    animation: float-organic 6s ease-in-out infinite;
+    animation: float-organic 12s ease-in-out infinite;
   }
 
   .animate-glow-pulse {

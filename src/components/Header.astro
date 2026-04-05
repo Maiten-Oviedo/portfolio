@@ -5,7 +5,7 @@
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 max-w-full bg-emerald-950/80 backdrop-blur-xl border-b border-emerald-500/10">
   <div class="flex items-center gap-3 text-2xl font-headline italic text-emerald-100 film-grain group cursor-pointer logo-3d-wrap">
     <div class="logo-3d-inner animate-float-organic">
-      <img src="/favicon.svg" alt="Logo Árbol de Maitén" class="w-10 h-10 animate-glow-pulse" />
+      <img src="/favicon.svg" alt="Logo Árbol de Maitén" class="w-10 h-10" />
     </div>
     <span class="hidden sm:inline-block hover:text-emerald-300 transition-colors duration-300">Maitén Oviedo</span>
   </div>
@@ -55,8 +55,8 @@
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = (y - centerY) / 2;
-      const rotateY = (centerX - x) / 2;
+      const rotateX = (y - centerY) / 15;
+      const rotateY = (centerX - x) / 15;
       
       inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
     });

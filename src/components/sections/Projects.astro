@@ -60,21 +60,28 @@ const apiProject = projects.find((p) => p.number === "04.");
     style="animation-delay: 0.3s;"
   >
     <!-- Project 1: Large Feature -->
-    <div class="md:col-span-7 group">
+    <a 
+      href={projects[0].url} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="md:col-span-7 group relative"
+    >
       <div
-        class="relative bg-emerald-950/20 blob-card p-1 border border-emerald-500/10 shadow-sm hover:shadow-xl hover:border-emerald-500/20 transition-all duration-500"
+        class="relative bg-emerald-950/20 blob-card p-1 border border-emerald-500/10 shadow-sm group-hover:shadow-xl group-hover:border-emerald-500/30 transition-all duration-500 h-full"
       >
+        <!-- Floating Link Icon -->
+        <div class="absolute top-6 right-6 z-30 w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-y-0 translate-y-4">
+          <span class="material-symbols-outlined text-xl">open_in_new</span>
+        </div>
+
         <div
-          class="block relative overflow-hidden h-[450px] organic-mask bg-emerald-950/40 group"
+          class="block relative overflow-hidden h-[450px] organic-mask bg-emerald-950/40"
         >
-          <div
-            class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-emerald-500/5 to-emerald-900/10"
-          >
-            <span
-              class="material-symbols-outlined text-9xl text-emerald-400/10 group-hover:scale-110 transition-transform duration-1000"
-              data-icon="dashboard">dashboard</span
-            >
-          </div>
+          <img
+            src="/assets/images/project-oselectricsas.webp"
+            alt="Landing Page de Oselectric Sas - Construcciones eléctricas y Energía Solar"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+          />
           <div
             class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"
           >
@@ -90,7 +97,7 @@ const apiProject = projects.find((p) => p.number === "04.");
               ))
             }
           </div>
-          <h3 class="text-4xl font-headline mb-4 text-emerald-50">
+          <h3 class="text-4xl font-headline mb-4 text-emerald-50 group-hover:text-emerald-300 transition-colors">
             {projects[0].title}
           </h3>
           <p
@@ -100,14 +107,24 @@ const apiProject = projects.find((p) => p.number === "04.");
           </p>
         </div>
       </div>
-    </div>
+    </a>
 
     <!-- Project 2 & API -->
     <div class="md:col-span-5 flex flex-col gap-12 justify-center">
-      <div class="group h-full flex flex-col">
+      <a 
+        href={projects[1].url}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group h-full flex flex-col"
+      >
         <div
-          class="bg-emerald-950/20 blob-card p-10 border border-emerald-500/10 hover:border-emerald-500/20 transition-all grow flex flex-col justify-between"
+          class="bg-emerald-950/20 blob-card p-10 border border-emerald-500/10 group-hover:border-emerald-500/30 transition-all grow flex flex-col justify-between relative overflow-hidden"
         >
+          <!-- Subtle link highlight on hover -->
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
+             <span class="material-symbols-outlined text-emerald-400">arrow_outward</span>
+          </div>
+
           <div>
             <div class="flex justify-between items-start mb-12">
               <div
@@ -115,15 +132,14 @@ const apiProject = projects.find((p) => p.number === "04.");
               >
                 <span
                   class="material-symbols-outlined text-3xl"
-                  data-icon="terminal">terminal</span
-                >
+                  data-icon="terminal">terminal</span>
               </div>
               <span
                 class="font-label text-[10px] text-emerald-400 uppercase tracking-[0.3em] bg-emerald-500/10 px-3 py-1 rounded-full"
                 >Sistema Central</span
               >
             </div>
-            <h3 class="text-3xl font-headline mb-4 text-emerald-50">
+            <h3 class="text-3xl font-headline mb-4 text-emerald-50 group-hover:text-emerald-300 transition-colors">
               {projects[1].title}
             </h3>
             <p
@@ -144,7 +160,7 @@ const apiProject = projects.find((p) => p.number === "04.");
             }
           </div>
         </div>
-      </div>
+      </a>
 
       <!-- API / Backend Link -->
       <a
@@ -177,54 +193,57 @@ const apiProject = projects.find((p) => p.number === "04.");
 
     <!-- Project 3: Wide Layout -->
     <div class="md:col-span-12 mt-12">
-      <div
-        class="relative bg-emerald-950/20 blob-card overflow-hidden group flex flex-col md:flex-row items-center border border-emerald-500/10 hover:border-emerald-500/20 transition-all p-4 md:p-8"
+      <a 
+        href={projects[2].url}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="relative block bg-emerald-950/20 blob-card overflow-hidden group border border-emerald-500/10 group-hover:border-emerald-500/30 transition-all p-4 md:p-8"
       >
-        <div
-          class="w-full md:w-1/2 h-80 md:h-[500px] overflow-hidden organic-mask bg-emerald-950/40 relative group"
-        >
+        <div class="flex flex-col md:flex-row items-center">
           <div
-            class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-emerald-500/5 to-emerald-900/10"
+            class="w-full md:w-1/2 h-80 md:h-[500px] overflow-hidden organic-mask bg-emerald-950/40 relative"
           >
-            <span
-              class="material-symbols-outlined text-[10rem] text-emerald-400/10 group-hover:rotate-6 transition-transform duration-1000"
-              data-icon="data_object">data_object</span
+            <img
+              src="/assets/images/project-portfolio.webp"
+              alt="Imágen de Portfolio - Portafolio para Administradora"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent opacity-60"
             >
+            </div>
+          </div>
+          <div
+            class="w-full md:w-1/2 p-8 md:p-16 relative z-10 flex flex-col justify-center"
+          >
+            <div class="h-1 w-12 bg-emerald-500/30 mb-8 rounded-full"></div>
+            <h3
+              class="text-4xl md:text-5xl font-headline mb-6 leading-tight text-emerald-50 group-hover:text-emerald-300 transition-colors"
+            >
+              {projects[2].title}
+            </h3>
+            <p
+              class="text-emerald-100/60 text-lg font-body mb-10 leading-relaxed max-w-md"
+            >
+              {projects[2].description}
+            </p>
+            <div class="flex flex-wrap gap-4 mb-12">
+              {
+                projects[2].techs.map((tech) => (
+                  <span class="font-label tracking-widest text-[9px] uppercase text-emerald-300/80 px-3 py-1 bg-emerald-500/5 rounded-full border border-emerald-500/10">
+                    {tech}
+                  </span>
+                ))
+              }
+            </div>
+            <div
+              class="blob-button inline-flex w-fit bg-emerald-500/20 text-emerald-50 px-10 py-5 font-label text-xs font-bold uppercase tracking-[0.2em] group-hover:bg-emerald-500/40 transition-all border border-emerald-500/20 shadow-organic"
+            >
+              Ver Proyecto
+            </div>
           </div>
         </div>
-        <div
-          class="w-full md:w-1/2 p-8 md:p-16 relative z-10 flex flex-col justify-center"
-        >
-          <div class="h-1 w-12 bg-emerald-500/30 mb-8 rounded-full"></div>
-          <h3
-            class="text-4xl md:text-5xl font-headline mb-6 leading-tight text-emerald-50"
-          >
-            {projects[2].title}
-          </h3>
-          <p
-            class="text-emerald-100/60 text-lg font-body mb-10 leading-relaxed max-w-md"
-          >
-            {projects[2].description}
-          </p>
-          <div class="flex flex-wrap gap-4 mb-12">
-            {
-              projects[2].techs.map((tech) => (
-                <span class="font-label tracking-widest text-[9px] uppercase text-emerald-300/80 px-3 py-1 bg-emerald-500/5 rounded-full border border-emerald-500/10">
-                  {tech}
-                </span>
-              ))
-            }
-          </div>
-          <a
-            href={projects[2].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="blob-button inline-flex w-fit bg-emerald-500/20 text-emerald-50 px-10 py-5 font-label text-xs font-bold uppercase tracking-[0.2em] hover:bg-emerald-500/40 transition-all border border-emerald-500/20 shadow-organic"
-          >
-            Explorar Código
-          </a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
