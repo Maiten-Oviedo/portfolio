@@ -1,37 +1,30 @@
 # Portfolio Personal - Maiten Oviedo
 
-<img width="1345" height="653" alt="image" src="https://github.com/user-attachments/assets/18f45823-5e93-4d56-9437-b5b3574e3fd3" />
-Un portfolio moderno y profesional desarrollado con Astro, TypeScript y Tailwind CSS v4, diseñado para mostrar mis habilidades como desarrollador Frontend.
+![Maitén Oviedo Portfolio](./public/assets/images/screenshot.webp)
+
+Portfolio de alto rendimiento con estética **Bioluminescent Architect**, diseñado para reflejar una ingeniería honesta y escalonada. Construido con **Astro 5**, **Tailwind CSS 4** y **Bun**.
 
 ## 🚀 Tecnologías Utilizadas
 
-- **[Astro](https://astro.build/)** - Framework web moderno para sitios rápidos
-- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript con tipado estático
-- **[Tailwind CSS v4](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[Bun](https://bun.sh/)** - Runtime y package manager ultrarrápido
+- **[Astro 5](https://astro.build/)** - El framework web para la era moderna, optimizado para Web Vitals.
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático para un código robusto y mantenible.
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Estilado de última generación con variables CSS nativas.
+- **[Bun](https://bun.sh/)** - Runtime y gestor de paquetes de alto rendimiento.
 
 ## ✨ Características
 
 ### Secciones Principales
-- **Hero Section** - Presentación personal con animaciones dinámicas y partículas flotantes
-- **Experience** - Tarjetas de experiencia laboral con animaciones de entrada
-- **Projects** - Showcase de proyectos con efectos hover sofisticados
-- **Process** - Metodología de trabajo con acordeón interactivo
-- **About** - Información personal con slider de imágenes
-- **Contact** - Sección de contacto moderna con efectos glassmorphism
+- **Hero** - Presentación de alto impacto con 3D interactivo y tipografía Sora.
+- **Roots** - El ADN técnico; filosofía de desarrollo, métricas vitales y stack profundo.
+- **Projects** - Showcase de ingeniería con filtrado y detalles dinámicos.
+- **Experience** - Línea de tiempo profesional con enfoque en logros tangibles.
+- **Contact** - Punto de conexión optimizado con feedback visual inmediato.
 
-### Optimizaciones
-- **Performance** - Intersection Observer nativo para animaciones optimizadas
-- **SEO** - Schema markup JSON-LD en todas las secciones
-- **Accessibility** - Soporte para `prefers-reduced-motion` y navegación por teclado
-- **Responsive** - Diseño completamente adaptable a todos los dispositivos
-
-### Efectos Visuales
-- Animaciones de entrada escalonadas
-- Partículas flotantes interactivas
-- Efectos glassmorphism y backdrop-blur
-- Transiciones suaves y micro-interacciones
-- Gradientes animados y efectos hover
+### Optimizaciones & Estética
+- **Performance** - 100/100 en Google PageSpeed; hidratación cero por defecto.
+- **Diseño Bioluminiscente** - Capas de profundidad, bordes suaves y glow semántico.
+- **SEO & Accesibilidad** - Schema.org completo, semántica HTML5 y soporte `prefers-reduced-motion`.
+- **Arquitectura Limpia** - Estructura de componentes atómicos y lógica desacoplada.
 
 ## 🛠️ Instalación y Uso
 
@@ -64,25 +57,15 @@ bun run preview
 \`\`\`
 src/
 ├── components/
-│   ├── common/
-│   │   ├── ExperienceCard.astro
-│   │   └── ExperiencieCard.astro
-│   └── sections/
-│       ├── Hero.astro
-│       ├── Experience.astro
-│       ├── Projects.astro
-│       ├── Process.astro
-│       ├── About.astro
-│       ├── SliderHero.astro
-│       ├── Contact.astro
-│       ├── ContactSchema.astro
-│       └── Footer.astro
-├── layouts/
-│   └── Layout.astro
-├── pages/
-│   └── index.astro
-└── styles/
-    └── global.css
+│   ├── common/         # Componentes reutilizables (Badge, Cards)
+│   ├── icons/          # Sistema de iconos SVG atomizados
+│   ├── sections/       # Secciones principales (Hero, Roots, etc.)
+│   ├── Header.astro    # Navegación inteligente
+│   └── Footer.astro    # Cierre de página y links
+├── constants/          # Datos del portfolio (proyectos, experiencia)
+├── layouts/            # Layout principal con SEO y fuentes
+├── pages/              # Página principal (Index)
+└── styles/             # Tailwind 4 configuration & global styles
 \`\`\`
 
 ## 🎨 Características de Diseño

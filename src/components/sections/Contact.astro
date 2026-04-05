@@ -52,16 +52,13 @@ const contactSchema = {
     <div
       class="relative w-full md:w-1/3 aspect-[4/3] organic-mask overflow-hidden bg-emerald-950/20 group border border-emerald-500/10 shadow-2xl"
     >
+      <img 
+        src="/assets/images/contact.webp" 
+        alt="Contacto - Maitén Oviedo" 
+        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+      />
       <div
-        class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-emerald-500/5 to-emerald-900/10"
-      >
-        <span
-          class="material-symbols-outlined text-[8rem] text-emerald-400/5 group-hover:scale-110 transition-transform duration-1000"
-          data-icon="alternate_email">alternate_email</span
-        >
-      </div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent"
+        class="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent opacity-80"
       >
       </div>
     </div>
@@ -81,10 +78,8 @@ const contactSchema = {
           Consulta Directa
         </h3>
         <form
+          id="contact-form"
           class="space-y-8"
-          action="mailto:maitenoviedo513@gmail.com"
-          method="post"
-          enctype="text/plain"
         >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="space-y-3">
@@ -127,15 +122,18 @@ const contactSchema = {
               required></textarea>
           </div>
           <button
+            id="submit-button"
             class="blob-button group/btn relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-emerald-500/20 text-emerald-50 font-label text-xs font-bold uppercase tracking-[0.2em] transition-all hover:bg-emerald-500/40 active:scale-95 border border-emerald-500/20 shadow-organic cursor-pointer w-full md:w-auto"
             type="submit"
           >
-            <span>Enviar Mensaje</span>
+            <span id="button-text">Enviar Mensaje</span>
             <span
+              id="button-icon"
               class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform"
               data-icon="arrow_forward">arrow_forward</span
             >
           </button>
+          <div id="form-status" class="mt-6 text-[10px] font-label uppercase tracking-[0.2em] hidden"></div>
         </form>
       </div>
 
@@ -243,3 +241,57 @@ const contactSchema = {
     </div>
   </div>
 </section>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-button') as HTMLButtonElement;
+  const btnText = document.getElementById('button-text');
+
+  if (form && status && submitBtn && btnText) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Update UI to sending
+      const originalText = btnText.innerText;
+      btnText.innerText = 'Enviando...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.5';
+      submitBtn.style.cursor = 'not-allowed';
+      status.classList.add('hidden');
+      
+      try {
+        await emailjs.sendForm(
+          'service_h3li6th',
+          'template_x41tw8l',
+          form,
+          'rJF-FnyRQ_fCYBrEB'
+        );
+        
+        // Success feedback
+        status.innerText = '¡Mensaje enviado con éxito! Te responderé pronto.';
+        status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-emerald-400 block animate-fade-in';
+        form.reset();
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          status.classList.add('hidden');
+          status.classList.remove('block');
+        }, 5000);
+
+      } catch (error) {
+        console.error('EmailJS Error:', error);
+        status.innerText = 'Hubo un problema. Por favor, reintentá o escribime por WhatsApp.';
+        status.className = 'mt-6 text-[10px] font-label uppercase tracking-[0.2em] text-red-400 block animate-fade-in';
+      } finally {
+        // Reset button state
+        btnText.innerText = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }
+    });
+  }
+</script>
