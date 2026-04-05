@@ -14,7 +14,7 @@ Portfolio de alto rendimiento con estética **Bioluminescent Architect**, diseñ
 ## ✨ Características
 
 ### Secciones Principales
-- **Hero** - Presentación de alto impacto con 3D interactivo y tipografía Sora.
+- **Hero** - Presentación de alto impacto con 3D interactivo y tipografía refinada (Noto Serif, Inter y Space Grotesk).
 - **Roots** - El ADN técnico; filosofía de desarrollo, métricas vitales y stack profundo.
 - **Projects** - Showcase de ingeniería con filtrado y detalles dinámicos.
 - **Experience** - Línea de tiempo profesional con enfoque en logros tangibles.
