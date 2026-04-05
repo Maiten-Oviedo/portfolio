@@ -1,46 +1,83 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #08f7b3b3;
-  --color-background: #040914;
+  --color-on-secondary: #3f2c20;
+  --color-on-secondary-container: #ccb09f;
+  --color-on-background: #dfe3e1;
+  --color-tertiary: #b0cdbb;
+  --color-inverse-on-surface: #2d3130;
+  --color-primary-fixed-dim: #73db9a;
+  --color-surface-bright: #353a39;
+  --color-outline: #8c928d;
+  --color-primary: #73db9a;
+  --color-primary-fixed: #8ff8b4;
+  --color-on-secondary-fixed: #28180d;
+  --color-tertiary-fixed-dim: #b0cdbb;
+  --color-on-secondary-fixed-variant: #574335;
+  --color-on-tertiary-fixed: #062014;
+  --color-outline-variant: #424844;
+  --color-background: #101413;
+  --color-on-primary-container: #59c283;
+  --color-secondary-fixed-dim: #dec1af;
+  --color-surface-container: #1c2120;
+  --color-surface: #101413;
+  --color-on-surface-variant: #c2c8c2;
+  --color-on-tertiary-container: #98b5a3;
+  --color-inverse-primary: #006d3e;
+  --color-surface-container-lowest: #0a0f0e;
+  --color-on-error: #690005;
+  --color-surface-container-highest: #313635;
+  --color-secondary-fixed: #fbddca;
+  --color-on-primary-fixed: #00210f;
+  --color-primary-container: #004c29;
+  --color-surface-dim: #101413;
+  --color-on-primary-fixed-variant: #00522d;
+  --color-tertiary-container: #2d4739;
+  --color-on-tertiary-fixed-variant: #324c3e;
+  --color-surface-container-high: #262b2a;
+  --color-on-surface: #dfe3e1;
+  --color-tertiary-fixed: #ccead6;
+  --color-surface-tint: #73db9a;
+  --color-inverse-surface: #dfe3e1;
+  --color-surface-container-low: #181c1c;
+  --color-on-primary: #00391d;
+  --color-error: #ffb4ab;
+  --color-on-error-container: #ffdad6;
+  --color-surface-variant: #313635;
+  --color-error-container: #93000a;
+  --color-secondary-container: #574335;
+  --color-on-tertiary: #1c3528;
+  --color-secondary: #dec1af;
+
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --font-headline: "Noto Serif", serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+
   --breakpoint-xs: 380px;
+
+  /* Custom Bio-Circuit Extras */
+  --shadow-organic: 0 20px 40px -10px rgba(0, 33, 21, 0.08);
+  --glass-bg: rgba(49, 54, 53, 0.6);
 }
 
 html,
-  body {
+body {
   margin: 0;
   width: 100%;
   height: 100%;
-  --tw-bg-opacity: 1;
-  background-color: #040914;
-  color: #f1f5f9;
-  font-family: 'Sora', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-body);
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: 'Sora';
-  src: url('/assets/fonts/Sora-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Sora';
-  src: url('/assets/fonts/Sora-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Sora';
-  src: url('/assets/fonts/Sora-ExtraBold.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Enhanced Animations */
   @keyframes fade-in-up {
@@ -140,8 +177,40 @@ html,
   }
 
   .animate-slide-up {
-    animation: slide-up 0.8s ease-out forwards;
-    opacity: 0;
+    animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Bioluminescent Animations */
+  @keyframes float-organic {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-4px) rotate(1deg); }
+    66% { transform: translateY(2px) rotate(-1deg); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(115, 219, 154, 0.4)) brightness(1); }
+    50% { filter: drop-shadow(0 0 15px rgba(115, 219, 154, 0.8)) drop-shadow(0 0 25px rgba(115, 219, 154, 0.3)) brightness(1.2); }
+  }
+
+  .animate-float-organic {
+    animation: float-organic 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  .logo-3d-wrap {
+    perspective: 1200px;
+  }
+
+  .logo-3d-inner {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  .logo-3d-wrap:hover .logo-3d-inner {
+    transform: rotateY(15deg) rotateX(10deg);
   }
 
   .animate-gradient-x {
@@ -170,6 +239,35 @@ html,
 
   .animate-pulse-slow {
     animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  /* Organic Shape Utilities */
+  .blob-button {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transition: border-radius 0.4s ease-in-out;
+  }
+  .blob-button:hover {
+    border-radius: 58% 42% 30% 70% / 55% 55% 45% 45%;
+  }
+
+  .blob-hero {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .blob-card {
+    border-radius: 1.5rem 3rem 1.5rem 3rem;
+  }
+
+  .organic-mask {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  /* Improved Asymmetry Utilities */
+  .asymmetric-offset-up {
+    transform: translateY(-2rem);
+  }
+  .asymmetric-offset-down {
+    transform: translateY(2rem);
   }
 
   /* Performance Optimizations */

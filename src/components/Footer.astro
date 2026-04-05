@@ -1,149 +1,46 @@
 ---
 const { class: className = "" } = Astro.props;
 const currentYear = new Date().getFullYear();
+
+// Schema Markup for SEO
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Maitén Oviedo",
+  "jobTitle": "Desarrollador Full Stack",
+  "url": "https://maitendev.vercel.app/",
+  "sameAs": [
+    "https://github.com/Maiten-Oviedo",
+    "https://www.linkedin.com/in/maiten-oviedo",
+    "https://www.instagram.com/maiten_oviedo"
+  ]
+};
 ---
 
-<footer class={`relative py-16 ${className}`}>
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="footer-content opacity-0 translate-y-8">
-      <!-- Quick Links -->
-      <nav class="flex flex-wrap justify-center gap-8 mb-12">
-        <a
-          href="#"
-          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
-        >
-          Inicio
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-        <a
-          href="#experiencia"
-          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
-        >
-          Experiencia
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-        <a
-          href="#proyectos"
-          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
-        >
-          Proyectos
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-        <a
-          href="#proceso"
-          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
-        >
-          Proceso
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-        <a
-          href="#contacto"
-          class="text-slate-300 hover:text-primary transition-colors duration-300 relative group"
-        >
-          Contacto
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-      </nav>
-
-      <!-- Divider -->
-      <div
-        class="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent mb-8"
-      >
-      </div>
-
-      <!-- Bottom Section -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-slate-500 text-sm">
-          © {currentYear} Maitén Oviedo.
-        </p>
-      </div>
-    </div>
-  </div>
-
+<footer class={`w-full py-20 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-12 bg-emerald-950/20 rounded-t-[4rem] mt-32 border-t border-emerald-500/10 film-grain ${className}`}>
   <!-- Schema Markup -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Maitén Oviedo",
-      "jobTitle": "Frontend Developer",
-      "url": "https://maitendev.vercel.app/",
-      "sameAs": [
-        "https://github.com/Maiten-Oviedo",
-        "https://www.linkedin.com/in/maiten-oviedo",
-        "https://www.instagram.com/maiten_oviedo"
-      ]
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <div class="flex flex-col items-center md:items-start gap-4">
+    <div class="flex items-center gap-3">
+       <img src="/favicon.svg" alt="Maitén Logo" class="w-8 h-8 opacity-50" />
+       <div class="text-2xl font-headline text-emerald-50">Maitén <span class="italic text-emerald-300/80">Oviedo</span></div>
+    </div>
+    <p class="font-label text-[10px] text-emerald-100/30 uppercase tracking-[0.4em]">© {currentYear} — Construido con integridad y precisión técnica.</p>
+  </div>
+  
+  <div class="flex flex-wrap justify-center gap-8 font-label text-[10px] uppercase tracking-widest text-emerald-100/40">
+    <span class="hover:text-emerald-300 transition-colors cursor-default">Arquitectura Limpia</span>
+    <span class="hover:text-emerald-300 transition-colors cursor-default">UX Bio-Orgánico</span>
+    <span class="hover:text-emerald-300 transition-colors cursor-default">Mendoza, AR</span>
+  </div>
+  
+  <div class="flex gap-6 items-center">
+    <a href="https://github.com/Maiten-Oviedo" target="_blank" rel="noopener noreferrer" class="text-emerald-500/40 hover:text-emerald-400 transition-all">
+       <span class="material-symbols-outlined text-xl">terminal</span>
+    </a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-14 h-14 rounded-full border border-emerald-500/20 flex items-center justify-center text-emerald-400 hover:bg-emerald-500 hover:text-background transition-all cursor-pointer group shadow-organic" aria-label="Volver arriba">
+      <span class="material-symbols-outlined text-lg group-hover:-translate-y-1 transition-all" data-icon="north">north</span>
+    </button>
+  </div>
 </footer>
-
-<style>
-  .footer-content {
-    transition:
-      opacity 0.8s ease-out,
-      transform 0.8s ease-out;
-  }
-
-  .footer-content.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .footer-content {
-      transition: none;
-    }
-  }
-</style>
-
-<script>
-  class FooterAnimator {
-    observer: IntersectionObserver = new IntersectionObserver(() => {});
-
-    constructor() {
-      this.initializeObserver();
-      this.observeElements();
-    }
-
-    private initializeObserver() {
-      const options = {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      this.observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const element = entry.target;
-            element.classList.add("animate");
-            this.observer.unobserve(element);
-          }
-        });
-      }, options);
-    }
-
-    private observeElements() {
-      const footerContent = document.querySelector(".footer-content");
-      if (footerContent) {
-        this.observer.observe(footerContent);
-      }
-    }
-  }
-
-  // Initialize when DOM is loaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => new FooterAnimator());
-  } else {
-    new FooterAnimator();
-  }
-</script>

@@ -1,103 +1,72 @@
 ---
-import LineIcon from "./icons/LineIcon.astro";
-
-const isPath = Astro.url.pathname === "/";
-const isInPost = Astro.url.pathname.startsWith("/blog/");
+// Header.astro
 ---
 
-<header
-  class={`${
-    isPath && "bg-backgorund backdrop:blur-sm "
-  } py-[1.2em]  text-[.7em] sm:text-[.8em] absolute w-full px-3 md:px-10 z-10`}
->
-  <ul class="w-full flex justify-between items-center">
-    <li class={`animate-slide-down flex-1 flex flex-col cursor-pointer`}>
-      <span class="w-max border-b-[1px] border-transparent">
-        disponlible para
-      </span>
-      <span
-        class="border-b-[1px] flex gap-2 items-center border-transparent w-max"
-      >
-        trabajar
-        <LineIcon className="size-5" />
-      </span>
-    </li>
-    {
-      !isPath && (
-        <li class={`animate-slide-down flex-1 flex justify-center`}>
-          <a
-            href="https://www.linkedin.com/in/Maiten-Oviedo"
-            target="_blank"
-            rel="noreferrer noopener"
-            class="border-b-[1px] border-transparent hover:border-white"
-          >
-            Linkedin
-          </a>
-        </li>
-      )
-    }
-
-    <li class={`animate-slide-down flex-1 flex justify-center`}>
-      <img src="/logo.png" alt="Logo" class="w-20 h-20" />
-    </li>
-
-    {
-      isInPost && (
-        <li class={`animate-slide-down flex-1 flex justify-center`}>
-          <a
-            href="/blog"
-            class="border-b-[1px] border-transparent hover:border-white"
-          >
-            Volver al Blog
-          </a>
-        </li>
-      )
-    }
-    {
-      !isPath && (
-        <li
-          class={`animate-slide-down flex-1  flex flex-col items-end cursor-pointer`}
-        >
-          <a href="/blog">
-            <span class="border-b-[1px] border-transparent group-hover:border-white ">
-              visita mi
-            </span>{" "}
-            <span class="flex gap-2 items-center w-max">
-              <LineIcon className="size-5" />
-              <span class="border-b-[1px] border-transparent group-hover:border-white ">
-                blog
-              </span>
-            </span>
-          </a>
-        </li>
-      )
-    }
-    {
-      isPath && !isInPost && (
-        <li
-          class={`animate-slide-dow flex-1  flex flex-col items-end cursor-pointer`}
-        >
-          <span class="border-b-[1px] border-transparent ">portfolio</span>{" "}
-          <span class="border-b-[1px] border-transparent flex gap-2 items-center w-max">
-            <LineIcon className="size-5" />
-            <span>vol 2</span>
-          </span>
-        </li>
-      )
-    }
-    {
-      isInPost && (
-        <li
-          class={`animate-slide-dow flex-1  flex flex-col items-end cursor-pointer`}
-        >
-          <a
-            href="/"
-            class="border-b-[1px] border-transparent hover:border-white"
-          >
-            Inicio
-          </a>
-        </li>
-      )
-    }
-  </ul>
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 max-w-full bg-emerald-950/80 backdrop-blur-xl border-b border-emerald-500/10">
+  <div class="flex items-center gap-3 text-2xl font-headline italic text-emerald-100 film-grain group cursor-pointer logo-3d-wrap">
+    <div class="logo-3d-inner animate-float-organic">
+      <img src="/favicon.svg" alt="Logo Árbol de Maitén" class="w-10 h-10 animate-glow-pulse" />
+    </div>
+    <span class="hidden sm:inline-block hover:text-emerald-300 transition-colors duration-300">Maitén Oviedo</span>
+  </div>
+  <nav class="hidden md:flex items-center gap-2">
+    <a
+      class="text-emerald-100/70 hover:text-emerald-50 transition-all duration-300 font-label tracking-wider text-xs uppercase hover:bg-emerald-900/60 rounded-lg px-4 py-2"
+      href="#"
+    >Home</a>
+    <a
+      class="text-emerald-100/70 hover:text-emerald-50 transition-all duration-300 font-label tracking-wider text-xs uppercase hover:bg-emerald-900/60 rounded-lg px-4 py-2"
+      href="#proyectos"
+    >Proyectos</a>
+    <a
+      class="text-emerald-100/70 hover:text-emerald-50 transition-all duration-300 font-label tracking-wider text-xs uppercase hover:bg-emerald-900/60 rounded-lg px-4 py-2"
+      href="#experiencia"
+    >Experiencia</a>
+    <a
+      class="text-emerald-100/70 hover:text-emerald-50 transition-all duration-300 font-label tracking-wider text-xs uppercase hover:bg-emerald-900/60 rounded-lg px-4 py-2"
+      href="#contacto"
+    >Contacto</a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <a 
+      href="/CV-MaitenOviedo.pdf" 
+      target="_blank"
+      class="hidden sm:flex items-center gap-2 px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 rounded-xl transition-all duration-300 text-xs font-label uppercase tracking-widest"
+    >
+      <span class="material-symbols-outlined text-sm">download</span>
+      CV
+    </a>
+    <button aria-label="Toggle Theme" class="p-2 text-emerald-400 hover:bg-emerald-900/60 rounded-lg transition-all duration-300">
+      <span class="material-symbols-outlined" data-icon="eco">eco</span>
+    </button>
+  </div>
 </header>
+
+<script>
+  const wrap = document.querySelector('.logo-3d-wrap') as HTMLElement;
+  const inner = document.querySelector('.logo-3d-inner') as HTMLElement;
+
+  if (wrap && inner) {
+    wrap.addEventListener('mousemove', (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 2;
+      const rotateY = (centerX - x) / 2;
+      
+      inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      inner.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  }
+</script>
+
+<style>
+  /* Optional script logic to handle active styling based on scroll could be added here, but static handles it gracefully. */
+</style>

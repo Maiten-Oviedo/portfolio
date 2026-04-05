@@ -1,209 +1,245 @@
 ---
-import GitHubIcon from '../icons/GitHubIcon.astro'
-import LinkedinIcon from '../icons/LinkedinIcon.astro'
-import MailIcon from '../icons/MailIcon.astro'
-
-// Schema markup for SEO
+// Contact.astro - Sección de contacto profesional
 const contactSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
   mainEntity: {
-    '@type': 'Person',
-    name: 'Maiten Oviedo',
-    jobTitle: 'Frontend Developer',
-    email: 'maitenoviedo513@gmail.com',
+    "@type": "Person",
+    name: "Maitén Oviedo",
+    jobTitle: "Desarrollador Full Stack",
+    email: "maitenoviedo513@gmail.com",
     sameAs: [
-      'https://github.com/Maiten-Oviedo',
-      'https://www.linkedin.com/in/maiten-oviedo',
-      'https://www.instagram.com/maiten_oviedo',
+      "https://github.com/Maiten-Oviedo",
+      "https://www.linkedin.com/in/maiten-oviedo",
+      "https://www.instagram.com/maiten_oviedo",
     ],
     contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+5492613897545',
-      contactType: 'personal',
+      "@type": "ContactPoint",
+      telephone: "+5492613897545",
+      contactType: "personal",
     },
   },
-}
+};
 ---
-
-<style>
-  /* Animation keyframes */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(2rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Animation classes */
-  .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  /* Ensure elements are visible by default for accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    #contact [data-animate] {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-
-  /* Hover effects */
-  .contact-link {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
-  }
-
-  .contact-link:hover {
-    transform: translateY(-0.25rem) scale(1.05);
-  }
-
-  .whatsapp-btn {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(
-      135deg,
-      rgba(34, 197, 94, 0.1),
-      rgba(34, 197, 94, 0.2)
-    );
-    border: 2px solid rgba(34, 197, 94, 0.3);
-  }
-
-  .whatsapp-btn:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(34, 197, 94, 0.2),
-      rgba(34, 197, 94, 0.3)
-    );
-    border-color: rgba(34, 197, 94, 0.5);
-    transform: translateY(-0.125rem);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-  }
-
-  /* Intersection observer animations */
-  .contact-animate {
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: all 0.6s ease-out;
-  }
-
-  .contact-animate.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
 
 <section
   id="contacto"
-  class="flex flex-col items-center justify-center gap-10"
+  class="pt-32 pb-20 px-6 container mx-auto min-h-[80vh] flex flex-col justify-center"
   aria-labelledby="contact-heading"
 >
   <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
-  <h2
-    id="contact-heading"
-    class="contact-animate text-5xl md:text-6xl font-bold uppercase z-10 text-center bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mt-16"
-    data-delay="0"
+  <!-- Header Section -->
+  <header
+    class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-10 animate-fade-in-up"
   >
-    ¿Nos ponemos en contacto?
-  </h2>
-  <a
-    href="https://wa.me/+5492613897545"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="contact-animate whatsapp-btn flex items-center px-6 py-3 text-white rounded-xl text-2xl font-medium cursor-pointer z-10"
-    data-delay="200"
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-3 mb-6">
+        <span class="w-8 h-[1px] bg-emerald-500/30"></span>
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.4em] text-emerald-400/80"
+          >Canales de Comunicación</span
+        >
+      </div>
+      <h2
+        id="contact-heading"
+        class="text-6xl md:text-8xl font-headline text-emerald-50 leading-[0.9]"
+      >
+        Hablemos de tu <br />
+        <span class="italic text-emerald-300">Próximo Paso.</span>
+      </h2>
+    </div>
+    <div
+      class="relative w-full md:w-1/3 aspect-[4/3] organic-mask overflow-hidden bg-emerald-950/20 group border border-emerald-500/10 shadow-2xl"
+    >
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-emerald-500/5 to-emerald-900/10"
+      >
+        <span
+          class="material-symbols-outlined text-[8rem] text-emerald-400/5 group-hover:scale-110 transition-transform duration-1000"
+          data-icon="alternate_email">alternate_email</span
+        >
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent"
+      >
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <div
+    class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start animate-slide-up"
+    style="animation-delay: 0.2s;"
   >
-    <svg class="size-8 mr-2" fill="currentColor" viewBox="0 0 24 24">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
-      ></path>
-    </svg>
-    Chatear Ahora
-  </a>
-
-  <!-- Links de contacto -->
-  <div class="contact-animate flex gap-8 z-10" data-delay="400">
-    <!-- Mail -->
-    <a
-      href="mailto:maitenoviedo513@gmail.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Enviar un correo"
-      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
+    <!-- Contact Form Area (Bento Left) -->
+    <div
+      class="lg:col-span-7 bg-emerald-950/20 blob-card p-10 md:p-14 relative overflow-hidden group hover:border-emerald-500/20 transition-all border border-emerald-500/10 shadow-lg"
     >
-      <MailIcon
-        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
-      />
-    </a>
+      <div class="relative z-10">
+        <h3 class="font-headline text-3xl mb-10 text-emerald-50">
+          Consulta Directa
+        </h3>
+        <form
+          class="space-y-8"
+          action="mailto:maitenoviedo513@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-3">
+              <label
+                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+                >Tu Nombre</label
+              >
+              <input
+                class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
+                placeholder="Ej: Juan Pérez"
+                type="text"
+                name="name"
+                required
+              />
+            </div>
+            <div class="space-y-3">
+              <label
+                class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+                >Tu Correo</label
+              >
+              <input
+                class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all outline-none font-body"
+                placeholder="email@ejemplo.com"
+                type="email"
+                name="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="space-y-3">
+            <label
+              class="font-label text-[10px] uppercase tracking-[0.2em] text-emerald-400/50 ml-1"
+              >Tu Mensaje</label
+            >
+            <textarea
+              class="w-full bg-emerald-500/5 border border-emerald-500/10 rounded-2xl py-5 px-8 text-emerald-50 placeholder:text-emerald-300/20 focus:ring-1 focus:ring-emerald-500/40 transition-all resize-none outline-none font-body"
+              placeholder="Contame sobre tu proyecto o necesidad técnica..."
+              rows="5"
+              name="message"
+              required></textarea>
+          </div>
+          <button
+            class="blob-button group/btn relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-emerald-500/20 text-emerald-50 font-label text-xs font-bold uppercase tracking-[0.2em] transition-all hover:bg-emerald-500/40 active:scale-95 border border-emerald-500/20 shadow-organic cursor-pointer w-full md:w-auto"
+            type="submit"
+          >
+            <span>Enviar Mensaje</span>
+            <span
+              class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform"
+              data-icon="arrow_forward">arrow_forward</span
+            >
+          </button>
+        </form>
+      </div>
 
-    <!-- LinkedIn -->
-    <a
-      href="https://www.linkedin.com/in/maiten-oviedo"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Ir a LinkedIn"
-      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
-    >
-      <LinkedinIcon
-        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
-      />
-    </a>
+      <!-- Subtle organic background decoration -->
+      <div
+        class="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/5 blur-[80px] group-hover:bg-emerald-500/10 transition-all"
+      >
+      </div>
+    </div>
 
-    <!-- GitHub -->
-    <a
-      href="https://github.com/Maiten-Oviedo"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Ir a GitHub"
-      class="contact-link p-4 rounded-full bg-slate-800/60 backdrop-blur-sm hover:bg-primary/20 transition-all duration-300 group border border-slate-700/50"
-    >
-      <GitHubIcon
-        className="size-6 text-slate-300 group-hover:text-primary transition-colors"
-      />
-    </a>
+    <!-- Sidebar Info (Bento Right) -->
+    <div class="lg:col-span-5 space-y-10">
+      <!-- Direct Connection -->
+      <div
+        class="bg-emerald-950/20 blob-card p-10 border border-emerald-500/10 group hover:border-emerald-500/20 transition-all shadow-md"
+      >
+        <h3 class="font-headline text-2xl mb-4 text-emerald-50">
+          Contacto Directo
+        </h3>
+        <p class="text-emerald-100/50 text-base mb-8 leading-relaxed font-body">
+          Si preferís una respuesta inmediata para consultas técnicas urgentes,
+          podés escribirme directamente por WhatsApp.
+        </p>
+        <a
+          href="https://wa.me/+5492613897545"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-5 p-5 bg-emerald-500/5 rounded-2xl group/wa hover:bg-emerald-500/10 transition-all border border-emerald-500/10 hover:border-emerald-500/30"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-300 shadow-inner group-hover/wa:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-2xl" data-icon="forum"
+              >forum</span
+            >
+          </div>
+          <div class="flex-1">
+            <span
+              class="block font-label text-[9px] uppercase tracking-[0.2em] text-emerald-400 group-hover/wa:text-emerald-300 transition-colors"
+              >WhatsApp</span
+            >
+            <span class="block text-emerald-50 font-medium text-lg"
+              >+54 261 389 7545</span
+            >
+          </div>
+          <span
+            class="material-symbols-outlined text-emerald-500/30 group-hover/wa:text-emerald-400 group-hover/wa:translate-x-1 transition-all"
+            data-icon="chevron_right">chevron_right</span
+          >
+        </a>
+      </div>
+
+      <!-- Social Networks -->
+      <div class="bg-emerald-950/10 blob-card p-10 border border-emerald-500/5">
+        <span
+          class="font-label text-[10px] uppercase tracking-[0.4em] text-emerald-400/30 mb-10 block"
+          >Redes & Perfiles</span
+        >
+        <div class="grid grid-cols-2 gap-6">
+          {
+            [
+              {
+                name: "LinkedIn",
+                url: "https://www.linkedin.com/in/maiten-oviedo",
+                icon: "account_tree",
+              },
+              {
+                name: "GitHub",
+                url: "https://github.com/Maiten-Oviedo",
+                icon: "terminal",
+              },
+              {
+                name: "Email",
+                url: "mailto:maitenoviedo513@gmail.com",
+                icon: "mail",
+              },
+              {
+                name: "Instagram",
+                url: "https://www.instagram.com/maiten_oviedo",
+                icon: "camera_enhance",
+              },
+            ].map((soc) => (
+              <a
+                class="flex flex-col gap-4 p-6 rounded-2xl bg-emerald-950/20 hover:bg-emerald-500/10 transition-all group/soc border border-emerald-500/5 hover:border-emerald-500/20"
+                href={soc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-emerald-500/5 text-emerald-400 group-hover/soc:bg-emerald-500 group-hover/soc:text-background transition-all">
+                  <span
+                    class="material-symbols-outlined text-xl"
+                    data-icon={soc.icon}
+                  >
+                    {soc.icon}
+                  </span>
+                </div>
+                <span class="font-label text-[10px] uppercase tracking-widest text-emerald-100/60 group-hover/soc:text-emerald-50 transition-colors">
+                  {soc.name}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Intersection observer script for entrance animations -->
-  <script>
-    class ContactAnimator {
-      private observer: IntersectionObserver
-
-      constructor() {
-        this.observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const element = entry.target as HTMLElement
-                const delay = parseInt(element.dataset.delay || '0')
-
-                setTimeout(() => {
-                  element.classList.add('animate')
-                }, delay)
-
-                this.observer.unobserve(element)
-              }
-            })
-          },
-          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        )
-
-        this.init()
-      }
-
-      private init(): void {
-        const elements = document.querySelectorAll('.contact-animate')
-        elements.forEach(element => {
-          this.observer.observe(element)
-        })
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      new ContactAnimator()
-    })
-  </script>
 </section>

@@ -27,7 +27,7 @@ const canonical = new URL(
 
     <!-- SEO essentials -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0F172A" />
+    <meta name="theme-color" content="#101413" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Maitén Oviedo" />
 
@@ -68,28 +68,14 @@ const canonical = new URL(
       content="https://maitendev.vercel.app/favicon-96x96.png"
     />
 
-    <!-- Preload fonts -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      href="/assets/fonts/Sora-Regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
     />
-    <link
-      rel="preload"
-      href="/assets/fonts/Sora-SemiBold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/assets/fonts/Sora-ExtraBold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
     <script type="application/ld+json">
       {
@@ -139,7 +125,9 @@ const canonical = new URL(
     </script>
   </head>
 
-  <body class={Astro.props.class}>
+  <body
+    class={`bg-background text-on-surface selection:bg-primary/30 selection:text-primary-fixed overflow-x-hidden ${Astro.props.class || ''}`}
+  >
     <slot />
   </body>
 </html>

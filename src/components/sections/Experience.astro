@@ -1,36 +1,118 @@
 ---
-import { experiences } from '../../constants/experiencies'
-import ExperiencieCard from '../common/ExperiencieCard.astro'
----
+import { experiences } from "../../constants/experiencies";
 
-<section id="experiencia" class="p-4 pt-0 md:p-0 relative">
-  <div class="max-w-7xl mx-auto h-full">
-    <div class="px-8 2xl:max-w-7xl mx-auto py-6 relative">
-      <div class="space-y-2">
-        <div class="h-0.5 bg-slate-600 project-line opacity-0"></div>
-        <h2
-          id="projects-heading"
-          class="text-white text-end text-2xl md:text-4xl lg:text-5xl font-bold project-title opacity-0"
-        >
-          <span>Mi</span>
-          <span
-            class="bg-gradient-to-r from-transparent to-primary bg-clip-text text-transparent"
-          >
-            experiencia
-          </span>
-        </h2>
-      </div>
+const themeColors = [
+  {
+    dim: 'text-emerald-400',
+    text: 'text-emerald-300',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+    hoverText: 'hover:text-emerald-100',
+    shadow: 'shadow-organic',
+    icon: 'account_tree'
+  },
+  {
+    dim: 'text-emerald-500',
+    text: 'text-emerald-400',
+    bg: 'bg-emerald-950/40',
+    border: 'border-emerald-500/10',
+    hoverText: 'hover:text-emerald-200',
+    shadow: 'shadow-organic',
+    icon: 'terminal'
+  },
+  {
+    dim: 'text-emerald-300',
+    text: 'text-emerald-200',
+    bg: 'bg-emerald-500/5',
+    border: 'border-emerald-500/10',
+    hoverText: 'hover:text-emerald-50',
+    shadow: 'shadow-organic',
+    icon: 'layers'
+  }
+];
+---
+<section id="experiencia" class="pt-32 pb-20 px-6 container mx-auto relative w-full">
+  <!-- Header Section -->
+  <header class="mb-32 text-center relative z-10 animate-fade-in-up">
+    <div class="inline-flex items-center gap-3 mb-6">
+      <span class="w-8 h-[1px] bg-emerald-500/30"></span>
+      <span class="font-label text-[10px] uppercase tracking-[0.4em] text-emerald-400/80">Trayectoria Técnica</span>
+      <span class="w-8 h-[1px] bg-emerald-500/30"></span>
     </div>
-    <div class="py-8">
-      <ul
-        class="flex flex-col md:flex-row md:flex-wrap gap-6 w-full justify-center items-center md:px-4"
-      >
-        {
-          experiences.map((exp, index) => (
-            <ExperiencieCard exp={exp} index={index} />
-          ))
-        }
-      </ul>
-    </div>
+    <h2 class="text-5xl md:text-7xl font-headline mb-8 text-emerald-50 leading-[0.9]">
+      Experiencia <br /><span class="italic text-emerald-300">Profesional.</span>
+    </h2>
+    <p class="max-w-2xl mx-auto text-emerald-100/60 leading-relaxed font-body text-lg">
+      Desarrollo de soluciones escalables y mantenimiento de arquitecturas complejas, asegurando la integridad técnica en cada etapa del ciclo de vida del software.
+    </p>
+  </header>
+
+  <!-- Experience Timeline Section -->
+  <div class="relative min-h-[900px] mb-40">
+    <!-- Branch Line (Organic Style) -->
+    <div class="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500/40 via-emerald-500/10 to-transparent hidden md:block z-0 transform -translate-x-1/2 film-grain"></div>
+
+    {experiences.map((exp, index) => {
+      const isEven = index % 2 === 0;
+      const delay = (index + 1) * 0.1;
+      const theme = themeColors[index % themeColors.length];
+
+      return (
+        <div class={`relative flex flex-col md:flex-row items-center md:items-start justify-center md:justify-${isEven ? 'end' : 'start'} mb-32 group animate-slide-up`} style={`animation-delay: ${delay}s;`}>
+          
+          <!-- Content L/R -->
+          <div class={`md:w-1/2 md:pr-20 order-2 md:order-1 ${!isEven ? 'text-right mt-12 md:mt-0 group-hover:-translate-x-2 transition-transform duration-700' : 'hidden md:block md:invisible md:h-0'}`}>
+            {!isEven && (
+              <div class="space-y-4">
+                <div class={`font-label ${theme.dim} tracking-[0.2em] text-[10px] uppercase`}>{exp.period}</div>
+                <h3 class="text-3xl font-headline text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-tight">{exp.position}</h3>
+                <a href={exp.url} target="_blank" rel="noopener noreferrer" class="text-emerald-100/40 font-label text-xs uppercase tracking-widest border-b border-emerald-500/10 hover:text-emerald-50 hover:border-emerald-500/40 transition-all pb-1 inline-block">{exp.company}</a>
+                <p class="text-emerald-100/60 max-w-md ml-auto leading-relaxed font-body text-sm">
+                  {exp.description}
+                </p>
+                <div class="flex gap-3 flex-wrap justify-end pt-4">
+                  {exp.technologies.map(tech => (
+                    <span class="px-2 py-0.5 rounded-full border border-emerald-500/5 bg-emerald-950/20 text-[9px] font-label text-emerald-300/40 uppercase tracking-widest">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <!-- Node -->
+          <div class="z-20 order-1 md:order-2 shrink-0">
+            <div class={`w-16 h-16 organic-mask ${theme.bg} border border-emerald-500/20 flex items-center justify-center text-emerald-300 shadow-organic group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-background transition-all duration-700 film-grain cursor-pointer relative`}>
+              <div class="absolute inset-0 bg-emerald-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span class="material-symbols-outlined text-2xl relative z-10" style="font-variation-settings: 'FILL' 1;">{theme.icon}</span>
+            </div>
+          </div>
+
+          <!-- Content R/L -->
+          <div class={`md:w-1/2 md:pl-20 order-3 ${isEven ? 'text-left mt-12 md:mt-0 group-hover:translate-x-2 transition-transform duration-700' : 'hidden md:block md:invisible md:h-0'}`}>
+            {isEven && (
+              <div class="space-y-4">
+                <div class={`font-label ${theme.dim} tracking-[0.2em] text-[10px] uppercase`}>{exp.period}</div>
+                <h3 class="text-3xl font-headline text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-tight">{exp.position}</h3>
+                <a href={exp.url} target="_blank" rel="noopener noreferrer" class="text-emerald-100/40 font-label text-xs uppercase tracking-widest border-b border-emerald-500/10 hover:text-emerald-50 hover:border-emerald-500/40 transition-all pb-1 inline-block">{exp.company}</a>
+                <p class="text-emerald-100/60 max-w-md leading-relaxed font-body text-sm">
+                  {exp.description}
+                </p>
+                <div class="flex gap-3 flex-wrap justify-start pt-4">
+                  {exp.technologies.map(tech => (
+                    <span class="px-2 py-0.5 rounded-full border border-emerald-500/5 bg-emerald-950/20 text-[9px] font-label text-emerald-300/40 uppercase tracking-widest">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+        </div>
+      )
+    })}
   </div>
+
 </section>

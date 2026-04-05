@@ -1,9 +1,8 @@
 ---
-import Process from '@/components/sections/Process.astro'
-import About from '@/components/sections/About.astro'
 import Layout from '@/layouts/Layout.astro'
 import Header from '@/components/Header.astro'
 import Hero from '@/components/sections/Hero.astro'
+import Roots from '@/components/sections/Roots.astro'
 import Experience from '@/components/sections/Experience.astro'
 import Projects from '@/components/sections/Projects.astro'
 import Contact from '@/components/sections/Contact.astro'
@@ -14,30 +13,17 @@ import Footer from '@/components/Footer.astro'
   description="Soy Maitén Oviedo, Desarrollador Full Stack en Mendoza especializado en frontend y aplicaciones web modernas."
   title="Maitén Oviedo - Desarrollador Full Stack | Portfolio"
 >
-  <div
-    class="relative bg-center 2xl:bg-auto bg-repeat bg-cover"
-    style="background-image: url(./assets/images/background.webp)"
-  >
-    <div
-      class="absolute w-full h-full top-0 left-0 bg-gradient-to-b from-transparent via-transparent to-[#040914] mb-8"
-    >
+  <Header />
+  
+  <main class="relative min-h-screen pt-24 overflow-hidden bg-background">
+    <div class="relative z-10 w-full flex flex-col gap-20">
+      <Hero />
+      <Experience />
+      <Projects />
+      <Roots />
+      <Contact />
     </div>
-    <Header />
-    <Hero />
-  </div>
-  <div class="2xl:px-20">
-    <Experience />
-    <Projects />
-    <Process />
-    <About />
-  </div>
-  <div class="relative">
-    <Contact />
-    <Footer />
-    <img
-      class="absolute top-0 left-0 w-full h-full object-cover opacity-30"
-      src="/assets/images/bg-light-lines.png"
-      alt="Imagen de fondo decorativo de líneas claras"
-    />
-  </div>
+  </main>
+  
+  <Footer />
 </Layout>
