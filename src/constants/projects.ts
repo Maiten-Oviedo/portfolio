@@ -35,4 +35,13 @@ export const projects = [
     techs: ['Java', 'Spring Boot', 'Hibernate','JUnit5'],
     delay: 800,
   },
+  {
+    number: '05.',
+    title: 'Boaria Catálogo',
+    description:
+      'Catálogo online para comercios que usa Google Sheets como base de datos en tiempo real. El negocio actualiza su inventario desde una hoja de cálculo y los cambios se reflejan al instante en el sitio, sin tocar código.',
+    url: 'https://boaria-catalogo.vercel.app/',
+    techs: ['Astro', 'TypeScript', 'Tailwind CSS', 'Google Sheets API', 'Vercel'],
+    delay: 1000,
+  },
 ]
