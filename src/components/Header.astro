@@ -57,19 +57,25 @@
   const inner = document.querySelector('.logo-3d-inner') as HTMLElement;
 
   if (wrap && inner) {
+    // Cache rect to avoid forced reflow on every mousemove
+    let rect = wrap.getBoundingClientRect();
+
+    window.addEventListener('resize', () => {
+      rect = wrap.getBoundingClientRect();
+    }, { passive: true });
+
     wrap.addEventListener('mousemove', (e) => {
-      const rect = wrap.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      
+
       const rotateX = (y - centerY) / 15;
       const rotateY = (centerX - x) / 15;
-      
+
       inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
-    });
+    }, { passive: true });
 
     wrap.addEventListener('mouseleave', () => {
       inner.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
