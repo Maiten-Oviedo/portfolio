@@ -53,33 +53,36 @@
 </header>
 
 <script>
-  const wrap = document.querySelector('.logo-3d-wrap') as HTMLElement;
-  const inner = document.querySelector('.logo-3d-inner') as HTMLElement;
+  // Solo activar el efecto 3D en dispositivos con hover real (no touch/mobile)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const wrap = document.querySelector('.logo-3d-wrap') as HTMLElement;
+    const inner = document.querySelector('.logo-3d-inner') as HTMLElement;
 
-  if (wrap && inner) {
-    // Cache rect to avoid forced reflow on every mousemove
-    let rect = wrap.getBoundingClientRect();
+    if (wrap && inner) {
+      // Cache rect para evitar forced reflow en cada mousemove
+      let rect = wrap.getBoundingClientRect();
 
-    window.addEventListener('resize', () => {
-      rect = wrap.getBoundingClientRect();
-    }, { passive: true });
+      window.addEventListener('resize', () => {
+        rect = wrap.getBoundingClientRect();
+      }, { passive: true });
 
-    wrap.addEventListener('mousemove', (e) => {
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      wrap.addEventListener('mousemove', (e) => {
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-      const rotateX = (y - centerY) / 15;
-      const rotateY = (centerX - x) / 15;
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
 
-      inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
-    }, { passive: true });
+        inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+      }, { passive: true });
 
-    wrap.addEventListener('mouseleave', () => {
-      inner.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-    });
+      wrap.addEventListener('mouseleave', () => {
+        inner.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+      });
+    }
   }
 </script>
 
